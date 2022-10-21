@@ -60,14 +60,14 @@ SESSION_CONFIGS = [
         # #
         #
         #
-        dict(
-            name='pluralistic',
-            display_name='pluralistic',
-            num_demo_participants=6,
-            app_sequence=['pluralistic'],
-            PARTICIPANT_FIELDS = ['bads', 'goods']
-
-            ),
+        # dict(
+        #     name='pluralistic',
+        #     display_name='pluralistic',
+        #     num_demo_participants=6,
+        #     app_sequence=['pluralistic'],
+        #     PARTICIPANT_FIELDS = ['bads', 'goods']
+        #
+        #     ),
         # dict(
         #     name='simulation_energy',
         #     display_name='simulation_energy',
@@ -75,15 +75,15 @@ SESSION_CONFIGS = [
         #     app_sequence=['simulation_energy'],
         #
         # #     ),
-        # dict(
-        #     name='energy_boost',
-        #     display_name='energy_boost',
-        #     num_demo_participants=4,
-        #     treatment =1,
-        #     app_sequence=['simulation_energy', 'energy_boost', 'faillobret'],
-        #
-        #     ),
-        #
+        dict(
+            name='energy_boost',
+            display_name='energy_boost',
+            num_demo_participants=4,
+            treatment =1,
+            app_sequence=['simulation_energy', 'energy_boost', 'faillobret'],
+
+            ),
+
 
     #
     # dict(
