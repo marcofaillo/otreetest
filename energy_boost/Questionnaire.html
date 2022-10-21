@@ -1,0 +1,104 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <!-- Le tue scelte -->
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<div class="row">
+ 	<div class="col-sm-12">
+	    <div class="alert alert-primary" role="alert" style="text-align:center">
+	       <h3> QUESTIONARIO </h3>
+	     </div>
+	 </div>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+
+	 <div class="col-sm">
+		<p class="text-justify"> Ti chiediamo per cortesia di rispondere alle domande riportate di seguito.</p>
+		&nbsp
+		<p class="text-justify">{% formfield player.age  label="Quanti anni hai?" %} </p>
+		<p class="text-justify">{% formfield player.gender  label="Genere?" %} </p>
+		<p class="text-justify">{% formfield player.nat  label="Nazionalità?" %} </p>
+		<p class="text-justify">{% formfield player.major  label="A quale corso di laurea sei iscritto/a ?" %} </p>
+		<p class="text-justify">{% formfield player.vol label="Svolgi o hai svolto in passato attività di volontariato?" %} </p>
+
+		 &nbsp
+		<p class="text-justify"> <b> Quanto sei d'accordo con le seguenti affermazioni? Scegli una delle alternative per ogni domanda (da "Molto d'accordo" a "Molto in disaccordo") </b></p>
+		<p class="text-justify">{% formfield player.quest1  label="1. Sono disposto/a a rinunciare a qualcosa che ti è utile oggi per poterne beneficiare di più in futuro." %} </p>
+		<p class="text-justify">{% formfield player.quest2  label="2. Sono disposto/a a correre dei rischi" %} </p>
+		<p class="text-justify">{% formfield player.quest3  label="3. Sono disposto/a a donare alle cause senza aspettarti nulla in cambio" %} </p>
+		<p class="text-justify">{% formfield player.quest4  label="4. Quando qualcuno mi fa un favore, sono disposto a ricambiare,           " %} </p>
+		<p class="text-justify">{% formfield player.quest5  label="5. Presumo che le persone abbiano solo le migliori intenzioni" %} </p>
+		<p class="text-justify">{% formfield player.quest6  label="6. Mi considero una persona che si preoccupa molto delle questioni ambientali." %} </p>
+		<p class="text-justify">{% formfield player.quest7  label="7. Il rispetto dell'ambiente è una parte importante della mia identità" %} </p>
+		<p class="text-justify">{% formfield player.quest8  label="8. Spengo le luci quando non le uso" %} </p>
+		<p class="text-justify">{% formfield player.quest9  label="9. Compro elettrodomestici efficienti dal punto di vista energetico " %} </p>
+		<p class="text-justify">{% formfield player.quest10  label="10. Guido in modo economico (per esempio frenando o accelerando delicatamente)" %} </p>
+		<p class="text-justify">{% formfield player.quest11  label="11. Vado a piedi, in bicicletta o con i mezzi pubblici per tragitti brevi (cioè per tragitti inferiori a 3 km)" %} </p>
+		<p class="text-justify">{% formfield player.quest12  label="12. Condivido i viaggi in auto con altre persone" %} </p>
+    <p class="text-justify">{% formfield player.quest13  label="13.	Cerco di ridurre il numero di viaggi in aereo" %} </p>
+    <p class="text-justify">{% formfield player.quest14  label="14.	Molte persone tra i miei coetanei si impegnano in un comportamento rispettoso dell'ambiente" %} </p>
+    <p class="text-justify">{% formfield player.quest15  label="15.	Nel complesso, i miei gruppi sociali sono considerati bene dagli altri" %} </p>
+    <p class="text-justify">{% formfield player.quest16  label="16.	Nel complesso, l'appartenenza ai miei gruppi ha poco a che fare con il modo in cui mi sento con me stesso " %} </p>
+    <p class="text-justify">{% formfield player.quest17  label="17.	In generale, sono contento di essere membro dei gruppi sociali a cui appartengo" %} </p>
+    <p class="text-justify">{% formfield player.quest18  label="18.	In generale, l'appartenenza a gruppi sociali è una parte importante dell’immagine di me stesso" %} </p>
+    <p class="text-justify">{% formfield player.deb_1  label="19.	Immagina di dover descrivere a un'altra persona la situazione in cui ti sei trovato a scegliere nei 20 round dell'esperimento, come la descriveresti?" %} </p>
+    <p class="text-justify">{% formfield player.deb_2  label="20. Immagina di dover descrivere a un'altra persona i criteri e la logica (ad esempio ti sei focalizzato sul prezzo, il beneficio, ecc.) che hai utilizzato per compiere le tue scelte, come li descriveresti?" %} </p>
+    <p class="text-justify">{% formfield player.deb_3  label="21. Se potessi rifare l'esperimento, cambieresti qualcosa della tua strategia? E se sì, cosa?" %} </p>
+
+
+
+
+	&nbsp
+		<p class="text-justify"> Abbiamo quasi finito, ti chiediamo ora dedicare pochi minuti a un'attività con la quale potrai guadagnare fino a circa 2€ </p>
+
+
+
+
+		<!--		BOTTONE PROSEGUI	2	-->
+		 <div class="row">
+		    <div class="col-sm-12 text-center">
+		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+			</div>
+
+		 </div>
+
+
+
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+		{% endblock %}
+
+
+
+
+		{% block scripts %}
+			<script>
+				$(document).ready(function(){
+				});
+
+				$("#btn_submit").click(function(){
+					$("#form").submit()
+			  	});
+
+		</script>
+
+
+
+
+				{% endblock %}

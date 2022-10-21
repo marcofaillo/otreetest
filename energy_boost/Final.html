@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> FINE DELL'ESPERIMENTO</h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">  L'esperimento è terminato. È  stato selezionato il round {{selected_round}}</p>
+      <p class="text-justify">   Il tuo pagamento nel periodo selezionato è di {{finalpay|to2}} UMS, corrispondenti a €{{finalpay_euro|to2}}, a cui si aggiungerà la quota di partecipazione di {{showup}} euro. Ti chiediamo ora di completare un breve questionario. <p>
+
+    </div>
+  </div>
+</div>
+<div class="col-sm-12 text-center">
+            {% next_button %}
+  </div>
+
+</div>
+</div>
+
+
+{% endblock %}

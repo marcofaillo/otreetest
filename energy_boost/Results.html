@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> RISULTATI</h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">  Hai scelto {% if choice == 1 %} l'opzione A {% elif choice == 2 %} l'opzione B  {% elif choice == 3 %} l'opzione C   {% elif choice == 4 %} l'opzione D {% endif %}</p>
+      <table class="table table-bordered">
+       <thead>
+        <tr>
+          <th colspan="2"><h5 class="text-center">  Opzioni scelte dai membri del gruppo </h5> </th>
+          <tbody>
+            <tr >
+              <td scope="col" >Opzione A</th>
+              <td scope="col">{{f_20}}</th>
+            </tr>
+            <tr >
+              <td scope="col"> Opzione B</td>
+              <td scope="col"> {{f_40}}</td>
+            </tr>
+            <tr >
+              <td scope="col"> Opzione C </td>
+              <td scope="col"> {{f_80}}</td>
+            </tr>
+            <tr >
+              <td scope="col"> Opzione D </td>
+              <td scope="col"> {{f_60}}</td>
+            </tr>
+          </tbody>
+
+          </table>
+      <p class="text-justify">  Hai pagato un prezzo di {{price}} UMS.
+      <p class="text-justify">  Hai ottenuto un beneficio di {{benefit}} UMS.
+      <p class="text-justify">  Hai generato un costo per il gruppo pari a {{cost}} UMS.
+      <p class="text-justify">  La somma dei costi generati per il gruppo è stato di  {{total_externality|to2}} UMS. </p>
+      <p class="text-justify">  Ogni membro del gruppo ha  subito una riduzione del pagamento pari a un quarto di questa somma:   {{per_capita_externality|to2}} UMS </p>
+
+      <p class="text-justify">  <b> Il tuo pagamento per questo round è di {{payoff|to2}} UMS. </b></p>
+      <p class="text-justify">  Il pagamento medio degli altri tre membri del tuo gruppo è {{av_payoff|to2}} UMS. </p>
+
+    </div>
+  </div>
+</div>
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+	</div>
+
+ </div>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

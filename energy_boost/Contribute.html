@@ -1,0 +1,103 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  ROUND N. {{round}}. </h4>
+        <h4>  {% if rich == 1 %} APPARTIENI ALLA CATEGORIA UNO, LA TUA DOTAZIONE È  DI 100 UMS {% elif poor_rich == 1 and round <= round_poor %} IN QUESTO ROUND LA TUA DOTAZIONE È  DI 50 UMS {% elif poor_rich == 1 and round > round_poor %} LA TUA DOTAZIONE È  DI 100 UMS{% else %} LA TUA DOTAZIONE È  DI 50 UMS  {% endif %}</h4>
+        <h4>  FAI LA TUA SCELTA</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">   <div class="alert alert-info " role="alert">  {% formfields %}     <button type="button" id = "btn_submit" class="btn btn-outline-secondary btn-lg"> PROCEDI </button>
+</div> </p>
+      <p lass="text-justify"> Sotto sono riportate la tabella con le opzioni e la formula per il calcolo del tuo pagamento.
+  <p> &nbsp </p>
+      <table class="table table-bordered">
+       <thead>
+          <th> <h5 class="text-center">  Opzione </h5> </th>
+          <th> <h5 class="text-center">  Prezzo </h5> </th>
+          <th> <h5 class="text-center">  Beneficio </h5> </th>
+          <th> <h5 class="text-center">  Costo per il gruppo </h5> </th>
+          <tbody>
+            <tr >
+              <td scope="col" class="text-center">A</th>
+              <td scope="col" class="text-center"> 20 UMS</th>
+              <td scope="col" class="text-center"> 30 UMS</th>
+              <td scope="col" class="text-center"> 20 UMS</th>
+            </tr>
+            <tr >
+              <td scope="col" class="text-center">B</th>
+              <td scope="col" class="text-center"> 40 UMS</th>
+              <td scope="col" class="text-center"> 60 UMS</th>
+              <td scope="col" class="text-center"> 40 UMS</th>
+            </tr>
+            <tr >
+              <td scope="col" class="text-center" >C</th>
+              <td scope="col" class="text-center"> 80 UMS</th>
+              <td scope="col" class="text-center"> 120 UMS</th>
+              <td scope="col" class="text-center"> 80 UMS</th>
+            </tr>
+
+            <tr >
+              <td scope="col" class="text-center">D</th>
+              <td scope="col" class="text-center"> 90 UMS</th>
+              <td scope="col" class="text-center"> 120 UMS</th>
+              <td scope="col" class="text-center"> 60 UMS</th>
+            </tr>
+          </tbody>
+
+          </table>
+<p> &nbsp </p>
+<p> Tuo pagamento nel round </p>
+
+          <img src="{{ static 'energy_boost/eq_1.jpg' }}" class="rounded mx-auto d-block" />
+<p> &nbsp </p>
+    </div>
+  </div>
+</div>
+<p> &nbsp </p>
+<p> &nbsp </p>
+
+    <iframe
+  src="{{ static 'energy_boost/Istruzioni_s.pdf' }}#toolbar=0"
+  width="500"
+  height="375"
+>
+</iframe>
+
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
