@@ -75,6 +75,7 @@ SESSION_CONFIGS = [
             app_sequence=['simulation_energy'],
 
             ),
+            
         dict(
             name='energy_boost',
             display_name='energy_boost',
