@@ -74,7 +74,7 @@ SESSION_CONFIGS = [
             num_demo_participants=1,
             app_sequence=['simulation_energy'],
 
-        #     ),
+            ),
         dict(
             name='energy_boost',
             display_name='energy_boost',
