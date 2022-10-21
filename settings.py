@@ -68,13 +68,13 @@ SESSION_CONFIGS = [
         #     PARTICIPANT_FIELDS = ['bads', 'goods']
         #
         #     ),
-        # dict(
-        #     name='simulation_energy',
-        #     display_name='simulation_energy',
-        #     num_demo_participants=1,
-        #     app_sequence=['simulation_energy'],
-        #
-        # #     ),
+        dict(
+            name='simulation_energy',
+            display_name='simulation_energy',
+            num_demo_participants=1,
+            app_sequence=['simulation_energy'],
+
+        #     ),
         dict(
             name='energy_boost',
             display_name='energy_boost',
@@ -120,13 +120,13 @@ SESSION_CONFIGS = [
     #         app_sequence=['lottery_10'],
     #     ),
 
-    # dict(
-    #         name='faillobret',
-    #         display_name='faillobret',
-    #         num_demo_participants=1,
-    #         app_sequence=['faillobret'],
-    #     ),
-    #
+    dict(
+            name='faillobret',
+            display_name='faillobret',
+            num_demo_participants=1,
+            app_sequence=['faillobret'],
+        ),
+
     # dict(
     #     name='zero_rating_3_tarifs',
     #     display_name='zero_rating_3_tarifs',
