@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 text-center">
+      <font size="4">
+      <p >   Hai raccolto  {{ boxes_collected }} scatole. </p>
+      <p >   {% if bomb == 1 %} Hai trovato la bomba. </p>
+      <p >   {% elif bomb == 0 %} Non hai trovato la bomba.   {% endif %}</p>
+      <p >   Il tuo pagamento per questa attività è di  {{ round_result }} UMS. pari a {{euro|to2}} euro </p>
+    </div>
+</div>
+
+ &nbsp
+<div class="row">
+   <div class="col-sm-12 text-center">
+      <button type="button" id = "button_prosegui" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+  <script>
+
+    jQuery(document).ready(function ($) {
+
+      $( "#button_prosegui" ).click(function() {
+  			$("form").submit();
+  		});
+
+    });
+
+
+
+  </script>
+
+
+
+{% endblock %}

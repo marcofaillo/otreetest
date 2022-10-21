@@ -1,0 +1,229 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+
+      <p class="text-justify">Stai per prendere parte ad un esperimento economico a scopi scientifici. Leggi attentamente le istruzioni di seguito.</p>
+      <p class="text-justify">Guadagnerai infatti un compenso che dipenderà dalle tue decisioni e da alcune estrazioni casuali.</p>
+      <p class="text-justify">Riceverai il tuo compenso alla fine dell’esperimento. Durante l’esperimento i tuoi guadagni saranno calcolati in UMS (unità monetarie sperimentali). </p>
+      <p class="text-justify">Alla fine dell’esperimento, il totale degli UMS che hai guadagnato verrà convertito in euro al seguente tasso: </p>
+      <p class="text-justify">1 UMS = 0,10 euro </p>
+      <p class="text-justify">Guadagnerai in ogni caso €3 per aver partecipato all’esperimento.</p>
+      <p class="text-justify">Durante l’esperimento è assolutamente vietato comunicare con gli altri partecipanti. Nel caso in cui violassi questa regola dovrai abbandonare l’esperimento e non riceverai alcun compenso.</p>
+      <p class="text-justify">Se dovessi avere qualsiasi dubbio non esitare ad alzare la mano: il personale dello staff sarà a tua completa disposizione. </p>
+
+      <p class="text-justify">Durante l’esperimento verrà garantito l’anonimato. La tua identità non verrà mai rivelata agli altri partecipanti. </p>
+      <p class="text-justify">L’esperimento prevede 20 round. </p>
+      <p class="text-justify"> All'inizio di ogni round riceverai una dotazione in UMS.</p>
+      <p class="text-justify"> All'inizio dell'esperimento verrai assegnato in modo casuale ad una categoria, che determinerà la tua dotazione in ogni round, e che sarà la stessa per tutta la durata dell'esperimento.  </p>
+      <p class="text-justify">Le categorie possibili sono le seguenti</p>
+      <p> &nbsp </p>
+      <table class="table table-bordered">
+       <thead>
+        <tr>
+          <th colspan="2"><h5 class="text-center">  Categorie di gruppi </h5> </th>
+        </tr>
+          <th> <h5 class="text-center">  Categoria </h5> </th>
+          <th> <h5 class="text-center">  Dotazione </h5> </th>
+
+          <tbody>
+            <tr >
+              <td scope="col" >UNO</th>
+              <td scope="col"> 100 UMS</th>
+            </tr>
+            <tr >
+              <td scope="col"> DUE</td>
+              <td scope="col"> 50 UMS</td>
+            </tr>
+            <tr >
+              <td scope="col"> TRE</td>
+              <td scope="col"> 50 UMS nei primi 10 round e 100 UMS nei successivi 10 round </td>
+            </tr>
+
+          </tbody>
+
+          </table>
+
+      <p> &nbsp </p>
+      <p class="text-justify">Come vedi, per le categorie UNO e DUE la dotazione è sempre la stessa per tutti i round. Per la categoria TRE la dotazione passa da 50 UMS a 100 UMS dopo il round numero 10.  </p>
+      <p class="text-justify">Nel corso dell'esperimento scoprirai a quale categoria appartieni. In particolare, all'inizio dell'esperimento scoprirai se appartieni alla categoria UNO. Se non appartieni a questa categoria, alla fine del round 10 scoprirai se appartieni alla categoria DUE o TRE </p>
+
+      <p class="text-justify">In ogni round, verrai assegnato in modo casuale ad un gruppo composto da <b> quattro partecipanti </b> (cioè oltre a te ci sono 3 partecipanti), appartenenti alla tua stessa categoria.   </p>
+
+      <p class="text-justify">Ad ogni nuovo round la composizione del tuo gruppo cambierà, quindi tu interagirai con persone diverse in ogni round, ma queste persone apparterranno comunque alla tua stessa categoria.   </p>
+
+      <p class="text-justify">Ad esempio, se verrai assegnato alla categoria UNO, tutti i partecipanti con cui interagirai saranno della categoria UNO, mentre se verrai assegnato alla categoria DUE, tutti i partecipanti con cui interagirai saranno della categoria DUE.  </p>
+      <p> &nbsp </p>
+      <p class="text-justify"><b> TASK </b>  </p>
+      <p class="text-justify">In ogni round dovrai scegliere una delle opzioni disponibili per te. Le opzioni disponibili sono: <b>l'opzione A </b>,<b> l'opzione B</b>, <b>l'opzione C </b>e <b>l'opzione D.</b></p>
+      <p class="text-justify"> Ogni opzione ha un prezzo, produce un beneficio per te e genera un costo per l'intero gruppo, te compreso.   </p>
+      <p class="text-justify"> Il costo totale per il gruppo sarà uguale alla somma dei costi generati dai singoli membri e verrà redistribuito equamente tra i tutti i componenti del gruppo.   </p>
+      <p class="text-justify"> Il tuo pagamento nel singolo round sarà uguale a:</p>
+      <p> &nbsp </p>
+      <img src="{{ static 'simulation_energy/eq_1.jpg' }}" class="rounded mx-auto d-block" />
+      <p> &nbsp </p>
+      <p class="text-justify">I prezzi, i benefici  e i costi per i gruppi associati a ciscuna opzione sono riportati nella tabella qui sotto</p>
+      <p> &nbsp </p>
+
+      <table class="table table-bordered">
+       <thead>
+          <th> <h5 class="text-center">  Opzione </h5> </th>
+          <th> <h5 class="text-center">  Prezzo </h5> </th>
+          <th> <h5 class="text-center">  Beneficio </h5> </th>
+          <th> <h5 class="text-center">  Costo per il gruppo </h5> </th>
+          <tbody>
+            <tr >
+              <td scope="col" class="text-center">A</th>
+              <td scope="col" class="text-center"> 20 UMS</th>
+              <td scope="col" class="text-center"> 30 UMS</th>
+              <td scope="col" class="text-center"> 20 UMS</th>
+            </tr>
+            <tr >
+              <td scope="col" class="text-center">B</th>
+              <td scope="col" class="text-center"> 40 UMS</th>
+              <td scope="col" class="text-center"> 60 UMS</th>
+              <td scope="col" class="text-center"> 40 UMS</th>
+            </tr>
+            <tr >
+              <td scope="col" class="text-center" >C</th>
+              <td scope="col" class="text-center"> 80 UMS</th>
+              <td scope="col" class="text-center"> 120 UMS</th>
+              <td scope="col" class="text-center"> 80 UMS</th>
+            </tr>
+
+            <tr >
+              <td scope="col" class="text-center">D</th>
+              <td scope="col" class="text-center"> 90 UMS</th>
+              <td scope="col" class="text-center"> 120 UMS</th>
+              <td scope="col" class="text-center"> 60 UMS</th>
+            </tr>
+          </tbody>
+
+          </table>
+    <p> &nbsp </p>
+      <p class="text-justify">Come potrai notare, i partecipanti con una dotazione di 100 UMS hanno la possibilità di scegliere una qualunque delle quattro opzioni, infatti il prezzo di tutte le opzioni è minore di 100.
+         I partecipanti con una dotazione di 50 UMS hanno invece la possibilità di scegliere solo una delle prime due opzioni (A o B).</p>
+      <p class="text-justify">Alla fine di ogni round ti verrà comunicato il pagamento che avrai ottenuto, che dipenderà, quindi, dalla tua scelta e da quelle degli altri componenti del gruppo. </p>
+      <p class="text-justify">Al termine dell’esperimento, <b> un solo round verrà casualmente selezionato per il pagamento finale.</b> </p>
+      <p class="text-justify">Alla fine dell'esperimento ti verrà chiesto di rispondere a un breve questionario e di partecipare a una breve attività che ti  permetterà di ottenere fino a circa due euro di compenso aggiuntivo. </p>
+      <p> &nbsp </p>
+      <p class="text-justify">Consideriamo un paio di esempi:</p>
+
+      <p class="text-justify"><b> Esempio 1 </b> </p>
+      <p class="text-justify"> Considera un gruppo di partecipanti appartenenti alla categoria UNO. In un round, i partecipanti fanno le seguenti scelte: </p>
+      <p class="text-justify">Partecipante 1: opzione B  (costo generato per il gruppo = 40 UMS)</p>
+      <p class="text-justify">Partecipante 2: opzione D  (costo generato per il gruppo = 60 UMS)</p>
+      <p class="text-justify">Partecipante 3: opzione A  (costo generato per il gruppo = 20 UMS)</p>
+      <p class="text-justify">Partecipante 4: opzione C  (costo generato per il gruppo = 80 UMS)</p>
+      <p class="text-justify">In questo caso quindi, il costo totale generato dal gruppo è di 40+60+20+80=200. Quindi ogni partecipante subirà un costo pari a 200/4=50, indipendentemente dall'opzione scelta. </p>
+      <p class="text-justify">Ad esempio, il partecipante 2 ha scelto l'opzione D, pagando un prezzo di 90 e ottenendo un beneficio di 120. Togliendo il costo generato dall'intero gruppo, il suo pagamento in questo round sarà di: 100-90+120-50=80</p>
+
+      <p> &nbsp </p>
+
+      <p class="text-justify"><b> Esempio 2 </b> </p>
+      <p class="text-justify">  Considera un gruppo di partecipanti appartenenti alla categoria DUE. In un round, i partecipanti fanno le seguenti scelte: </p>
+      <p class="text-justify">Partecipante 1: opzione B  (costo generato per il gruppo = 40 UMS)</p>
+      <p class="text-justify">Partecipante 2: opzione A  (costo generato per il gruppo = 20 UMS)</p>
+      <p class="text-justify">Partecipante 3: opzione A  (costo generato per il gruppo = 20 UMS)</p>
+      <p class="text-justify">Partecipante 4: opzione B  (costo generato per il gruppo = 40 UMS)</p>
+      <p class="text-justify">In questo caso quindi, il costo totale generato dal gruppo è di 40+20+20+40=120. Quindi ogni partecipante subirà un costo pari a 120/4=30, indipendentemente dall'opzione scelta. </p>
+      <p class="text-justify">Ad esempio, il partecipante 1 ha scelto l'opzione B, pagando un prezzo di 40 e ottenendo un beneficio di 60. Togliendo il costo generato dall'intero gruppo, il suo pagamento in questo round sarà di: 50-40+60-30=40.</p>
+
+      <p> &nbsp </p>
+
+      <p class="text-justify"> Ti chiediamo ora di rispondere ad alcune domande di controllo.</p>
+      <p class="text-justify"> Dopo aver risposto correttamente a tutte le domande di controllo, e prima  di iniziare l'esperimento vero e proprio, potrai familiarizzare con il task durante una fase di pratica.</p>
+      <p class="text-justify"> Nella fase di pratica non interagirai con altri partecipanti, ma sarai tu a prendere le decisioni per tutti i membri di un gruppo ipotetico. Potrai così simulare diversi scenari, per meglio capire come i pagamenti che otterrai durante l’esperimento vero e proprio dipendono dalle tue scelte, e da quelle degli altri membri del gruppo.</p>
+      <p class="text-justify"> Avrai a disposizione 10 minuti per completare la fase di pratica. <b> Alla fase di pratica non è associato alcun compenso monetario </b>. Al termine di questa fase, comincerà l’esperimento vero e proprio</p>
+
+      <p class="text-justify"> Le istruzioni saranno accessibili anche successivamente, in fondo alla pagina,  nel formato che puoi vedere qui sotto</p>
+      <p> &nbsp </p>
+
+
+      <!--		BOTTONE PROSEGUI	2	-->
+       <div class="row">
+          <div class="col-sm-12 text-center">
+          <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+      	</div>
+
+       </div>
+&nbsp
+  <div class="row">
+          <iframe
+        src="{{ static 'simulation_energy/Istruzioni_s.pdf' }}#toolbar=0"
+
+        width="500"
+        height="375"
+        controls controlsList="nodownload">
+      >
+      </iframe>
+  </div>
+
+
+
+ </font>
+
+ <p> &nbsp </p>
+
+
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

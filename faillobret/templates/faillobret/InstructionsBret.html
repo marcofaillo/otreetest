@@ -1,0 +1,65 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="container bordi">
+<div class="row">
+    <div class="col-sm-1">&nbsp;</div>
+
+    <div class="col-sm-10">
+        <p>
+          <b><font size=6> Istruzioni </font></b><br>
+      Di seguito vedrai sullo schermo una matrice contenente 100 scatole. Di queste 100 scatole, 99 contengono 1 UMS ciascuna e 1 scatola contiene una bomba.
+      Non sai dove è posizionata la bomba. Sai che la bomba può essere posizionata con la stessa probabilità in ogni scatola.</p>
+
+      <p>Il tuo compito è di indicare il numero delle scatole che vuoi raccogliere. Per ogni scatola raccolta guadagni 1 UMS. Se non raccogli la bomba, il tuo guadagno sarà pari
+      alle scatole raccolte. Se raccogli la scatola dove è posizionata la bomba, questa esploderà e il tuo guadagno sarà nullo.</p>
+
+      <p>Una volta selezionato il numero di scatole che vuoi raccogliere premi il bottone 'Stop' e poi il bottone 'Prosegui'. Scoprirai se hai raccolto la bomba solo  solo alla fine dell’esperimento
+        dopo avere selezionato il numero di scatole che vuoi raccogliere.</p>
+
+      <p>Alla fine dell’esperimento l’ammontare totale di UMS che hai guadagnato in questa parte sarà convertito in Euro al seguente tasso di cambio:</p>
+
+      <p>1 UMS = 0.02 Euro</p>
+
+
+      </div>
+
+    </div>
+
+    <div class="row">
+    <div class="col-sm-2">&nbsp;</div>
+    </div>
+
+    <div class="row"> <br>
+    <div class="col-sm-5">&nbsp;</div>
+    <div class="col-sm-4">
+      <button type="button" id = "button_prosegui" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+  <script>
+
+    jQuery(document).ready(function ($) {
+
+      $( "#button_prosegui" ).click(function() {
+  			$("form").submit();
+  		});
+
+    });
+
+
+
+  </script>
+
+
+
+{% endblock %}

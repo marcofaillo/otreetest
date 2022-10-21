@@ -1,0 +1,145 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+
+  <div class="row">
+
+    <div class="col-sm">
+
+     <font size="4">
+
+      <div class="col-sm-12">
+        <table class="table table-bordered">
+         <thead>
+            <th> <h5 class="text-center">  Opzione </h5> </th>
+            <th> <h5 class="text-center">  Prezzo </h5> </th>
+            <th> <h5 class="text-center">  Beneficio </h5> </th>
+            <th> <h5 class="text-center">  Costo per il gruppo </h5> </th>
+            <tbody>
+              <tr >
+                <td scope="col" class="text-center">A</th>
+                <td scope="col" class="text-center"> 20 UMS</th>
+                <td scope="col" class="text-center"> 30 UMS</th>
+                <td scope="col" class="text-center"> 20 UMS</th>
+              </tr>
+              <tr >
+                <td scope="col" class="text-center">B</th>
+                <td scope="col" class="text-center"> 40 UMS</th>
+                <td scope="col" class="text-center"> 60 UMS</th>
+                <td scope="col" class="text-center"> 40 UMS</th>
+              </tr>
+              <tr >
+                <td scope="col" class="text-center" >C</th>
+                <td scope="col" class="text-center"> 80 UMS</th>
+                <td scope="col" class="text-center"> 120 UMS</th>
+                <td scope="col" class="text-center"> 80 UMS</th>
+              </tr>
+
+              <tr >
+                <td scope="col" class="text-center">D</th>
+                <td scope="col" class="text-center"> 90 UMS</th>
+                <td scope="col" class="text-center"> 120 UMS</th>
+                <td scope="col" class="text-center"> 60 UMS</th>
+              </tr>
+            </tbody>
+
+            </table>
+<p> &nbsp </p>
+<p> Tuo pagamento nel round </p>
+
+            <img src="{{ static 'simulation_energy/eq_1.jpg' }}" class="rounded mx-auto d-block" />
+<p> &nbsp </p>
+            <div class="row">
+               <div class="col-sm-12">
+                 <div class="alert alert-primary" role="alert" style="text-align:center">
+                   <h3> DOMANDE DI CONTROLLO </h3>
+                 </div>
+               </div>
+             </div>
+
+
+
+      <div class="row">
+             {% formfield player.q1 label="1. Se appartieni alla categoria UNO, la tua dotazione sarà pari a 50 UMS nei i primi 10 round e  100 UMS nei round successivi " %}
+      </div>
+
+      <div class="row">
+             {% formfield player.q2 label="2. Se appartieni alla categoria DUE e scegli l'opzione B, mentre le scelte degli altri membri del tuo gruppo sono: A,A,B. Il tuo pagamento alla fine del round sarà:" %}
+      </div>
+
+
+        <div class="row">
+            {% formfield player.q3 label="3. Se appartieni alla categoria UNO e scegli l'opzione C, mentre le scelte degli altri membri del tuo gruppo sono: B,C,D. Il tuo pagamento alla fine del round sarà:" %}
+      </div>
+
+      <div class="row">
+          {% formfield player.q4 label="4. Alla fine dell'esperimento solo uno dei 20 round verrà estratto e il tuo pagamento effettivo sarà quello che hai ottenuto in quel round." %}
+    </div>
+
+
+      </div>
+      </div>
+
+
+
+<font size="4">
+
+ </font>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

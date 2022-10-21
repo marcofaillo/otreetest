@@ -1,0 +1,452 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions" style = "lenght: 64rem;">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  INSERISCI LE SCELTE E OSSERVA I RISULTATI</h4>
+        <p class="text-center"><img src="{% static "simulation_energy/table.jpg" %}" class="rounded mx-auto d-block" /> <p>
+
+      </div>
+    </div>
+  </div>
+<!-- left column  choices-->
+  <div class="row">
+   <div class="column">
+      <div class="card bg-warning instructions">
+        <div class="card-body">
+            <p class="text-center"> DOTAZIONE 50 UMS </p>
+<!-- Participants 1 and 2 -->
+            <div class="row">
+              <div class="col-sm">
+                <p> Partecipante 1
+                  <select id="choice_1_pr">
+                     <option value=0>---------</option>
+                     <option value=1>Opzione A </option>
+                     <option value=2>Opzione B </option>
+                     </select></p>
+              </div>
+              <div class="col-sm">
+                <p> Partecipante 2
+                  <select id="choice_2_pr">
+                     <option value=0>---------</option>
+                     <option value=1>Opzione A </option>
+                     <option value=2>Opzione B </option>
+                     </select></p>
+              </div>
+<!-- Participants 3 and you -->
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <p> Partecipante 3
+                  <select id="choice_3_pr">
+                     <option value=0>---------</option>
+                     <option value=1>Opzione A </option>
+                     <option value=2>Opzione B </option>
+                     </select></p>
+              </div>
+              <div class="col-sm">
+                <p> Tua scelta
+                  <select id="your_choice_pr">
+                     <option value=0>---------</option>
+                     <option value=1>Opzione A </option>
+                     <option value=2>Opzione B </option>
+                     </select></p>
+              </div>
+              &nbsp
+              <hr>
+              <!--		Button compute	-->
+               <div class="row">
+                  <div class="col-sm-12 text-center">
+                  <button type="button" id = "btn_submit_1" class="btn btn btn-dark btn-lg"> CALCOLA </button>
+                  <p> <h3> <span id="Warning_l" > </h3> </p>
+                </div>
+               </div>
+
+            </div>
+
+              </div>
+              <!-- left column  results-->
+              <hr>
+                <div class="row">
+                 <div class="column">
+                    <font size="3">
+                        <p class="text-justify"> <b> PAGAMENTI</b> </p>
+                        <p class="text-justify"> Partecipante 1: <span id="payoff_1" > </p>
+                        <p class="text-justify"> Partecipante 2: <span id="payoff_2" > </p>
+                        <p class="text-justify"> Partecipante 3: <span id="payoff_3" > </p>
+                        <p class="text-justify"> Tu: <span id="payoff_4" >  </p>
+                        <hr>
+                        <p class="text-justify" >COSTO TOTALE PER IL GRUPPO:  <span id="TC_1" >. </span></p>
+
+                      </font>
+               </div>
+             </div>
+
+      </div>
+    </div>
+
+
+
+
+
+<!-- right column choices -->
+   <div class="column">
+      <div class="card bg-info instructions">
+
+        <div class="card-body">
+          <p class="text-center"> DOTAZIONE 100 UMS </p>
+          <!-- Participants 1 and 2 -->
+                      <div class="row">
+                        <div class="col-sm">
+                             <p> Partecipante 1<select id="choice_1_r">
+                                  <option value=0>---------</option>
+                                  <option value=1>Opzione A</option>
+                                  <option value=2>Opzione B</option>
+                                  <option value=3>Opzione C </option>
+                                  <option value=4>Opzione D</option>
+                                </select></p>
+                        </div>
+                        <div class="col-sm">
+                          <p> Partecipante 2<select id="choice_2_r">
+                               <option value=0>---------</option>
+                               <option value=1>Opzione A</option>
+                               <option value=2>Opzione B</option>
+                               <option value=3>Opzione C </option>
+                               <option value=4>Opzione D</option>
+                             </select></p>
+                        </div>
+          <!-- Participants 3 and you -->
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <p> Partecipante 3<select id="choice_3_r">
+                               <option value=0>---------</option>
+                               <option value=1>Opzione A</option>
+                               <option value=2>Opzione B</option>
+                               <option value=3>Opzione C </option>
+                               <option value=4>Opzione D</option>
+                             </select></p>
+                        </div>
+                        <div class="col-sm">
+                          <p> Tua scelta <select id="your_choice_r">
+                               <option value=0>---------</option>
+                               <option value=1>Opzione A</option>
+                               <option value=2>Opzione B</option>
+                               <option value=3>Opzione C </option>
+                               <option value=4>Opzione D</option>
+                             </select></p>
+                        </div>
+                        &nbsp
+                        <!--		Button compute	-->
+                        <hr>
+                         <div class="row">
+                            <div class="col-sm-12 text-center">
+                            <button type="button" id = "btn_submit_2" class="btn btn-dark btn-lg"> CALCOLA </button>
+                            <p> <h3> <span id="Warning_r" > </h3> </p>
+                          </div>
+                         </div>
+
+                      </div>
+                      </div>
+
+                      <!-- right column  results-->
+                      <hr>
+                        <div class="row">
+                         <div class="column">
+                            <font size="3">
+                                <p class="text-justify"> <b> PAGAMENTI</b> </p>
+                                <p class="text-justify"> Partecipante 1: <span id="payoff_1_r" > </p>
+                                <p class="text-justify"> Partecipante 2: <span id="payoff_2_r" ></p>
+                                <p class="text-justify"> Partecipante 3: <span id="payoff_3_r" ></p>
+                                <p class="text-justify"> Tu: <span id="payoff_4_r"> </p>
+                                  <hr>
+                                <p class="text-justify">COSTO TOTALE PER IL GRUPPO: <span id="TC_2" > </p>
+                              </font>
+                       </div>
+                     </div>
+
+
+       </div>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}
+
+{% block styles %}
+<link href="{% static "simulation_energy/mystyle.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+
+// left compute button
+$("#TC_1").hide()
+$("#Warning_l").hide()
+$("#payoff_1").hide()
+$("#payoff_2").hide()
+$("#payoff_3").hide()
+$("#payoff_4").hide()
+$("#TC_2").hide()
+$("#Warning_r").hide()
+$("#payoff_1_r").hide()
+$("#payoff_2_r").hide()
+$("#payoff_3_r").hide()
+$("#payoff_4_r").hide()
+const choice_r_array=[]; // vettore per salvare scelte r
+const choice_pr_array=[]; // vettore per salvare scelte r
+
+// button left
+$("#btn_submit_1").click(function(){
+  $("#Warning_l").hide()
+  var choice_1_pr=$("#choice_1_pr").val();
+  choice_pr_array.push(choice_1_pr)
+  var choice_2_pr=$("#choice_2_pr").val();
+  choice_pr_array.push(choice_2_pr)
+  var choice_3_pr=$("#choice_3_pr").val();
+  choice_pr_array.push(choice_3_pr)
+  var your_choice_pr=$("#your_choice_pr").val();
+  choice_pr_array.push(your_choice_pr)
+
+
+ // costs
+ console.log("c1:" +choice_1_pr);
+ console.log("c2:" +choice_2_pr);
+ console.log("c3:" +choice_3_pr);
+ console.log("c4:" +your_choice_pr);
+  //Payoff
+if (choice_1_pr == 0 || choice_2_pr == 0 || choice_3_pr == 0 ||your_choice_pr == 0)
+  {W="INSERISCI TUTTI I VALORI!"
+  $("#Warning_l").html(W).val();
+  $( "#Warning_l" ).show()}
+
+
+if (choice_1_pr > 0 & choice_2_pr > 0 & choice_3_pr > 0 & your_choice_pr > 0){
+
+if (choice_1_pr == 1)
+    {cost_1=20; p_1=20;b_1=30}
+if (choice_1_pr == 2)
+   {cost_1=40; p_1=40;b_1=60}
+
+if (choice_2_pr == 1)
+       {cost_2=20; p_2=20;b_2=30}
+if (choice_2_pr == 2)
+      {cost_2=40; p_2=40;b_2=60}
+
+if (choice_3_pr == 1)
+      {cost_3=20; p_3=20;b_3=30}
+if (choice_3_pr == 2)
+      {cost_3=40; p_3=40;b_3=60}
+
+if (your_choice_pr == 1)
+      {cost_4=20; p_4=20;b_4=30}
+if (your_choice_pr == 2)
+      {cost_4=40; p_4=40;b_4=60}
+TC_1=cost_1+cost_2+cost_3+cost_4
+
+payoff_1=50-p_1+b_1-TC_1/4
+payoff_2=50-p_2+b_2-TC_1/4
+payoff_3=50-p_3+b_3-TC_1/4
+payoff_4=50-p_4+b_4-TC_1/4
+
+  $("#TC_1").html(TC_1).val();
+  $( "#TC_1" ).show()
+  $("#payoff_1").html(payoff_1).val();
+  $( "#payoff_1" ).show()
+  $("#payoff_2").html(payoff_2).val();
+  $( "#payoff_2" ).show()
+  $("#payoff_3").html(payoff_3).val();
+  $( "#payoff_3" ).show()
+  $("#payoff_4").html(payoff_4).val();
+  $( "#payoff_4" ).show()
+}
+else {
+  $( "#payoff_1" ).hide()
+  $( "#payoff_2" ).hide()
+  $( "#payoff_3" ).hide()
+  $( "#payoff_4" ).hide()
+
+}
+
+azzera()
+liveSend({'type': 'choice_pr', 'value': choice_pr_array});
+});
+// end button left
+
+  function azzera(){
+  cost_1=0;
+  cost_2=0;
+  cost_3=0;
+  cost_4=0;
+  //prices
+  p_1=0
+  p_2=0
+  p_3=0
+  p_4=0
+  //benefits
+  b_1=0
+  b_2=0
+  b_3=0
+  b_4=0
+    //payoffs
+
+  payoff_1 =0
+  payoff_2 =0
+  payoff_3 =0
+  payoff_4 =0
+
+
+}
+
+// button compute right
+$("#btn_submit_2").click(function(){
+  $("#Warning_r").hide()
+  var choice_1_r=$("#choice_1_r").val();
+  choice_r_array.push(choice_1_r)
+  var choice_2_r=$("#choice_2_r").val();
+  choice_r_array.push(choice_2_r)
+  var choice_3_r=$("#choice_3_r").val();
+  choice_r_array.push(choice_3_r)
+  var your_choice_r=$("#your_choice_r").val();
+  choice_r_array.push(your_choice_r)
+ // costs
+
+  //Payoff
+if (choice_1_r == 0 || choice_2_r == 0 || choice_3_r == 0 ||your_choice_r == 0)
+  {W2="INSERISCI TUTTI I VALORI!"
+  $("#Warning_r").html(W2).val();
+  $( "#Warning_r" ).show()}
+
+  console.log("c1:" +choice_1_r);
+  console.log("c2:" +choice_2_r);
+  console.log("c3:" +choice_3_r);
+  console.log("c4:" +your_choice_r);
+
+if (choice_1_r > 0 & choice_2_r > 0 & choice_3_r > 0 & your_choice_r > 0){
+
+if (choice_1_r == 1)
+    {cost_1_r=20; p_1_r=20;b_1_r=30}
+if (choice_1_r == 2)
+   {cost_1_r=40; p_1_r=40;b_1_r=60}
+if (choice_1_r == 3)
+      {cost_1_r=80; p_1_r=80;b_1_r=120}
+if (choice_1_r == 4)
+      {cost_1_r=60; p_1_r=90;b_1_r=120}
+
+
+if (choice_2_r == 1)
+    {cost_2_r=20; p_2_r=20;b_2_r=30}
+if (choice_2_r == 2)
+      {cost_2_r=40; p_2_r=40;b_2_r=60}
+if (choice_2_r == 3)
+      {cost_2_r=80; p_2_r=80;b_2_r=120}
+if (choice_2_r == 4)
+      {cost_2_r=60; p_2_r=90;b_2_r=120}
+
+if (choice_3_r == 1)
+    {cost_3_r=20; p_3_r=20;b_3_r=30}
+if (choice_3_r == 2)
+    {cost_3_r=40; p_3_r=40;b_3_r=60}
+if (choice_3_r == 3)
+    {cost_3_r=80; p_3_r=80;b_3_r=120}
+if (choice_3_r == 4)
+    {cost_3_r=60; p_3_r=90;b_3_r=120}
+
+
+if (your_choice_r == 1)
+    {cost_4_r=20; p_4_r=20;b_4_r=30}
+if (your_choice_r == 2)
+    {cost_4_r=40; p_4_r=40;b_4_r=60}
+if (your_choice_r == 3)
+    {cost_4_r=80; p_4_r=80;b_4_r=120}
+if (your_choice_r == 4)
+    {cost_4_r=60; p_4_r=90;b_4_r=120}
+
+TC_2=cost_1_r+cost_2_r+cost_3_r+cost_4_r
+console.log("total cost:" +TC_2);
+payoff_1_r=100-p_1_r+b_1_r-TC_2/4
+payoff_2_r=100-p_2_r+b_2_r-TC_2/4
+payoff_3_r=100-p_3_r+b_3_r-TC_2/4
+payoff_4_r=100-p_4_r+b_4_r-TC_2/4
+
+  $("#TC_2").html(TC_2).val();
+  $( "#TC_2" ).show()
+  $("#payoff_1_r").html(payoff_1_r).val();
+  $( "#payoff_1_r" ).show()
+  $("#payoff_2_r").html(payoff_2_r).val();
+  $( "#payoff_2_r" ).show()
+  $("#payoff_3_r").html(payoff_3_r).val();
+  $( "#payoff_3_r" ).show()
+  $("#payoff_4_r").html(payoff_4_r).val();
+  $( "#payoff_4_r" ).show()
+}
+else {
+  $( "#payoff_1_r" ).hide()
+  $( "#payoff_2_r" ).hide()
+  $( "#payoff_3_r" ).hide()
+  $( "#payoff_4_r" ).hide()
+
+}
+
+azzera2()
+  liveSend({'type': 'choice_r', 'value': choice_r_array});
+
+
+
+
+});
+
+
+
+function azzera2(){
+cost_1_r=0;
+cost_2_r=0;
+cost_3_r=0;
+cost_4_r=0;
+//prices
+p_1_r=0
+p_2_r=0
+p_3_r=0
+p_4_r=0
+//benefits
+b_1_r=0
+b_2_r=0
+b_3_r=0
+b_4_r=0
+  //payoffs
+
+payoff_1_r =0
+payoff_2_r =0
+payoff_3_r =0
+payoff_4_r =0
+}
+
+
+      });
+</script>
+
+
+
+
+{% endblock %}
