@@ -1,0 +1,72 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+ID = {{label}} group = {{group}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  FINAL RESULTS</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify"> All the members of your group chose {% if choice2 == 10 %} Option A. {% else %} Option B. {% endif %} </p>
+      <p class="text-justify"> With your first choice ({% if choice == 170 %} Option A {% else %} Option B {% endif %}) you earned {{pay_1}} CZK  and, {% if burn == 1 %} since the donation was reduced, {% else %}  since the donation was not reduced, {% endif %} you made a donation of {{donation_1}} CZK.  </p>
+      <p class="text-justify"> With your second choice ({% if choice2 == 170 %} Option A {% else %} Option B {% endif %}) you earned {{pay_2}} CZK  and, {% if burn_2 == 1 %} since the donation was reduced, {% else %}  since the donation was not reduced, {% endif %} you made a donation of €{{donation_2}} CZK. </p>
+      <p class="text-justify"> Your guess about others' choices was {% if pay_belief_q1 != 0 %} correct, {% else %} wrong, {% endif %} so you earned €{{pay_belief_q1}}. </p>
+      <p class="text-justify"> Your guess about others' beliefs was {% if pay_belief_q2 != 0 %} correct, {% else %} wrong, {% endif %} so you earned €{{pay_belief_q2}}. </p>
+      <p class="text-justify"> Your final payment is of {{finalpay}} CZK and your total donation is of {{total_donation}} CZK </p>
+
+  </div>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}
