@@ -23,7 +23,7 @@ ID = {{label}} group = {{group}}
   <div class="row">
 <font size="4">
     <div class="col-sm">
-      <p class="text-justify"> All the members of your group chose {% if choice2 == 10 %} Option A. {% else %} Option B. {% endif %} </p>
+      <p class="text-justify"> All the members of your group chose {% if choice2 == 170 %} Option A. {% else %} Option B. {% endif %} </p>
       <p class="text-justify"> With your first choice ({% if choice == 170 %} Option A {% else %} Option B {% endif %}) you earned {{pay_1}} CZK  and, {% if burn == 1 %} since the donation was reduced, {% else %}  since the donation was not reduced, {% endif %} you made a donation of {{donation_1}} CZK.  </p>
       <p class="text-justify"> With your second choice ({% if choice2 == 170 %} Option A {% else %} Option B {% endif %}) you earned {{pay_2}} CZK  and, {% if burn_2 == 1 %} since the donation was reduced, {% else %}  since the donation was not reduced, {% endif %} you made a donation of €{{donation_2}} CZK. </p>
       <p class="text-justify"> Your guess about others' choices was {% if pay_belief_q1 != 0 %} correct, {% else %} wrong, {% endif %} so you earned €{{pay_belief_q1}}. </p>
