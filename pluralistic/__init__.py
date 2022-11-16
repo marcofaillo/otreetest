@@ -1,7 +1,7 @@
 from otree.api import *
 import random as r
 doc = """
-Your app description
+Pluralistic ignorance experiment. Author: Marco Faillo
 """
 
 
@@ -158,7 +158,8 @@ def compute_payoff (group: Group): #final payoff agreement
                 p.total_donation = p.donation_1 + p.donation_2
             else:
                 p.final_agree=0
-                p.final_payoff =p.pay_1+p.pay_belief_q1+p.pay_belief_q2
+                p.final_payoff =p.pay_1+p.pay_belief_q1+p.pay_belief_q2-p.cost_pun-p.red_pun
+                p.payoff=p.final_payoff
                 p.total_donation =p.donation_1
 
 # PAGES
@@ -289,7 +290,7 @@ class FinalPunishment(Page):
     def is_displayed(player):
         return player.agree== 0
     def vars_for_template(player: Player):
-        return dict(group=player.group.id_in_subsession, burn=player.burn, burn_2=player.burn_2,label=player.id_in_group,choice2=player.choice2,choice2_old=player.choice2_old, choice=player.choice, pay_1=player.pay_1,  pay_2=player.pay_2,donation_1=player.donation_1,donation_2=player.donation_2, pay_belief_q1=player.pay_belief_q1, pay_belief_q2=player.pay_belief_q2, red_pun=player.red_pun, point_pun= player.red_pun/50, cost_pun=player.cost_pun/10, finalpay=player.final_payoff, total_donation=player.total_donation, final_agree=player.final_agree)
+        return dict(group=player.group.id_in_subsession, burn=player.burn, burn_2=player.burn_2,label=player.id_in_group,choice2=player.choice2,choice2_old=player.choice2_old, choice=player.choice, pay_1=player.pay_1,  pay_2=player.pay_2,donation_1=player.donation_1,donation_2=player.donation_2, pay_belief_q1=player.pay_belief_q1, pay_belief_q2=player.pay_belief_q2, red_pun=player.red_pun, point_pun= player.red_pun/50, num_pun=player.cost_pun/10,cost_pun= player.cost_pun, finalpay=player.final_payoff, total_donation=player.total_donation, final_agree=player.final_agree)
 
 
 page_sequence = [Choice, WaitPage1, Results, Choice2, Beliefs, WaitPage2,WaitPage3, Punishment, WaitPage4,Agreement,FinalPunishment ]
