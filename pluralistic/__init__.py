@@ -23,12 +23,26 @@ class Subsession(BaseSubsession):
 
 
 
+
 class Group(BaseGroup):
     p1 =models.IntegerField(initial=0)
     p2 =models.IntegerField(initial=0)
     p3 =models.IntegerField(initial=0)
 
 class Player(BasePlayer):
+#control questions
+    q1= models.IntegerField(choices=[[1, 'a) All three players will get the individual payoff they chose, and the charity will get three times the amount that is specified in the chosen option.'], [2, 'b) All three players will get the individual payoff they chose, and the charity will get zero.'],[3, 'c) All will get zero, and the charity will get three times the amount that is specified in that choice with the specific probability.',]],widget=widgets.RadioSelect)
+    q2= models.IntegerField(choices=[[1, 'a) Each player will get the amount they chose, and costs for deduction points will be implemented.'], [2, 'b) All three players and the charity will get zero from phase 2, and no other costs will be implemented.'],[3, 'c) All three players and the charity will get zero from phase 2, and the player that assigned a deduction point will pay 10 CZK and the player that got a deduction point will have 50 CZK subtracted from her/his payoff.']],widget=widgets.RadioSelect)
+    q3= models.IntegerField(choices=[[1, 'a) The option of the player that got 2 deduction points will be reverted. If the reverted option and the option chosen by the other two players are the same, all three players and charity will get the corresponding payoff. Costs for deduction points will be implemented.'], [2, 'b) All players and the charity will get zero.'],[3, 'c) Two players that chose the same option will get the corresponding payoff, and the third player will get zero. ']],widget=widgets.RadioSelect)
+    errors=models.IntegerField(initial=0)
+    # q1=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
+    # q2=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
+    # q3=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
+#demographic questions
+    age=models.IntegerField()
+    gender=models.StringField()
+    major= models.StringField()
+    nationality= models.StringField()
     choice= models.IntegerField(choices=[[170, 'Option A. You get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90% '], [100, 'Option B. You get 100 CZK and the carity will receive 80 CZK']])
     pay_1=models.IntegerField(initial=0) #player's payoff from first choice
     pay_2=models.IntegerField(initial=0) #player's payoff from second choice
@@ -54,8 +68,7 @@ class Player(BasePlayer):
     final_agree=models.IntegerField(initial=0)#final agreement
     burn =models.IntegerField(initial=0) # =1 if the first donation is reduced
     burn_2 =models.IntegerField(initial=0) # =1 if the second donation is reduced
-
- #second  member punished (p3 for p1, p1 for p2, p2 for p3)
+    total_donation_session=models.FloatField() #second  member punished (p3 for p1, p1 for p2, p2 for p3)
 #functions
 
 def creating_session(subsession: Subsession):
@@ -162,7 +175,18 @@ def compute_payoff (group: Group): #final payoff agreement
                 p.payoff=p.final_payoff
                 p.total_donation =p.donation_1
 
+def compute_total_donation (subsession: Subsession):
+    for p in subsession.get_players():
+        p.total_donation_session = sum([p.total_donation for p in subsession.get_players()])
+        print("total_donation_session", p.total_donation_session)
+
 # PAGES
+class Instructions_1(Page):
+    pass
+
+class WaitPage1(WaitPage):
+    pass
+
 class Choice(Page):
     form_model = 'player'
     form_fields = ['choice']
@@ -192,7 +216,8 @@ class Choice(Page):
             p.participant.vars['group_mat']=group_mat
 
 
-class WaitPage1(WaitPage):
+
+class WaitPage2(WaitPage):
     wait_for_all_groups = True
     #assegnazione ai gruppi
     def after_all_players_arrive(subsession: Subsession):
@@ -236,6 +261,43 @@ class Results(Page):
     def vars_for_template(player: Player):
         return dict(moda=player.subsession.mode, group=player.group.id_in_subsession, label=player.id_in_group, payoff=player.pay_1, donation=player.donation_1)
 
+class Instructions_2(Page):
+    pass
+
+class Control(Page):
+    form_model = 'player'
+    form_fields = ['q1', 'q2', 'q3']
+
+    def error_message(player: Player, values):
+        if values['q1'] != 1 and values['q2'] != 3 and values['q3'] != 1: #All the answers are wrong
+            player.errors += 1
+            return 'All the answers are wrong'
+
+        if values['q1'] != 1 and values['q2'] == 3 and values['q3'] == 1: #1 is wrong
+            player.errors += 1
+            return 'Answer to question 1 is wrong'
+
+        if values['q1'] == 1 and values['q2'] != 3 and values['q3'] == 1: #2 is wrong
+            player.errors += 1
+            return 'Answer to question 2 is wrong'
+
+        if values['q1'] == 1 and values['q2'] == 3 and values['q3'] != 1: #3 is wrong
+            player.errors += 1
+            return 'Answer to question 3 is wrong'
+
+        if values['q1'] != 1 and values['q2'] == 3 and values['q3'] != 1: #1 and 3  wrong
+            player.errors += 1
+            return 'Answers to questions 1 and 3 are wrong'
+
+        if values['q1'] != 1 and values['q2'] != 3 and values['q3'] == 1: #1 and 2  wrong
+            player.errors += 1
+            return 'Answers to questions 1 and 2 are wrong'
+
+        if values['q1'] == 1 and values['q2'] != 3 and values['q3'] != 1: #2 and 3 wrong
+            player.errors += 1
+            return 'Answers to questions 2 and 3 are wrong'
+
+
 
 class Choice2(Page):
     form_model = 'player'
@@ -255,15 +317,15 @@ class Beliefs(Page):
         return dict(group=player.group.id_in_subsession, label=player.id_in_group, choice2=player.choice2)
 
 
-class WaitPage2(WaitPage):
+class WaitPage3(WaitPage):
 	wait_for_all_groups = False
 	after_all_players_arrive = store_choice
 
-class WaitPage3(WaitPage):
+class WaitPage4(WaitPage):
 	wait_for_all_groups = False
 	after_all_players_arrive = check_beliefs
 
-class WaitPage4(WaitPage):
+class WaitPage5(WaitPage):
 	wait_for_all_groups = False
 	after_all_players_arrive = compute_payoff
 
@@ -292,5 +354,15 @@ class FinalPunishment(Page):
     def vars_for_template(player: Player):
         return dict(group=player.group.id_in_subsession, burn=player.burn, burn_2=player.burn_2,label=player.id_in_group,choice2=player.choice2,choice2_old=player.choice2_old, choice=player.choice, pay_1=player.pay_1,  pay_2=player.pay_2,donation_1=player.donation_1,donation_2=player.donation_2, pay_belief_q1=player.pay_belief_q1, pay_belief_q2=player.pay_belief_q2, red_pun=player.red_pun, point_pun= player.red_pun/50, num_pun=player.cost_pun/10,cost_pun= player.cost_pun, finalpay=player.final_payoff, total_donation=player.total_donation, final_agree=player.final_agree)
 
+class WaitPage6(WaitPage):
+    wait_for_all_groups = True
+    after_all_players_arrive = compute_total_donation
 
-page_sequence = [Choice, WaitPage1, Results, Choice2, Beliefs, WaitPage2,WaitPage3, Punishment, WaitPage4,Agreement,FinalPunishment ]
+
+class End(Page):
+    form_model = 'player'
+    form_fields = ['age','gender','major', 'nationality']
+    def vars_for_template(player: Player):
+        return dict(total_donation_session=player.total_donation_session)
+
+page_sequence = [ Instructions_1,WaitPage1, Choice, WaitPage2, Results, WaitPage2, Instructions_2, WaitPage2, Control,WaitPage2, Choice2, Beliefs, WaitPage3,WaitPage4, Punishment, WaitPage5,Agreement,FinalPunishment, WaitPage6,End ]
