@@ -1,0 +1,106 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+
+  <div class="row">
+
+    <div class="col-sm">
+
+              <div class="row">
+               <div class="col-sm-24">
+                 <div class="alert alert-primary" role="alert" style="text-align:center">
+                   <h3> Control questions </h3>
+                 </div>
+               </div>
+             </div>
+
+<font size="4">
+
+    <p class="text-justify">Before proceeding with phase 2 we ask you to answer the following control questions. </p>
+
+
+
+    <div class="row">
+           {% formfield player.q1 label="1. If all players chose the same option, how much will they and the charity get? " %}
+    </div>
+
+    <div class="row">
+           {% formfield player.q2 label="2. If one player chooses a different option than the other two players, and if she/he gets assigned 1 deduction point, what will be the payoffs of the players and of the charity? " %}
+    </div>
+
+
+      <div class="row">
+          {% formfield player.q3 label="3.If one player chooses a different option than the other two players, and if she/he gets assigned 2 deduction points, what will be the payoffs of the players and of the charity?" %}
+    </div>
+
+
+
+
+
+
+
+      </div>
+      </div>
+
+
+ </font>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+ID = {{label}} group = {{group}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  PHASE 1: Results</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p align="justify"> {% if moda == - 1 %} Half of the participants in the session chose Option A (To get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 CZK with a probability of 90% )  and half chose Option B (To get 100 CZK and the charity will receive 80 CZK) {% else %}
+        The majority of participants in the session chose {% if moda == 170 %} Option A (To get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 CZK with a probability of 90%) {% else %} Option B (To get 100 CZK and the charity will receive 80 CZK). {% endif %}{% endif %}
+      <br><br> You will be now assigned to a group made of you and other two participants drawn from the group of participants in the session.</p>
+  </p>
+  </div>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}

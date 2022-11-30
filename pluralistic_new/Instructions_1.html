@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> Instructions </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+
+       <p align="justify">
+      Welcome! Thank you for participating in this experiment.<br>
+           <br>
+      For your participation  you will receive an amount depending on your choices and the choices of other participants.<br><br>
+      During the experiment, you cannot communicate with other participants (under penalty of exclusion from the experiment) and you should be very careful in reading the instructions that will appear on your screen. You can find a copy of the instruction on your desk. You can check them at any moment during the experiment. If you have any questions, please ask the researchers. <br><br>
+      The answers you give and the choices you make will be totally anonymous. The researchers will not be able to associate your choices and answers with your name. At the end of the experiment you will be paid in private and in cash. <br><br>
+      The experiment consists of two phases. You will get instructions for both phases separately at its beginning. <br><br>
+      </p>
+</font>
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

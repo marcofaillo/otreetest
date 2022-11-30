@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+ID = {{label}} group = {{group}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  Please answer the following questions:</h4>
+
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+       <p class="text-justify"> You can earn 20 additional CZK for each correct guess in Q2 and Q3</p>
+      <p class="text-justify"> Considering the choice in phase 2: </p>
+
+      <p class="text-justify"> {% formfield player.pers_belief  label="Q1.What do you think is the right choice to make?" %}  </p>
+      <p class="text-justify"> {% formfield player.emp_belief  label="Q2. What do you think the other two participants in your group chose?" %}  </p>
+      <p class="text-justify"> {% formfield player.norm_belief  label="Q3. What do you think the other two participants in your group answered to Q1?" %}  </p>
+
+  </div>
+</font>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+ID = {{label}} group = {{group}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  Assigning deduction point </h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify"> You chose {% if choice2 == 170 %} Option A. {% else %} Option B. {% endif %}</p>
+      <p class="text-justify"> You can decide to assign 0 or 1 point <b> to one of the other two members of the group </b>, if you assign 1 point it will cost you 10 CZK to reduce the earning from the second choice of that member by 50 CZK</p>
+      {% if label == 1 %}
+      <p class="text-justify"> One member chose {% if c2 == 170 %} Option A {% else %} Option B {% endif %}  {% formfield player.pun_1  label="YOUR CHOICE" %}  </p>
+      &nbsp
+      <p class="text-justify"> One member chose {% if c3 == 170 %} Option A {% else %} Option B {% endif %}  {% formfield player.pun_2  label="YOUR CHOICE" %}  </p>
+      {% elif label == 2 %}
+      <p class="text-justify"> One member chose {% if c1 == 170 %} Option A {% else %} Option B {% endif %}  {% formfield player.pun_1  label="YOUR CHOICE" %}  </p>
+        &nbsp
+      <p class="text-justify"> One member chose {% if c3 == 170 %} Option A {% else %} Option B {% endif %}  {% formfield player.pun_2  label="YOUR CHOICE" %}  </p>
+      {% elif label == 3 %}
+      <p class="text-justify"> One member chose {% if c1 == 170 %} Option A {% else %} Option B {% endif %} {% formfield player.pun_1  label="YOUR CHOICE" %}  </p>
+        &nbsp
+      <p class="text-justify"> One member chose {% if c2 == 170 %} Option A {% else %} Option B {% endif %} {% formfield player.pun_2  label="YOUR CHOICE" %}  </p>
+      {% endif %}
+  </div>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}

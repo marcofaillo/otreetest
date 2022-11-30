@@ -1,0 +1,98 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <!-- Le tue scelte -->
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<div class="row">
+ 	<div class="col-sm-12">
+	    <div class="alert alert-primary" role="alert" style="text-align:center">
+	       <h3> End of the experiment </h3>
+	     </div>
+	 </div>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+
+	 <div class="col-sm">
+    <p class="text-justify">  The total sum collected for the charity in this session is of {{total_donation_session}} CZK </p>
+		We will send this amount to charity at the end of the session. One participants will be randomly chosen to observe the transfer.
+			<p class="text-justify"> Please provide the following information before leaving.</p>
+
+    <font size="4">
+
+          <div class="row">
+              <p class="text-justify">  {% formfield player.age label="1) AGE " %}</p>
+          </div>
+
+          <div class="row">
+              <p class="text-justify">    {% formfield player.gender label="2) GENDER " %} </p>
+          </div>
+
+
+          <div class="row">
+                <p class="text-justify">    {% formfield player.major label="3) MAJOR" %} </p>
+          </div>
+
+          <div class="row">
+              <p class="text-justify">    {% formfield player.nationality label="4) NATIONALITY " %} </p>
+        </div>
+
+
+	</font>
+		</h4>
+	 </div>
+          </div>
+
+
+
+    <font size="4">
+
+
+		<!--		BOTTONE PROSEGUI	2	-->
+		 <div class="row">
+		    <div class="col-sm-12 text-center">
+		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+			</div>
+
+		 </div>
+
+
+
+	</font>
+	</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+		{% endblock %}
+
+
+
+
+		{% block scripts %}
+			<script>
+				$(document).ready(function(){
+				});
+
+				$("#btn_submit").click(function(){
+					$("#form").submit()
+			  	});
+
+		</script>
+
+
+
+
+				{% endblock %}
