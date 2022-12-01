@@ -6,7 +6,7 @@ Pluralistic ignorance experiment. Author: Marco Faillo
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'pluralistic'
+    NAME_IN_URL = 'pluralistic_new'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
