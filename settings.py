@@ -60,7 +60,14 @@ SESSION_CONFIGS = [
         # #
         #
         #
+        dict(
+            name='pluralistic',
+            display_name='pluralistic',
+            num_demo_participants=6,
+            app_sequence=['pluralistic'],
+            PARTICIPANT_FIELDS = ['bads', 'goods']
 
+            ),
 
         dict(
             name='pluralistic_new',
