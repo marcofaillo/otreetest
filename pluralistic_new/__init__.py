@@ -38,19 +38,21 @@ class Player(BasePlayer):
     # q1=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
     # q2=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
     # q3=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
-#demographic questions
+#demographic and debriefing questions
     age=models.IntegerField()
     gender=models.StringField()
     major= models.StringField()
     nationality= models.StringField()
-    choice= models.IntegerField(choices=[[170, 'Option A. You get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90% '], [100, 'Option B. You get 100 CZK and the charity will receive 80 CZK']])
+    deb_1=models.StringField()
+    deb_2=models.StringField()
+    choice= models.IntegerField(choices=[[170, 'Option A: You get 170 CZK. The charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90%. '], [100, 'Option B: You get 100 CZK. The charity will receive 80 CZK']])
     pay_1=models.IntegerField(initial=0) #player's payoff from first choice
     pay_2=models.IntegerField(initial=0) #player's payoff from second choice
     donation_1=models.FloatField(initial=0) #money given to the charity
     donation_2=models.FloatField(initial=0) #money given to the charity
-    choice2= models.IntegerField(choices=[[170, 'Option A. You get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90% '], [100, 'Option B. You get 100 CZK and the charity will receive 80 CZK']])
-    pers_belief=models.IntegerField(choices=[[170, 'Option A. You get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90% '], [100, 'Option B. You get 100 CZK and the charity will receive 80 CZK']])
-    norm_belief=models.IntegerField(choices=[[170, 'Option A. You get 170 CZK and the charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90% '], [100, 'Option B. You get 100 CZK and the charity will receive 80 CZK']]) #personal Beliefs
+    choice2= models.IntegerField(choices=[[170, 'Option A: You get 170 CZK. The charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90%. '], [100, 'Option B: You get 100 CZK. The charity will receive 80 CZK']])
+    pers_belief=models.IntegerField(choices=[[170, 'Option A: You get 170 CZK. The charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90%.  '], [100, 'Option B: You get 100 CZK. The charity will receive 80 CZK']])
+    norm_belief=models.IntegerField(choices=[[170, 'Option A: You get 170 CZK. The charity will receive 100 CZK with a probability of 10% and 0 with a probability of 90%.  '], [100, 'Option B: You get 100 CZK. The charity will receive 80 CZK']]) #personal Beliefs
     emp_belief=models.IntegerField(choices=[[270, 'One chose Option A and the other chose Option B'], [340, 'They both chose Option A'], [200, 'They both chose Option B']]) #empirical expectations
     norm_belief=models.IntegerField(choices=[[270, 'One chose answered Option A and the other answered Option B'], [340, 'They both answered Option A'], [200, 'They both answered Option B']]) #normative believes
     pay_belief_q1 =models.FloatField(initial=0) #payment for question 1
@@ -361,7 +363,7 @@ class WaitPage6(WaitPage):
 
 class End(Page):
     form_model = 'player'
-    form_fields = ['age','gender','major', 'nationality']
+    form_fields = ['age','gender','major', 'nationality', 'deb_1', 'deb_2']
     def vars_for_template(player: Player):
         return dict(total_donation_session=player.total_donation_session)
 

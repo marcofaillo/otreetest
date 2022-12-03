@@ -24,12 +24,13 @@ ID = {{label}} group = {{group}}
 <font size="4">
     <div class="col-sm">
       <p class="text-justify"> With your first choice ({% if choice == 170 %} Option A {% else %} Option B {% endif %}) you earned {{pay_1}} CZK  and you made a donation of {{donation_1}} CZK.  </p>
-      <p class="text-justify"> All the members of your group chose {% if choice2 == 170 %} Option A, {% else %} Option B, you earned {{pay_2}} CZK  and you made a donation of {{donation_2}} CZK. </p>
+      <p class="text-justify"> All the members of your group chose {% if choice2 == 170 %} Option A, {% else %} Option B,{% endif %} you earned {{pay_2}} CZK  and you made a donation of {{donation_2}} CZK. </p>
       <p class="text-justify"> Your guess about others' choices was {% if pay_belief_q1 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q1}} CZK. </p>
       <p class="text-justify"> Your guess about others' beliefs was {% if pay_belief_q2 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q2}} CZK. </p>
       <p class="text-justify"> Your final payment is of {{finalpay}} CZK and your total donation is of {{total_donation}} CZK </p>
 
   </div>
+</font>
     </div>
       </div>
         </div>
@@ -48,11 +49,7 @@ ID = {{label}} group = {{group}}
           </div>
 
 
-
-
-  {% endblock %}
-
-
+{% endblock %}
 
 
         {% block scripts %}
