@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+{{label}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4> PHASE 1: Instructions and choice</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p align="justify"> In phase 1, you will choose one of two options, A or B. Your decision will have an impact on your payoff and on the amount of money that you will donate to a charity. You will be informed of the name of the charity only at the end of the experiment.
+      <br>At the end of the experiment, the total amount of money given to the charity in this phase will be collected by one of the researchers who will immediately make an online donation which one randomly chosen participant will observe.
+      <br>The options are the following
+      <ul>
+        <li><b> Option A </b>: You will get <b> 130 CZK </b>. The charity will receive <b> 100 CZK </b> with the probability of <b> 10% </b> and <b> 0 CZK </b> with the probability of </b> 90%. </b> </li>
+        <li><b> Option B</b>: You will get <b> 80 CZK </b>. The charity will receive <b> 60 CZK </b> with <b> 100% </b> probability.
+        </li>
+      </ul>
+      </p>
+      &nbsp
+      <p class="text-justify"> {% formfield player.choice  label="PLEASE MAKE YOUR CHOICE" %}  </p>
+  </div>
+</font>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}

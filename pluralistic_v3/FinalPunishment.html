@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+ID = {{label}} group = {{group}}
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  Final results</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p align="justify"> With your first choice ({% if choice == 130 %} Option A {% else %} Option B {% endif %}) you earned {{pay_1}} CZK and you made a donation of {{donation_1}} CZK.
+      <br><br> In the second phase you chose {% if choice2_old == 130 %} Option A {% else %} Option B {% endif %}.
+      <br> You decided to assign a total of {{num_pun}} points for a cost of {{cost_pun}} CZK.
+      <br> You received {{point_pun}} points for a reduction of {{red_pun}} CZK.
+      {% if red_pun == 100 %} <br> <b> Since both the other members decided to assign you 1 point, your second choice has been changed in {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %} </b>
+      {% elif red_pun !=  100 %} <br>  Your choice in the second phase was not affected by the decisions of others and it is {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %}{% endif %}
+      <br>
+      <br> Your guess about others' choices was {% if pay_belief_q1 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q1}} CZK.
+      <br> Your guess about others' beliefs was {% if pay_belief_q2 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q2}} CZK.
+      <br>
+      {% if final_agree == 1 %}
+      <br> Your group has reached a consensus.
+      <br> With your second choice you earned {{pay_2}} CZK and you made a donation of {{donation_2}} CZK.
+      <br> Your final payment is of {{finalpay}} CZK  and your total donation is of {{total_donation}} CZK.
+      {% else %}
+      <br> Your group has not reached a consensus, so you will receive only the payoff from the first decision ({{pay_1}} CZK) and from your correct guesses, minus the costs for the points you assigned and the reduction due to the points received.
+      <br> The donation to the charity is {{donation_1}} CZK and your final payment is  of {{finalpay}} CZK.
+    </p>
+      {% endif %}
+
+  </div>
+    </font>
+    </div>
+      </div>
+        </div>
+
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+          </div>
+
+         </div>
+
+
+
+          </div>
+
+
+
+
+  {% endblock %}
+
+
+
+
+        {% block scripts %}
+<script>
+$(document).ready(function(){
+            });
+
+$("#btn_submit").click(function(){
+$("#form").submit()
+      });
+</script>
+
+
+
+
+{% endblock %}

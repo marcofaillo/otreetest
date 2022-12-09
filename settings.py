@@ -70,10 +70,10 @@ SESSION_CONFIGS = [
         #     ),
 
         dict(
-            name='pluralistic_new',
-            display_name='pluralistic_new',
+            name='pluralistic_v3',
+            display_name='pluralistic_v3',
             num_demo_participants=6,
-            app_sequence=['pluralistic_new'],
+            app_sequence=['pluralistic_v3'],
             PARTICIPANT_FIELDS = ['bads', 'goods']
 
             ),

@@ -1,0 +1,91 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> Instructions for PHASE 2 </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+
+      <p align="justify"> In phase 2, you will be part of a group of 3 people, which is made up of you and two other participants of this session.
+      <br><br>Each member of the group will have to choose one of the same two options of phase 1, A and B. To get paid in this part, you need to coordinate on one outcome:
+      <ul>
+        <li><b> Option A </b>: You will get <b> 130 CZK </b>. The charity will receive <b> 100 CZK </b> with the probability of <b> 10% </b> and <b> 0 CZK </b> with the probability of </b> 90%. </b> </li>
+        <li><b> Option B</b>: You will get <b> 80 CZK </b>. The charity will receive <b> 60 CZK </b> with <b> 100% </b> probability.
+        </li>
+      </ul>
+      </p>
+      <p align="justify">The choice made by each group member is <b> individual and simultaneous </b> and each member of the group has only <b> one attempt </b> to choose one of the two options, A or B.
+      <br><br><b> An agreement is reached if your choice is the same choice made by the other two group members.</b>
+      <br><br>If an agreement is reached, the agreed option will be implemented and will determine the earnings of each participant,<b> 130 CZK </b> if agreed on choice A and <b> 80 CZK </b> if agreed on choice B. Charity will get money for each member if you coordinated, e.g. 3*60 CZK if you coordinate on option B, or 3*100 CZK with 10% probability and 3*0 CZK with 90% probability if you coordinate on option A.
+      <br>
+      <br><b> An agreement is NOT reached if the choice of at least one group member differs from choices of the other two members.</b>
+      <br><br>If an agreement is NOT reached:
+      <br><b> After the choice made in phase 2</b>, each member of the group will have the opportunity to <b> decrease the earnings </b> of one of the other members by assigning one deduction point to her/him. <b> If two members of the group coordinate on decreasing the earnings of one player, the choice of this player will be switched. </b> E.g., if this player chose option A, this choice will be changed to option B, and vice versa.
+      <br>
+      <br>To assign the deduction point and decrease the earnings of one participant costs 10 CZK and the earnings of this participants are reduced by 50 CZK for each  deduction point she/he received.
+      <br>If this changes the outcome of the group to the same,  the choices of the three members will be implemented.
+      <br><br>If an agreement is still NOT reached, participants and the charity will get <b> 0 CZK from phase 2 and they will have to pay for deduction points assigned and pay the cost for deduction points received.</b>
+      <br>
+      <br>In this phase, before knowing if the agreement has been reached you will be also asked to answer questions about others’ choices and about your beliefs and others’ beliefs.  An additional sum will be paid if you provide the correct guesses about others choices and beliefs.
+      <br><br>Before leaving the experiment you will be also asked to fill in a short questionnaire.
+      <br><br>At the end of the experiment the total amount donated by the participants in this session in the two phases will be immediately transferred online to a charity which will be randomly drawn from a list of candidates. One randomly chosen participant will be invited to observe the transfer procedure.
+      </p>
+</font>
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
