@@ -27,8 +27,8 @@ ID = {{label}} group = {{group}}
       <br><br> In the second phase you chose {% if choice2_old == 130 %} Option A {% else %} Option B {% endif %}.
       <br> You decided to assign a total of {{num_pun}} points for a cost of {{cost_pun}} CZK.
       <br> You received {{point_pun}} points for a reduction of {{red_pun}} CZK.
-      {% if red_pun == 100 %} <br> <b> Since both the other members decided to assign you 1 point, your second choice has been changed in {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %} </b>
-      {% elif red_pun !=  100 %} <br>  Your choice in the second phase was not affected by the decisions of others and it is {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %}{% endif %}
+      {% if red_pun == 80 %} <br> <b> Since both the other members decided to assign you 1 point, your second choice has been changed in {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %} </b>
+      {% elif red_pun !=  80 %} <br>  Your choice in the second phase was not affected by the decisions of others and it is {% if choice2 == 130 %} Option A. {% else %} Option B. {% endif %}{% endif %}
       <br>
       <br> Your guess about others' choices was {% if pay_belief_q1 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q1}} CZK.
       <br> Your guess about others' beliefs was {% if pay_belief_q2 != 0 %} correct, {% else %} wrong, {% endif %} so you earned {{pay_belief_q2}} CZK.

@@ -32,7 +32,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 #control questions
     q1= models.IntegerField(choices=[[1, 'a) All three players will get the individual payoff they chose, and the charity will get three times the amount specified in the chosen option.'], [2, 'b) All three players will get the individual payoff they chose, and the charity will get zero.'],[3, 'c) All will get zero, and the charity will get three times the amount specified in that choice with the specified probability.',]],widget=widgets.RadioSelect)
-    q2= models.IntegerField(choices=[[1, 'a) Each player will get the amount they chose, and costs for deduction points will be implemented.'], [2, 'b) All three players and the charity will get zero from phase 2, and no other costs will be implemented.'],[3, 'c) All three players and the charity will get zero from phase 2, and the player that assigned a deduction point will pay 10 CZK and the player that got a deduction point will have 50 CZK subtracted from her/his payoff.']],widget=widgets.RadioSelect)
+    q2= models.IntegerField(choices=[[1, 'a) Each player will get the amount they chose, and costs for deduction points will be implemented.'], [2, 'b) All three players and the charity will get zero from phase 2, and no other costs will be implemented.'],[3, 'c) All three players and the charity will get zero from phase 2, and the player that assigned a deduction point will pay 10 CZK and the player that got a deduction point will have 40 CZK subtracted from her/his payoff.']],widget=widgets.RadioSelect)
     q3= models.IntegerField(choices=[[1, 'a) The option of the player that got 2 deduction points will be reverted. If the reverted option and the option chosen by the other two players are the same, all three players and charity will get the corresponding payoff. Costs for deduction points will be implemented.'], [2, 'b) All players and the charity will get zero.'],[3, 'c) Two players that chose the same option will get the corresponding payoff, and the third player will get zero. ']],widget=widgets.RadioSelect)
     errors=models.IntegerField(initial=0)
     # q1=models.IntegerField(choices=[[1, 'a'],[2,'b'], [3,'c']])
@@ -144,12 +144,12 @@ def compute_payoff (group: Group): #final payoff agreement
             if p.agree == 0: #no agreement punishment
                p.cost_pun = 10*(p.pun_1+p.pun_2) #cost if he punishes
                if p.id_in_group == 1: #p1
-                  p.red_pun = 50*(p2.pun_1+p3.pun_1)
+                  p.red_pun = 40*(p2.pun_1+p3.pun_1)
                if p.id_in_group == 2: #p2
-                  p.red_pun = 50*(p1.pun_1+p3.pun_2)
+                  p.red_pun = 40*(p1.pun_1+p3.pun_2)
                if p.id_in_group == 3:#p3
-                  p.red_pun = 50*(p1.pun_2+p2.pun_2)
-               if p.red_pun == 100: #change choice2
+                  p.red_pun = 40*(p1.pun_2+p2.pun_2)
+               if p.red_pun == 80: #change choice2
                   p.change=1
                   if p.choice2 == 130:
                      p.choice2 = 80
@@ -352,7 +352,7 @@ class FinalPunishment(Page):
     def is_displayed(player):
         return player.agree== 0
     def vars_for_template(player: Player):
-        return dict(group=player.group.id_in_subsession, burn=player.burn, burn_2=player.burn_2,label=player.id_in_group,choice2=player.choice2,choice2_old=player.choice2_old, choice=player.choice, pay_1=player.pay_1,  pay_2=player.pay_2,donation_1=player.donation_1,donation_2=player.donation_2, pay_belief_q1=player.pay_belief_q1, pay_belief_q2=player.pay_belief_q2, red_pun=player.red_pun, point_pun= player.red_pun/50, num_pun=player.cost_pun/10,cost_pun= player.cost_pun, finalpay=player.final_payoff, total_donation=player.total_donation, final_agree=player.final_agree)
+        return dict(group=player.group.id_in_subsession, burn=player.burn, burn_2=player.burn_2,label=player.id_in_group,choice2=player.choice2,choice2_old=player.choice2_old, choice=player.choice, pay_1=player.pay_1,  pay_2=player.pay_2,donation_1=player.donation_1,donation_2=player.donation_2, pay_belief_q1=player.pay_belief_q1, pay_belief_q2=player.pay_belief_q2, red_pun=player.red_pun, point_pun= player.red_pun/40, num_pun=player.cost_pun/10,cost_pun= player.cost_pun, finalpay=player.final_payoff, total_donation=player.total_donation, final_agree=player.final_agree)
 
 class WaitPage6(WaitPage):
     wait_for_all_groups = True
