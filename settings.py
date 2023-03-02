@@ -39,6 +39,13 @@ SESSION_CONFIGS = [
         #     app_sequence=['energy', 'faillobret'],
         #
         #     ),
+
+        dict(
+            name='labeling',
+            display_name='labeling',
+            num_demo_participants=1,
+            app_sequence=['labeling'],
+            ),
         #
         #
         # #
@@ -69,14 +76,14 @@ SESSION_CONFIGS = [
         #
         #     ),
 
-        dict(
-            name='pluralistic_v3',
-            display_name='pluralistic_v3',
-            num_demo_participants=6,
-            app_sequence=['pluralistic_v3'],
-            PARTICIPANT_FIELDS = ['bads', 'goods']
-
-            ),
+        # dict(
+        #     name='pluralistic_v3',
+        #     display_name='pluralistic_v3',
+        #     num_demo_participants=6,
+        #     app_sequence=['pluralistic_v3'],
+        #     PARTICIPANT_FIELDS = ['bads', 'goods']
+        #
+        #     ),
         # dict(
         #     name='simulation_energy',
         #     display_name='simulation_energy',
