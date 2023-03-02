@@ -1,0 +1,110 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+
+      <p class="text-justify">Buongiorno, stai per partecipare a un'attività di ricerca sulle decisioni economiche. </p>
+      <p class="text-justify">Riceverai 1€ per la tua partecipazione.</p>
+      <p class="text-justify">Durante l’attività prenderai due decisioni, che chiameremo 1 e 2 </p>
+      <p class="text-justify">Anche se la decisione 1 precede la decisione 2, per chiarezza nella spiegazione dell’attività iniziamo descrivendo la decisione 2. </p>
+      <p class="text-justify"><br></p>
+      <p class="text-justify"><b> Decisione 2 </b> </p>
+      <p class="text-justify">Per la decisione 2 riceverai 10€. Dovrai scegliere come spendere i 10€ per acquistare alcuni prodotti alimentari. </p>
+      <p class="text-justify">Ti saranno mostrati a schermo alcuni prodotti fra quelli in vendita presso uno shop online che vende prodotti sia a livello nazionale sia internazionale. Ti saranno mostrati 8 prodotti e dovrai acquistarne <b> almeno 1 </b>. </p>
+      <p class="text-justify">Il denaro che avanza dopo aver pagato i prodotti che hai scelto di acquistare resterà in tuo possesso e ti sarà accreditato al termine dell’attività.</p>
+      <p class="text-justify">I prodotti acquistati ti saranno consegnati a casa seguendo la procedura indicata al termine della fase di acquisto. </p>
+      <p class="text-justify"><br></p>
+      <p class="text-justify"><b> Decisione 1</b> </p>
+      <p class="text-justify">Prima di  procedere alla decisione 2 sopra descritta, sarai chiamato a prendere la decisione 1. </p>
+      <p class="text-justify">Per la decisione 1 avrai a disposizione 1€.  </p>
+      <p class="text-justify">Potrai usare questa somma per fare delle offerte per visualizzare delle informazioni associate ai prodotti riguardanti la decisione 2 descritta prima.   </p>
+      <p class="text-justify">Dovrai fare tre offerte, espresse in centesimi di euro (tra 0 e 100): </p>
+      <ul>
+      <li > un’offerta per l’informazione sui valori nutrizionali (calorie, contenuto di grassi, acidi grassi saturi, carboidrati, zuccheri, proteine e sale) dei prodotti proposti per la decisione 2;  </li>
+      <li >  un’offerta per l’informazione relativa alla presenza di additivi alimentari, ovvero "qualsiasi sostanza abitualmente non consumata come alimento in sé e non utilizzata come ingrediente caratteristico di alimenti, con o senza valore nutritivo, la cui aggiunta intenzionale ad alimenti per uno scopo tecnologico nella fabbricazione, nella trasformazione, nella preparazione, nel trattamento, nell'imballaggio, nel trasporto o nel magazzinaggio degli stessi, abbia o possa presumibilmente avere per effetto che la sostanza o i suoi sottoprodotti diventino, direttamente o indirettamente, componenti di tali alimenti" Regolamento (CE) n. 1333/2008 </li>
+        <li> un’offerta per l’informazione sull’impronta ecologica, misurata in Kg di CO2 equivalenti per ogni Kg di ciascuno dei prodotti proposti per la decisione 2;</li>
+        <li> un’offerta per avere l’informazione sul grado di tipicità, quindi il fatto che i prodotti riguardanti la decisione 2 siano o meno prodotti tipici, vale a dire prodotti le cui fasi di lavorazione avvengono tutte in un’area geografica delimitata, seguendo le regole stabilite dal disciplinare di produzione (DOP), o prodotti le cui qualità dipendono, almeno in parte, dal territorio di origine e per i quali almeno una delle fasi di lavorazione deve avvenire all'interno dell'area geografica indicata (IGP). </li>
+      </ul>
+      <p class="text-justify">Puoi scegliere di offrire tra 0 centesimi e 100 centesimi di euro (tra 0€ e 1€) per ciascun tipo di informazione; in totale hai 100 centesimi di euro (1€) a disposizione ma non sei obbligato a spenderli tutti: quelli che non usi per ottenere le informazioni resteranno in tuo possesso.  </p>
+      <p class="text-justify">La somma delle quattro offerte non deve superare 100 centesimi (1€). </p>
+      <p class="text-justify">Una volta fatte le quattro offerte (espresse in centesimi), sarà estratto a caso un numero tra 0 e 100</p>
+      <p class="text-justify">Se hai offerto un numero più alto di quello estratto per una o più informazioni, allora quelle informazioni ti saranno mostrate durante la decisione 2; se invece hai offerto un numero più basso, le informazioni corrispondenti non ti saranno mostrate.</p>
+      <p class="text-justify">Al termine delle due decisioni ti sarà chiesto di compilare un breve questionario. </p>
+      <p class="text-justify">   Qui ci va la descrizione del processo di acquisto e di spedizione del prodotto. </p>
+
+
+
+ </font>
+
+ <p> &nbsp </p>
+
+
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
