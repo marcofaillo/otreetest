@@ -1,0 +1,122 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <!-- Le tue scelte -->
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<div class="row">
+ 	<div class="col-sm-12">
+	    <div class="alert alert-primary" role="alert" style="text-align:center">
+	       <h3> QUESTIONARIO </h3>
+	     </div>
+	 </div>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+
+	 <div class="col-sm">
+		<p class="text-justify"> Ti chiediamo per cortesia di rispondere alle domande riportate di seguito.</p>
+		&nbsp
+    <p class="text-justify"> 1. Da 1 (Per niente) a 10 (Moltissimo), quanto sei preoccupato per</p>
+		<ul>
+      <li> {% formfield player.q_preoccupato_ambiente  label="La questione ambientale" %} </li>
+		  <li>{% formfield player.q_preoccupato_alimentazione  label="Le conseguenze che l’alimentazione può avere sulla salute" %} </li>
+		  <li>{% formfield player.q_preoccupato_produzione  label="Gli effetti che alcuni sistemi di produzione possono avere sul tessuto produttivo delle singole comunità locali" %} </li>
+    </ul>
+    &nbsp
+    <p class="text-justify"> 2. Mediamente, quanto spesso nell’arco di una settimana ti capita di:</p>
+    </ul>
+    <ul>
+  	  <li>{% formfield player.q_pasta label="Mangiare pasta" %} </li>
+		  <li>{% formfield player.q_olio label="Utilizzare l’olio extra vergine di oliva per cucinare o come condimento" %} </li>
+      <li>{% formfield player.q_passata label="Utilizzare la passata di pomodoro " %} </li>
+      <li>{% formfield player.q_riso label="Mangiare riso" %} </li>
+      <li>{% formfield player.q_parmigiano label="Mangiare parmigiano reggiano, anche come condimento" %} </li>
+      <li>{% formfield player.q_burro label="Utilizzare il burro per cucinare" %} </li>
+      <li>{% formfield player.q_cioccolato label="Mangiare cioccolato" %} </li>
+    </ul>
+     &nbsp
+     <p class="text-justify"> 3. Da 1 a 10 quanto sei d’accordo con le seguenti affermazioni? Scegli una delle alternative per ogni domanda (da "Molto d'accordo" a "Molto in disaccordo")<p>
+       <ul>
+         <li>{% formfield player.q_salutari label="Si dovrebbe fare tutto il possibile per produrre generi alimentari salutari" %} </li>
+		      <li>{% formfield player.q_basso_impatto  label="Si dovrebbe fare tutto il possibile per favorire il consumo di generi alimentari a basso impatto ambientale" %} </li>
+		     <li>{% formfield player.q_tipici  label="Si dovrebbe fare tutto il possibile per favorire il consumo di generi alimentari tipici, il cui processo produttivo sia legato al territorio di provenienza" %} </li>
+      </ul>
+   &nbsp
+  	<p class="text-justify">{% formfield player.q_cucini_casa label="4. Solitamente cucini tu a casa? " %} </p>
+		<p class="text-justify">{% formfield player.q_spesa  label="5. Solitamente ti occupi tu di fare la spesa per la tua famiglia?" %} </p>
+		<p class="text-justify">{% formfield player.q_online  label="6. Quanto spesso ti capita di acquistare online generi alimentari?" %} </p>
+    &nbsp
+    <p class="text-justify">7.  Quanto spesso, durante i tuoi acquisti di prodotti alimentari, ti capita di:</p>
+    <ul>
+  	<li>{% formfield player.q_salute  label="Porre attenzione ad aspetti connessi all’impatto sulla salute dei prodotti che acquisti" %} </li>
+		<li>{% formfield player.q_impatto label="Porre attenzione ad aspetti connessi all’impatto ambientale dei prodotti che acquisti" %} </li>
+		<li>{% formfield player.q_dop label="Controllare se il prodotto che acquisti è un prodotto tipico – DOP o IGP " %} </li>
+	  <li>{% formfield player.q_nutri  label="Leggere le etichette nutrizionali dei prodotti" %} </p>
+    </ul>
+    &nbsp
+  	<p class="text-justify">{% formfield player.q_regime  label="Segui qualche regime alimentare particolare (es. esclusione di alcuni alimenti dalla dieta, etc.)?" %} </p>
+    &nbsp
+  	<p class="text-justify">{% formfield player.q_conosci_dop  label="8. Conoscevi già il significato delle sigle DOP e IGP?" %} </p>
+    <p class="text-justify">{% formfield player.q_stato_civile  label="9. Qual è il tuo stato Civile?" %} </p>
+    <p class="text-justify">{% formfield player.q_nucleo  label="10. Complessivamente quante persone fanno parte del suo nucleo famigliare?" %} </p>
+    <p class="text-justify">{% formfield player.q_minorenni label="11. Nel nucleo famigliare sono presenti minorenni" %} </p>
+    <p class="text-justify">{% formfield player.q_anziani  label="12. Nel nucleo famigliare sono presenti persone con più di 65 anni? " %} </p>
+    <p class="text-justify">{% formfield player.q_figli label="13 Hai figli" %} </p>
+    <p class="text-justify">{% formfield player.q_religione  label="14. Ti definiresti " %} </p>
+    <p class="text-justify">{% formfield player.q_prov_nato  label="15. In che provincia sei nato? " %} </p>
+    <p class="text-justify">{% formfield player.q_prov_risiedi label="16. In che provincia risiedi? " %} </p>
+    <p class="text-justify">{% formfield player.q_economico  label="17.Come diresti che te la stai cavando finanziariamente in questo periodo?" %} </p>
+
+
+
+
+	&nbsp
+
+
+		<!--		BOTTONE PROSEGUI	2	-->
+		 <div class="row">
+		    <div class="col-sm-12 text-center">
+		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+			</div>
+
+		 </div>
+
+
+
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+		{% endblock %}
+
+
+
+
+		{% block scripts %}
+			<script>
+				$(document).ready(function(){
+				});
+
+				$("#btn_submit").click(function(){
+					$("#form").submit()
+			  	});
+
+		</script>
+
+
+
+
+				{% endblock %}

@@ -176,6 +176,7 @@
         <div class="col-sm-12 text-center">
         <p class="text-justify"> <h3> TOTALE SPESA: <span id="spesa_totale" > . </span></h3></p>
         <p class="text-justify"> <h3> <span id="warning" ><span class="badge alert-success"> La spesa è superiore ai 10 euro! <br> Rimuovi uno o più prodotti </span></span> </h3></p>
+        <p class="text-justify"> <h3> <span id="zero" ><span class="badge alert-success"> Devi acquistare almeno un prodotto </span></span> </h3></p>
 
 
     </div>
@@ -191,11 +192,6 @@
           </div>
          </div>
  &nbsp
-         <div class="row">
-            <div class="col-sm-12 text-center">
-            <button type="button" id = "leave" class="btn btn-outline-primary btn-lg"> PROCEDI SENZA ACQUISTARE</button>
-          </div>
-         </div>
 
           </div>
 
@@ -216,25 +212,14 @@ $("#btn_submit").click(function(){
 
     $("#form").submit()  });
 
-$("#leave").click(function(){
 
-  $("#id_mezzipaccheri").val(0)
-  $("#id_tagliatelle").val(0)
-  $("#id_passata").val(0)
-  $("#id_olio").val(0)
-  $("#id_riso").val(0)
-  $("#id_parmigiano").val(0)
-  $("#id_cioccolato").val(0)
-  $("#id_burro").val(0)
-  $("#form").submit()
-
-
-        });
 </script>
 
 
 <script>
 $(document).ready(function(){
+      var n_prodotti=0
+      $("#zero").show()
       $("#btn_submit").hide()
       $( "#warning" ).hide();
       $( "#mezzipaccheri_rem").hide();
@@ -248,6 +233,8 @@ $(document).ready(function(){
 // acquista
 
       $("#mezzipaccheri").click(function(){
+      n_prodotti=n_prodotti+1
+      console.log(n_prodotti);
       $( "#mezzipaccheri_rem").show();
       $( "#mezzipaccheri_rem").css('background','lightblue');
       $( "#mezzipaccheri").hide();
@@ -256,6 +243,8 @@ $(document).ready(function(){
       });
 
       $("#tagliatelle").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#tagliatelle_rem").show();
           $( "#tagliatelle_rem").css('background','lightblue');
           $( "#tagliatelle").hide();
@@ -264,6 +253,8 @@ $(document).ready(function(){
       });
 
       $("#passata").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#passata_rem").show();
           $( "#passata_rem").css('background','lightblue');
           $( "#passata").hide();
@@ -272,6 +263,8 @@ $(document).ready(function(){
       });
 
       $("#olio").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#olio_rem").show();
           $( "#olio_rem").css('background','lightblue');
           $( "#olio").hide();
@@ -281,6 +274,8 @@ $(document).ready(function(){
       });
 
       $("#riso").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#riso_rem").show();
           $( "#riso_rem").css('background','lightblue');
           $( "#riso").hide();
@@ -290,6 +285,8 @@ $(document).ready(function(){
       });
 
       $("#parmigiano").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#parmigiano_rem").show();
           $( "#parmigiano_rem").css('background','lightblue');
           $( "#parmigiano").hide();
@@ -300,6 +297,8 @@ $(document).ready(function(){
       });
 
       $("#cioccolato").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#cioccolato_rem").show();
           $( "#cioccolato_rem").css('background','lightblue');
           $( "#cioccolato").hide();
@@ -309,6 +308,8 @@ $(document).ready(function(){
       });
 
       $("#burro").click(function(){
+        n_prodotti=n_prodotti+1
+        console.log(n_prodotti);
           $( "#burro_rem").show();
           $( "#burro_rem").css('background','lightblue');
           $( "#burro").hide();
@@ -320,6 +321,8 @@ $(document).ready(function(){
       // rimuovi
 
             $("#mezzipaccheri_rem").click(function(){
+            n_prodotti=n_prodotti-1
+            console.log(n_prodotti);
             $( "#mezzipaccheri_rem").hide();
             $( "#mezzipaccheri").show();
         	  		$("#id_mezzipaccheri").val(0);
@@ -328,6 +331,8 @@ $(document).ready(function(){
             });
 
             $("#tagliatelle_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#tagliatelle_rem").hide();
                 $( "#tagliatelle").show();
                     $("#id_tagliatelle").val(0);
@@ -335,6 +340,8 @@ $(document).ready(function(){
             });
 
             $("#passata_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#passata_rem").hide();
                 $( "#passata").show();
                     $("#id_passata").val(0);
@@ -343,6 +350,8 @@ $(document).ready(function(){
             });
 
             $("#olio_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#olio_rem").hide();
                 $( "#olio").show();
                     $("#id_olio").val(0);
@@ -350,6 +359,8 @@ $(document).ready(function(){
             });
 
             $("#riso_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#riso_rem").hide();
                 $( "#riso").show();
                     $("#id_riso").val(0);
@@ -357,6 +368,8 @@ $(document).ready(function(){
             });
 
             $("#parmigiano_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#parmigiano_rem").hide();
                 $( "#parmigiano").show();
                     $("#id_parmigiano").val(0);
@@ -364,6 +377,8 @@ $(document).ready(function(){
             });
 
             $("#cioccolato_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#cioccolato_rem").hide();
                 $( "#cioccolato").show();
                     $("#id_cioccolato").val(0);
@@ -371,6 +386,8 @@ $(document).ready(function(){
             });
 
             $("#burro_rem").click(function(){
+              n_prodotti=n_prodotti-1
+              console.log(n_prodotti);
                 $( "#burro_rem").hide();
                 $( "#burro").show();
                     $("#id_burro").val(0);
@@ -411,7 +428,7 @@ $(document).ready(function(){
       var spesa_totale= mezzipaccheri*p_mezzipaccheri + tagliatelle*p_tagliatelle + passata*p_passata + olio*p_olio+riso*p_riso+parmigiano*p_parmigiano+cioccolato*p_cioccolato+burro*p_burro
 
       spesa_totale_show = spesa_totale.toFixed(2);
-      if (spesa_totale > 10) {$( "#warning" ).show();$("#btn_submit").hide();$("#leave").hide()} else {$( "#warning" ).hide();$("#btn_submit").show();$("#leave").show()}
+      if (spesa_totale > 10) {$( "#warning" ).show();$("#btn_submit").hide()} else if (spesa_totale == 0) {$( "#zero" ).show();$( "#warning" ).hide();$("#btn_submit").hide()} else  {$( "#zero" ).hide();$( "#warning" ).hide();$("#btn_submit").show()}
       $("#spesa_totale").html(spesa_totale_show).val();
 
       }
