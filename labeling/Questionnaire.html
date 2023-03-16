@@ -29,6 +29,8 @@
       <li> {% formfield player.q_preoccupato_ambiente  label="La questione ambientale" %} </li>
 		  <li>{% formfield player.q_preoccupato_alimentazione  label="Le conseguenze che l’alimentazione può avere sulla salute" %} </li>
 		  <li>{% formfield player.q_preoccupato_produzione  label="Gli effetti che alcuni sistemi di produzione possono avere sul tessuto produttivo delle singole comunità locali" %} </li>
+      <li>{% formfield player.q_preoccupato_tipic  label="L’abbandono della tradizione nella produzione dei generi alimentari" %} </li>
+
     </ul>
     &nbsp
     <p class="text-justify"> 2. Mediamente, quanto spesso nell’arco di una settimana ti capita di:</p>
@@ -51,7 +53,7 @@
       </ul>
    &nbsp
   	<p class="text-justify">{% formfield player.q_cucini_casa label="4. Solitamente cucini tu a casa? " %} </p>
-		<p class="text-justify">{% formfield player.q_spesa  label="5. Solitamente ti occupi tu di fare la spesa per la tua famiglia?" %} </p>
+		<p class="text-justify">{% formfield player.q_spesa  label="5. Quanto spesso ti capita di fare la spesa?" %} </p>
 		<p class="text-justify">{% formfield player.q_online  label="6. Quanto spesso ti capita di acquistare online generi alimentari?" %} </p>
     &nbsp
     <p class="text-justify">7.  Quanto spesso, durante i tuoi acquisti di prodotti alimentari, ti capita di:</p>
@@ -73,7 +75,8 @@
     <p class="text-justify">{% formfield player.q_religione  label="14. Ti definiresti " %} </p>
     <p class="text-justify">{% formfield player.q_prov_nato  label="15. In che provincia sei nato? " %} </p>
     <p class="text-justify">{% formfield player.q_prov_risiedi label="16. In che provincia risiedi? " %} </p>
-    <p class="text-justify">{% formfield player.q_economico  label="17.Come diresti che te la stai cavando finanziariamente in questo periodo?" %} </p>
+    <p class="text-justify">{% formfield player.q_economico  label="17. Come diresti che te la stai cavando finanziariamente in questo periodo?" %} </p>
+    <p class="text-justify">{% formfield player.q_prescrizione  label="18. Tu o qualche membro del tuo nucleo famigliare state seguendo uno specifico regime alimentare a seguito di una prescrizione?" %} </p>
 
 
 
