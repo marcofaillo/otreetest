@@ -71,96 +71,101 @@ class Player(BasePlayer):
     payoff_prolific=models.FloatField(initial=0)  # amount to be paid in Prolific
     #questionnaire
     q_preoccupato_ambiente =  models.IntegerField(
-                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Moltissimo'], [-1, ' Non rispondo']  ])
+                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.Moltissimo'] ],blank=True,)
 
     q_preoccupato_alimentazione =  models.IntegerField(
-                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Moltissimo'], [-1, ' Non rispondo']   ])
+                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.Moltissimo']],blank=True,)
 
     q_preoccupato_produzione =  models.IntegerField(
-                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Moltissimo'], [-1, ' Non rispondo']   ])
+                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.Moltissimo']],blank=True,)
 
     q_preoccupato_tipic=  models.IntegerField(
-                        choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Moltissimo'], [-1, ' Non rispondo']   ])
+                    choices=[[1, '1.Per niente '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.Moltissimo'] ],blank=True,)
 
-    q_pasta = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_olio = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_passata = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_riso= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_parmigiano= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_burro= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
-    q_cioccolato= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi'], [-1, ' Non rispondo']])
+    q_pasta = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_olio = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_passata = models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_riso= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_parmigiano= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_burro= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
+    q_cioccolato= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
     q_salutari =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Completamente d\'accordo'] , [-1, ' Non rispondo']  ])
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo'] ],blank=True,)
 
     q_basso_impatto =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Completamente d\'accordo'], [-1, ' Non rispondo']   ])
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
 
     q_tipici =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5.'], [6, '6.'], [7, '7.'], [8, '8.'], [9, '9.'], [10, '10.Completamente d\'accordo'], [-1, ' Non rispondo']   ])
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
 
-    q_cucini_casa =  models.IntegerField(
-                    choices=[[1, 'Quasi mai '], [2, 'Raramente '], [3, ' Spesso'], [4, 'Quasi sempre o sempre'], [-1, ' Non rispondo'] ])
+    q_tradizione =  models.IntegerField(
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
 
 
     q_spesa=  models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno '], [3, ' Qualche volta al mese'], [4, 'Tutte le settimane'] ,[5, 'Tutti i giorni o quasi'] , [-1, ' Non rispondo']])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno '], [3, ' Qualche volta al mese'], [4, 'Tutte le settimane'] ,[5, 'Tutti i giorni o quasi'] ],blank=True)
 
 
     q_online=  models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno'], [3, ' Qualche volta al mese'], [4, 'Qualche volta alla settimana'], [-1, ' Non rispondo'] ])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno'], [3, ' Qualche volta al mese'], [4, 'Qualche volta alla settimana'] ],blank=True)
 
 
     q_salute=  models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'] , [-1, ' Non rispondo']])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'] ],blank=True,)
 
     q_impatto=  models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'], [-1, ' Non rispondo'] ])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre']],blank=True,)
 
     q_dop = models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'], [-1, ' Non rispondo'] ])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'] ],blank=True,)
 
 
     q_nutri = models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre'], [-1, ' Non rispondo'] ])
+                    choices=[[1, 'Mai '], [2, 'Qualche volta'], [3, ' Spesso'], [4, 'Sempre']],blank=True,)
 
 
     q_regime = models.IntegerField(
-                    choices=[[0, 'Nessuno'], [1, 'Dieta a zona'], [2, ' Dieta vegetariana'], [3, 'Dieta pescariana'], [4, 'Dieta vegana'], [5, 'Altro'], [-1, ' Non rispondo']  ])
-
-
-    q_conosci_dop = models.IntegerField(
-                    choices=[[1, 'Sì'], [0, 'No'], [-1, ' Non rispondo']])
-
+                    choices=[[0, 'Nessuno'], [1, 'Dieta a zona'], [2, ' Dieta vegetariana'], [3, 'Dieta pescariana'], [4, 'Dieta vegana'], [5, 'Altro'] ],blank=True)
 
 
     q_stato_civile = models.IntegerField(
-                    choices=[[1, 'Celibe/Nubile'], [2, 'Convivente'], [3, 'Coniugato/a'], [4, 'Separato/a'], [5, 'Divorziato/a'], [6, 'Vedovo/a'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Celibe/Nubile'], [2, 'Convivente'], [3, 'Coniugato/a'], [4, 'Separato/a'], [5, 'Divorziato/a'], [6, 'Vedovo/a']],blank=True)
 
-    q_nucleo = models.IntegerField()
+    q_nucleo = models.IntegerField(blank=True,)
 
     q_minorenni= models.IntegerField(
-                    choices=[[1, 'Sì'], [0, 'No'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Sì'], [0, 'No']],blank=True,)
 
 
     q_anziani= models.IntegerField(
-                    choices=[[1, 'Sì'], [0, 'No'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Sì'], [0, 'No']],blank=True,)
 
 
     q_figli= models.IntegerField(
-                    choices=[[1, 'Sì'], [0, 'No'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Sì'], [0, 'No']],blank=True,)
 
 
     q_prescrizione= models.IntegerField(
-                    choices=[[1, 'Sì'], [0, 'No'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Sì'], [0, 'No']],blank=True,)
 
 
     q_religione= models.IntegerField(
-                    choices=[[1, 'Cattolico'], [2, 'Protestante'],[3, 'Musulmano'],[4, 'Buddista'], [5, 'Di religione ebraica'], [6, 'Ateo'],[7, 'Agnostico'],[8, 'Altro'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Cattolico'], [2, 'Protestante'],[3, 'Musulmano'],[4, 'Buddista'], [5, 'Di religione ebraica'], [6, 'Ateo'],[7, 'Agnostico'],[8, 'Altro']],blank=True,)
 
-    q_prov_nato= models.StringField()
-    q_prov_risiedi= models.StringField()
+    q_prov_nato= models.StringField(blank=True,)
+    q_prov_risiedi= models.StringField(blank=True,)
     q_economico= models.IntegerField(
-                    choices=[[1, 'Vivo in modo agiato'], [2, 'Vivo in modo accettabile'],[3, 'Riesco appena a tirare avanti'],[4, 'Me la passo davvero male'], [-1, ' Non rispondo']])
+                    choices=[[1, 'Vivo in modo agiato'], [2, 'Vivo in modo accettabile'],[3, 'Riesco appena a tirare avanti'],[4, 'Me la passo davvero male']],blank=True,)
+
+    q_conosci_dop = models.IntegerField(
+                    choices=[[1, 'Sì'], [0, 'No']],blank=True,)
+    q_dop_ricaduta = models.IntegerField(
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo'] ],blank=True,)
+    q_dop_tradizone= models.IntegerField(
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+    q_dop_genuinità= models.IntegerField(
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+
 
 ## functions
 # check for info to be given
@@ -226,7 +231,7 @@ class Final(Page):
 
 class Questionnaire(Page):
         form_model = 'player'
-        form_fields = ['q_preoccupato_ambiente', 'q_preoccupato_alimentazione', 'q_preoccupato_produzione','q_preoccupato_tipic', 'q_pasta', 'q_prescrizione', 'q_olio', 'q_passata', 'q_riso', 'q_parmigiano', 'q_burro', 'q_cioccolato', 'q_salutari', 'q_basso_impatto', 'q_tipici', 'q_cucini_casa', 'q_spesa', 'q_online', 'q_salute', 'q_impatto', 'q_dop', 'q_nutri', 'q_regime', 'q_conosci_dop', 'q_stato_civile', 'q_nucleo', 'q_minorenni', 'q_anziani', 'q_figli', 'q_religione', 'q_prov_nato', 'q_prov_risiedi', 'q_economico']
+        form_fields = ['q_preoccupato_ambiente', 'q_preoccupato_alimentazione', 'q_preoccupato_produzione','q_preoccupato_tipic', 'q_pasta', 'q_prescrizione', 'q_olio', 'q_passata', 'q_riso', 'q_parmigiano', 'q_burro', 'q_cioccolato', 'q_salutari', 'q_basso_impatto', 'q_tipici', 'q_tradizione','q_spesa', 'q_online', 'q_salute', 'q_impatto', 'q_dop', 'q_nutri', 'q_regime', 'q_conosci_dop', 'q_stato_civile', 'q_nucleo', 'q_minorenni', 'q_anziani', 'q_figli', 'q_religione', 'q_prov_nato', 'q_prov_risiedi', 'q_economico', 'q_dop_ricaduta', 'q_dop_tradizone', 'q_dop_genuinità' ]
         pass
 
 class Back_to_Prolific(Page):
