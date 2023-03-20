@@ -45,7 +45,7 @@
       <li>{% formfield player.q_cioccolato label="Mangiare cioccolato" %} </li>
     </ul>
      &nbsp
-     <p class="text-justify"> 3. Da 1 a 5 quanto sei d’accordo con le seguenti affermazioni? Scegli una delle alternative per ogni domanda (da "Molto d'accordo" a "Molto in disaccordo")<p>
+     <p class="text-justify"> 3. Da 1 a 5 quanto sei d’accordo con le seguenti affermazioni? Scegli una delle alternative per ogni domanda (da "1: Per niente d'accordo"  a "5. Completamente d'accordo")<p>
        <ul>
          <li>{% formfield player.q_salutari label="Si dovrebbe fare tutto il possibile per produrre generi alimentari salutari" %} </li>
 		      <li>{% formfield player.q_basso_impatto  label="Si dovrebbe fare tutto il possibile per favorire il consumo di generi alimentari a basso impatto ambientale" %} </li>
@@ -55,9 +55,8 @@
       </ul>
    &nbsp
 		<p class="text-justify">{% formfield player.q_spesa  label="4. Quanto spesso ti capita di fare la spesa?" %} </p>
-		<p class="text-justify">{% formfield player.q_online  label="5. Quanto spesso ti capita di acquistare online generi alimentari?" %} </p>
     &nbsp
-    <p class="text-justify">6.  Quanto spesso, durante i tuoi acquisti di prodotti alimentari, ti capita di:</p>
+    <p class="text-justify">5.  Quanto spesso, durante i tuoi acquisti di prodotti alimentari, ti capita di:</p>
     <ul>
   	<li>{% formfield player.q_salute  label="Porre attenzione ad aspetti connessi all’impatto sulla salute dei prodotti che acquisti" %} </li>
 		<li>{% formfield player.q_impatto label="Porre attenzione ad aspetti connessi all’impatto ambientale dei prodotti che acquisti" %} </li>
@@ -65,20 +64,20 @@
 	  <li>{% formfield player.q_nutri  label="Leggere le etichette nutrizionali dei prodotti" %} </p>
     </ul>
     &nbsp
-  	<p class="text-justify">{% formfield player.q_regime  label="7.Segui qualche regime alimentare particolare (es. esclusione di alcuni alimenti dalla dieta, etc.)?" %} </p>
+  	<p class="text-justify">{% formfield player.q_regime  label="6.Segui qualche regime alimentare particolare (es. esclusione di alcuni alimenti dalla dieta, etc.)?" %} </p>
     &nbsp
-  	<p class="text-justify">{% formfield player.q_conosci_dop  label="8. Conoscevi già il significato delle sigle DOP e IGP?" %} </p>
-    <p class="text-justify">{% formfield player.q_stato_civile  label="9. Qual è il tuo stato Civile?" %} </p>
-    <p class="text-justify">{% formfield player.q_nucleo  label="10. Complessivamente quante persone fanno parte del suo nucleo famigliare?" %} </p>
-    <p class="text-justify">{% formfield player.q_minorenni label="11. Nel nucleo famigliare sono presenti minorenni" %} </p>
-    <p class="text-justify">{% formfield player.q_anziani  label="12. Nel nucleo famigliare sono presenti persone con più di 65 anni? " %} </p>
-    <p class="text-justify">{% formfield player.q_figli label="13 Hai figli" %} </p>
-    <p class="text-justify">{% formfield player.q_religione  label="14. Ti definiresti " %} </p>
-    <p class="text-justify">{% formfield player.q_prov_nato  label="15. In che provincia sei nato? " %} </p>
-    <p class="text-justify">{% formfield player.q_prov_risiedi label="16. In che provincia risiedi? " %} </p>
-    <p class="text-justify">{% formfield player.q_economico  label="17. Come diresti che te la stai cavando finanziariamente in questo periodo?" %} </p>
-    <p class="text-justify">{% formfield player.q_prescrizione  label="18. Tu o qualche membro del tuo nucleo famigliare state seguendo uno specifico regime alimentare a seguito di una prescrizione?" %} </p>
-    <p class="text-justify">19. Da 1 a 5quanto ritieni che il marchio DOP e il marchio IGP siano in grado di cogliere i seguenti aspetti" %} </p>
+  	<p class="text-justify">{% formfield player.q_conosci_dop  label="7. Conoscevi già il significato delle sigle DOP e IGP?" %} </p>
+    <p class="text-justify">{% formfield player.q_stato_civile  label="8. Qual è il tuo stato Civile?" %} </p>
+    <p class="text-justify">{% formfield player.q_nucleo  label="9. Complessivamente quante persone fanno parte del tuo nucleo famigliare?" %} </p>
+    <p class="text-justify">{% formfield player.q_minorenni label="10. Nel nucleo famigliare sono presenti minorenni" %} </p>
+    <p class="text-justify">{% formfield player.q_anziani  label="11. Nel nucleo famigliare sono presenti persone con più di 65 anni? " %} </p>
+    <p class="text-justify">{% formfield player.q_figli label="12 Hai figli" %} </p>
+    <p class="text-justify">{% formfield player.q_religione  label="13. Ti definiresti " %} </p>
+    <p class="text-justify">{% formfield player.q_prov_nato  label="14. In che provincia sei nato? " %} </p>
+    <p class="text-justify">{% formfield player.q_prov_risiedi label="15. In che provincia risiedi? " %} </p>
+    <p class="text-justify">{% formfield player.q_economico  label="16. Come diresti che te la stai cavando finanziariamente in questo periodo?" %} </p>
+    <p class="text-justify">{% formfield player.q_prescrizione  label="17. Tu o qualche membro del tuo nucleo famigliare state seguendo uno specifico regime alimentare a seguito di una prescrizione?" %} </p>
+    <p class="text-justify">18. Da 1 a 5 quanto ritieni che il marchio DOP e il marchio IGP siano in grado di cogliere i seguenti aspetti </p>
     <ul>
   	   <li>{% formfield player.q_dop_ricaduta  label="La ricaduta che il processo di produzione ha sul tessuto produttivo, anche artigianale, delle singole comunità locali " %} </li>
 		   <li>{% formfield player.q_dop_tradizone label="Il ruolo della tradizione nel processo produttivo" %} </li>

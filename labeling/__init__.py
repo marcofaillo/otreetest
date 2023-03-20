@@ -90,24 +90,21 @@ class Player(BasePlayer):
     q_burro= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
     q_cioccolato= models.IntegerField(choices=[[1, 'Una volta alla settimana o meno'], [2, 'Due, tre volte alla settimana'],[3, 'Quattro, cinque volte alla settimana'], [4, 'Ogni giorno o quasi']],blank=True,)
     q_salutari =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo'] ],blank=True,)
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Completamente d\'accordo'] ],blank=True,)
 
     q_basso_impatto =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Completamente d\'accordo']  ],blank=True,)
 
     q_tipici =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Completamente d\'accordo']  ],blank=True,)
 
     q_tradizione =  models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Completamente d\'accordo']  ],blank=True,)
 
 
     q_spesa=  models.IntegerField(
                     choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno '], [3, ' Qualche volta al mese'], [4, 'Tutte le settimane'] ,[5, 'Tutti i giorni o quasi'] ],blank=True)
 
-
-    q_online=  models.IntegerField(
-                    choices=[[1, 'Mai '], [2, 'Qualche volta all\'anno'], [3, ' Qualche volta al mese'], [4, 'Qualche volta alla settimana'] ],blank=True)
 
 
     q_salute=  models.IntegerField(
@@ -160,11 +157,11 @@ class Player(BasePlayer):
     q_conosci_dop = models.IntegerField(
                     choices=[[1, 'Sì'], [0, 'No']],blank=True,)
     q_dop_ricaduta = models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo'] ],blank=True,)
+                    choices=[[1, '1.Per niente'], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Del tutto'] ],blank=True,)
     q_dop_tradizone= models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+                    choices=[[1, '1.Per niente'], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Del tutto']  ],blank=True,)
     q_dop_genuinità= models.IntegerField(
-                    choices=[[1, '1.Per niente d\'accordo '], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, 'Completamente d\'accordo']  ],blank=True,)
+                    choices=[[1, '1.Per niente'], [2, '2. '], [3, ' 3.'], [4, '4.'] , [5, '5. Del tutto']  ],blank=True,)
 
 
 ## functions
@@ -231,7 +228,7 @@ class Final(Page):
 
 class Questionnaire(Page):
         form_model = 'player'
-        form_fields = ['q_preoccupato_ambiente', 'q_preoccupato_alimentazione', 'q_preoccupato_produzione','q_preoccupato_tipic', 'q_pasta', 'q_prescrizione', 'q_olio', 'q_passata', 'q_riso', 'q_parmigiano', 'q_burro', 'q_cioccolato', 'q_salutari', 'q_basso_impatto', 'q_tipici', 'q_tradizione','q_spesa', 'q_online', 'q_salute', 'q_impatto', 'q_dop', 'q_nutri', 'q_regime', 'q_conosci_dop', 'q_stato_civile', 'q_nucleo', 'q_minorenni', 'q_anziani', 'q_figli', 'q_religione', 'q_prov_nato', 'q_prov_risiedi', 'q_economico', 'q_dop_ricaduta', 'q_dop_tradizone', 'q_dop_genuinità' ]
+        form_fields = ['q_preoccupato_ambiente', 'q_preoccupato_alimentazione', 'q_preoccupato_produzione','q_preoccupato_tipic', 'q_pasta', 'q_prescrizione', 'q_olio', 'q_passata', 'q_riso', 'q_parmigiano', 'q_burro', 'q_cioccolato', 'q_salutari', 'q_basso_impatto', 'q_tipici', 'q_tradizione','q_spesa', 'q_salute', 'q_impatto', 'q_dop', 'q_nutri', 'q_regime', 'q_conosci_dop', 'q_stato_civile', 'q_nucleo', 'q_minorenni', 'q_anziani', 'q_figli', 'q_religione', 'q_prov_nato', 'q_prov_risiedi', 'q_economico', 'q_dop_ricaduta', 'q_dop_tradizone', 'q_dop_genuinità' ]
         pass
 
 class Back_to_Prolific(Page):
