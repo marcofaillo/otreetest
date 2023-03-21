@@ -49,14 +49,13 @@ SESSION_CONFIGS = [
         #
         #
         # #
-        # dict(
-        #     name='faillo_content_spanish_pract',
-        #     display_name='faillo_content_spanish_pract',
-        #     num_demo_participants=4,
-        #     app_sequence=['faillo_content_spanish_pract','faillo_content_spanish_exp'],
-        #     test=0,
-        #     ),
-        #
+        dict(
+            name='BaselineFG',
+            display_name='BaselineFG',
+            num_demo_participants=4,
+            app_sequence=['BaselineFG'],
+            ),
+
         # dict(
         #     name='faillo_content_spanish_pract_gamma5',
         #     display_name='faillo_content_spanish_pract_gamma5',
