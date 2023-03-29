@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+Giocatore: {{player_name}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h4>  FINE DELL'ESPERIMENTO</h4>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">L'esperimento è finito, grazie per aver partecipato.</p>
+      <p class="text-justify">Il tuo pagamento finale è di <b> {{cumul_payoff|to2}} UMS </b> pari a  <b> {{euro|to2}}  euro </b>, a cui si aggiungono i 3 euro per la partecipazione</b></p>
+
+
+        <!--		BOTTONE PROSEGUI	2	-->
+    		 <div class="row">
+    		    <div class="col-sm-12 text-center">
+    		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+    			</div>
+
+    		 </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

@@ -50,11 +50,19 @@ SESSION_CONFIGS = [
         #
         # #
         dict(
-            name='BaselineFG',
-            display_name='BaselineFG',
+            name='FG_baseline_exp_high',
+            display_name='FG_baseline_exp_high',
             num_demo_participants=4,
-            app_sequence=['BaselineFG'],
+            app_sequence=['FG_baseline_exp_high'],
             ),
+
+        dict(
+            name='FG_baseline_exp_low',
+            display_name='FG_baseline_exp_low',
+            num_demo_participants=4,
+            app_sequence=['FG_baseline_exp_low'],
+            ),
+
 
         # dict(
         #     name='faillo_content_spanish_pract_gamma5',

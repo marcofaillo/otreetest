@@ -1,0 +1,61 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+Giocatore: {{player_name}}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert bg-warning" role="alert" style="text-align:center">
+        <h4>  ROUND N. {{round}}. </h4>
+        <h4>  Fine del round</h4>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">Hai assegnato: <b>{{total_punishment |to0}} </b> per un costo totale di <b> {{cost_of_punishment}} UMS </b> </b></p>
+      <p class="text-justify">Hai ricevuto <b>{{punishment_received|to0}} punti </b> per una riduzione del pagamento del primo round pari a <b> {{reduction|to2 }} UMS </b></p>
+      <p class="text-justify">Il tuo pagamento per questo round è di <b> {{payoff_2|to1}} UMS </b> </p>
+
+
+        <!--		BOTTONE PROSEGUI	2	-->
+    		 <div class="row">
+    		    <div class="col-sm-12 text-center">
+    		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+    			</div>
+
+    		 </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
