@@ -1,0 +1,105 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> PROCEDURE AL COMPUTER </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+      <p align = "justify">All’inizio di ogni round, i partecipanti A inseriscono la loro offerta di vendita in una schermata simile a quella mostrata qui sotto:</p>
+      <p> &nbsp </p>
+      <div class="card">
+        <div class="card-body">
+      <img src="{% static "bartling/tab_offerta.jpg" %}" class="rounded mx-auto d-block" />
+
+      </div>
+      </div>
+      <p> &nbsp </p>
+      <p align = "justify"> <b> Il partecipante A </b> deve indicare se vuole offrire un “prodotto senza effetti per il partecipante C” o un “prodotto che genera una perdita per il partecipante C”.  </p>
+      <p align = "justify"> Inoltre, il partecipante A deve indicare il prezzo a cui vuole vendere il prodotto scegliendo un valore compreso tra 0 e 50 (estremi inclusi).</p>
+      <p align = "justify"> Dopo aver scelto il tipo di prodotto e il prezzo, il partecipante A deve cliccare il tasto “OK”. Può cambiare le sue scelte riguardo al tipo di prodotto e al prezzo fino a quando non ha cliccato OK. </p>
+      <p align = "justify"> La propria offerta di vendita sarà contrassegnata in blu. </p>
+      <p align = "justify"> I <b> partecipanti B </b>  vedranno in ogni round le offerte di vendita in una schermata simile a quella qui sotto: </p>
+      <p> &nbsp </p>
+      <div class="card">
+        <div class="card-body">
+      <img src="{% static "bartling/tab_buyer.jpg" %}" class="rounded mx-auto d-block" />
+
+      </div>
+      </div>
+      <p> &nbsp </p>
+      <p align = "justify"> I partecipanti B vedranno questa schermata uno alla volta, secondo un ordine casualmente generato dal software. Solo quando il primo partecipante B avrà preso la sua decisione, toccherà al secondo e così via. </p>
+      <p align = "justify"> Il primo partecipante B selezionato potrà scegliere tra tutte le offerte. Il secondo partecipante B potrà scegliere solo tra le offerte rimaste dopo la scelta del primo partecipante B e così via. </p>
+      <p align = "justify"> Se tutti i cinque partecipanti B accettano un’offerta, rimarrà un’offerta che non potrà essere accettata. Questo significa che il partecipante A che ha fatto quell’offerta non concluderà la vendita in quel round. L’ordine con il quale i partecipanti B vedranno le offerte è determinato casualmente all’inizio di ogni round.</p>
+      <p align = "justify"> I prezzi appaiono nella colonna di sinistra della tabella e il tipo di prodotto appare nella colonna di destra. Le diverse offerte sono mostrate in righe separate. Per accettare una delle offerte il partecipante B dovrà cliccare sulla riga corrispondente. La riga selezionata diventerà blu.</p>
+      <p align = "justify"><ul> <li>	Per accettare l’offerta evidenziata in blu, il partecipante B dovrà cliccare il tasto ACCETTO. </ul> </li> </p>
+      <p align = "justify"> L’offerta selezionata può essere cambiata fino a che non viene cliccato il tasto ACCETTO. </p>
+      <p align = "justify"> Se il partecipante B non vuole accettare nessuna offerta, deve cliccare il tasto NON ACCETTO NESSUNA OFFERTA. Anche se una riga era selezionata, nessuna offerta verrà accettata se viene cliccato il tasto NON ACCETTO NESSUNA OFFERTA.</p>
+      <p align = "justify"> Quando tutti i partecipanti B avranno preso le loro decisioni, ogni partecipante B sarà informato circa il suo pagamento e quello del partecipante C a lui abbinato.</p>
+      <p align = "justify"> I partecipanti A vedranno le loro offerte, quelle degli altri partecipanti A e saranno informati su quali offerte sono state accettate e in quale ordine. La propria offerta di vendita sarà contrassegnata in blu. </p>
+      <p> &nbsp </p>
+      <div class="card">
+        <div class="card-body">
+      <img src="{% static "bartling/tab_seller.jpg" %}" class="rounded mx-auto d-block" />
+
+      </div>
+      </div>
+      <p> &nbsp </p>
+      <p align = "justify"> I <b> partecipanti C </b> non prendono nessuna decisione in questo esperimento. Chiederemo però ai partecipanti C in ogni round le loro aspettative sul comportamento dei partecipanti A e B.</p>
+      <p align = "justify"> Quando tutti i partecipanti A e B avranno preso le loro decisioni, i partecipanti C verranno informati dei loro pagamenti, che dipendono esclusivamente dalle decisioni dei partecipanti A e B.</p>
+      <p align = "justify"> Dopo che tutti i partecipanti saranno stati informati dei pagamenti in un round, inizierà il round successivo. </p>
+      <p align = "justify"> <b> I tuoi pagamenti complessivi in questo esperimento coincideranno con i pagamenti ottenuti in uno dei round selezionato casualmente dal software. </b> </p>
+      <p align = "justify"> <b> Dato che non sai quale round sarà selezionato, devi valutare le decisioni in ogni round attentamente.</p>
+      <p align = "justify"> Alla fine dell’esperimento, i punti ottenuti saranno convertiti in euro e pagati in aggiunta al compenso dovuto per la partecipazione. </b></p>
+      <p align = "justify"> <i> Avete domande? Se sì, vi preghiamo di alzare la mano. Altrimenti, vi chiediamo di rispondere ad un breve questionario volto a verificare la comprensione delle istruzioni. </i></p>
+       </div>
+
+        <p> &nbsp </p>
+</font>
+</div>
+
+
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

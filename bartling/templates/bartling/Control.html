@@ -1,0 +1,102 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3>DOMANDE DI CONTROLLO</h3>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+<font size="4">
+
+ <div class="col-sm-12">
+ <div class="row">
+        <p class="text-justify">1.	Assumete che il partecipante A offra un “prodotto senza effetti per il partecipante C” al prezzo di 40 e il partecipante B accetti l’offerta. Quali sono i pagamenti dei partecipanti A, B e C? </p>
+        {% formfield player.q1 label="1.1. Pagamento di  A" %}
+        {% formfield player.q2 label="1.2. Pagamento di  B" %}
+        {% formfield player.q3 label="1.1. Pagamento di  C" %}
+ </div>
+ <div class="row">
+        <p class="text-justify">2.	Assumete che il partecipante A offra un “prodotto che genera una perdita per il partecipante C” al prezzo di 40 e il partecipante B accetti l’offerta.
+Quali sono i pagamenti dei partecipanti A, B e C?
+ </p>
+        {% formfield player.q4 label="2.1. Pagamento di  A" %}
+        {% formfield player.q5 label="2.2. Pagamento di  B" %}
+        {% formfield player.q6 label="2.3. Pagamento di  C" %}
+ </div>
+
+ <div class="row">
+        <p class="text-justify">3.	Assumete che il partecipante A offra un “prodotto senza effetti per il partecipante C” al prezzo di 15 e il partecipante B accetti l’offerta.
+Quali sono i pagamenti dei partecipanti A, B e C?
+
+ </p>
+        {% formfield player.q7 label="3.1. Pagamento di  A" %}
+        {% formfield player.q8 label="3.2. Pagamento di  B" %}
+        {% formfield player.q9 label="3.3. Pagamento di  C" %}
+ </div>
+
+ <div class="row">
+        <p class="text-justify">4.	Assumete che il partecipante A offra un “prodotto che genera una perdita per il partecipante C” al prezzo di 40 e nessun partecipante B accetti l’offerta.
+
+
+
+ </p>
+        {% formfield player.q10 label="4.1 .Qual è il pagamento per il partecipante A?" %}
+        {% formfield player.q11 label="4.2 .Qual è il pagamento per il partecipante B che non accetta alcuna offerta?" %}
+        {% formfield player.q12 label="4.3 . Qual è il pagamento per il partecipante C a lui abbinato?" %}
+ </div>
+
+
+
+ </div>
+ </font>
+</div>
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

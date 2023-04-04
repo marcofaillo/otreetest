@@ -1,0 +1,200 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block content %}
+
+<!--INTESTAZIONE -->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+
+	<div class="col-sm-12">
+
+
+    	<p> 	<font size="4">Qui puoi vedere tutte le offerte, la tua offerta è contrassegnata in blu. </p>
+    	<p> 	<font size="4">Nella tabella puoi vedere anche l'ordine con cui le offerte sono state accettate dai compratori. </p>
+	</font>
+	 </div>
+
+ </div>
+
+
+
+
+
+<font size="4">
+
+<div class="container" style="border-style: solid;border-color:lightgray">
+<font size="4">
+
+<!-- COLONNA SLIDER -->
+
+<table class="table table-sm">
+
+  <thead>
+  <tr  class="text-center">
+      <th scope="col"> PREZZO DEL PRODOTTO </th>
+      <th scope="col"> TIPO DI PRODOTTO</th>
+      <th scope="col"> ORDINE DI ACCETTAZIONE </th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+{% if id != list_prices.0.0 %}
+    <tr  class="text-center" id="r1">
+      <td scope="col">{{list_prices.0.1}}</td>
+      <td scope="col">{% if list_prices.0.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+      <td scope="col">{% if list_prices.0.3 == - 1 %} Non accettata {% else %} {{list_prices.0.3}} {% endif %}</td>
+    </tr>
+{% else %}
+    <tr  class="text-center" id="r2" >
+      <td scope="col" style = "color: blue;" >{{list_prices.0.1}}</td>
+        <td scope="col" style = "color: blue;" >{% if list_prices.0.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+      <td scope="col">{% if list_prices.0.3 == - 1 %} Non accettata {% else %} {{list_prices.0.3}} {% endif %}</td>
+    </tr>
+{% endif %}
+
+{% if id != list_prices.1.0 %}
+    <tr  class="text-center" id="r3">
+      <td scope="col">{{list_prices.1.1}}</td>
+      <td scope="col">{% if list_prices.1.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+      <td scope="col">{% if list_prices.1.3 == - 1 %} Non accettata {% else %} {{list_prices.1.3}} {% endif %}</td>
+    </tr>
+{% else %}
+
+    <tr  class="text-center" id="r4">
+     <td scope="col" style = "color: blue;" > {{list_prices.1.1}}</td>
+       <td scope="col" style = "color: blue;" >{% if list_prices.1.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+     <td scope="col">{% if list_prices.1.3 == - 1 %} Non accettata {% else %} {{list_prices.1.3}} {% endif %}</td>
+    </tr>
+{% endif %}
+
+{% if id != list_prices.2.0 %}
+    <tr  class="text-center" id="r5">
+        <td scope="col">{{list_prices.2.1}}</td>
+        <td scope="col">{% if list_prices.2.2 == 0 %}Prodotto senza conseguenze per il partecipante C{% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+        <td scope="col">{% if list_prices.2.3 == - 1 %} Non accettata {% else %} {{list_prices.2.3}} {% endif %}</td>
+      </tr>
+
+{% else %}
+
+<tr  class="text-center" id="r6">
+    <td scope="col" style = "color: blue;" > {{list_prices.2.1}}</td>
+      <td scope="col" style = "color: blue;" >{% if list_prices.2.2 == 0 %}Prodotto senza conseguenze per il partecipante C{% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+    <td scope="col">{% if list_prices.2.3 == - 1 %} Non accettata {% else %} {{list_prices.2.3}} {% endif %}</td>
+  </tr>
+
+{% endif %}
+
+{% if id != list_prices.3.0 %}
+
+    <tr  class="text-center" id="r20">
+          <td scope="col">{{list_prices.3.1}}</td>
+          <td scope="col">{% if list_prices.3.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+          <td scope="col">{% if list_prices.3.3 == - 1 %} Non accettata {% else %} {{list_prices.3.3}} {% endif %}</td>
+    </tr>
+{% else %}
+
+    <tr  class="text-center" id="r20">
+        <td scope="col" style = "color: blue;" > {{list_prices.3.1}}</td>
+        <td scope="col" style = "color: blue;" >{% if list_prices.3.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+      <td scope="col">{% if list_prices.3.3 == - 1 %} Non accettata {% else %} {{list_prices.3.3}} {% endif %}</td>
+    </tr>
+{% endif %}
+
+{% if id != list_prices.4.0 %}
+
+    <tr  class="text-center" id="r20">
+            <td scope="col">{{list_prices.4.1}}</td>
+            <td scope="col">{% if list_prices.4.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+            <td scope="col">{% if list_prices.4.3 == - 1 %} Non accettata {% else %} {{list_prices.4.3}} {% endif %}</td>
+    </tr>
+
+{% else %}
+
+<tr  class="text-center" id="r20">
+        <td scope="col" style = "color: blue;" > {{list_prices.4.1}}</td>
+          <td scope="col" style = "color: blue;" >{% if list_prices.4.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+        <td scope="col">{% if list_prices.4.3 == - 1 %} Non accettata {% else %} {{list_prices.4.3}} {% endif %}</td>
+</tr>
+
+{% endif %}
+
+{% if id != list_prices.5.0 %}
+
+    <tr  class="text-center" id="r20">
+              <td scope="col">{{list_prices.5.1}}</td>
+              <td scope="col">{% if list_prices.5.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+              <td scope="col">{% if list_prices.5.3 == - 1 %} Non accettata {% else %} {{list_prices.5.3}} {% endif %}</td>
+    </tr
+  {% else %}
+
+  <tr  class="text-center" id="r20">
+            <td scope="col" style = "color: blue;" > {{list_prices.5.1}}</td>
+            <td scope="col" style = "color: blue;" > {% if list_prices.5.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+            <td scope="col">{% if list_prices.5.3 == - 1 %} Non accettata {% else %} {{list_prices.5.3}} {% endif %}</td>
+  </tr
+{% endif %}
+
+  </tbody>
+
+</table>
+
+
+<div class="col-sm-12">
+  
+{% if accepted != - 1 %}
+    <p> 	<font size="4"> Hai venduto il seguente prodotto: {% if seller_product == 0 %} Prodotto senza consequenze per il partecipante C {% elif seller_product == 1 %} Prodotto che causa una perdita al partecipante C {% endif %}</p>
+    <p> 	<font size="4"> Hai ottenuto il seguente prezzo: {{ seller_price }}</p>
+      &nbsp
+    <p> 	<font size="4"> Il tuo guadagno è:</p>
+
+    <p> 	<font size="4"> dotazione iniziale + prezzo -costo = {{endowment}} + {{seller_price}} - {% if seller_product == 0 %} {{cost_nd}} {% else %} {{cost_d}} {% endif %}= {{profit}}</p>
+      &nbsp
+     <p> 	<font size="4"> Il guadagno del partecipante B è:</p>
+    <p> 	<font size="4"> dotazione iniziale + valore del prodotto - prezzo = {{endowment}} + {{value}} -{{seller_price}} = {{profit_B}}</p>
+&nbsp
+    <p> 	<font size="4"> Il guadagno del partecipante C è:  {% if seller_product == 0 %} {{profit_C}} {% elif seller_product == 1 %} {{endowment}} - {{damage}} = {{profit_C}} {% endif %} </p>
+
+{% else %}
+    <p> 	<font size="4"> Non hai venduto il prodotto: </p>
+    <p> 	<font size="4"> Il tuo guadagno è: </p>
+    <p> 	<font size="4"> dotazione iniziale: {{endowment}} </p>
+{% endif %}
+
+<!--		BOTTONE PROSEGUI	2	-->
+&nbsp
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+  <div class="col-sm-12 text-center">
+  <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+ <div class="col-sm-12">
+   
+     <p> 	<font size="4"> Il Partecipante B a te assegnato ha acquistato {% if product_d == 1 %} un prodotto che causa una perdita per il Partecipante C {% else %} un prodotto senza conseguenze per il Partecipante C{% endif %}.</p>
+ &nbsp
+     <p>  Il tuo guadagno è {{profit}} <p>
+ </font>
+  </div>
+ <!--		BOTTONE PROSEGUI		-->
+ &nbsp
+
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+	</div>
+
+ </div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

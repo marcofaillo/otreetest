@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+ <div class="col-sm-12">
+
+     <p> 	<font size="4">Il round numero {{selected_round}} è stato selezionato casualmente per il pagamento.</p>
+ &nbsp
+     <p>  Il tuo pagamento nel periodo selezionato è di {{finalpay}} punti, corrispondenti a €{{finalpay_euro|to2}}, a cui si aggiungerà la quota di partecipazione. Ti chiediamo ora di completare un breve questionario. <p>
+ </font>
+  </div>
+ <!--		BOTTONE PROSEGUI		-->
+ &nbsp
+
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+	</div>
+
+ </div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

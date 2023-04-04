@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI GENERALI </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+      <p align = "justify">Benvenuti.</p>
+      <p align = "justify">Se leggete queste istruzioni attentamente, potrete – in base alle vostre decisioni e a quelle degli altri partecipanti – ottenere una somma di denaro che verrà aggiunta ai €3 che riceverete per la partecipazione. È quindi molto importante che leggiate attentamente queste istruzioni. Se avete domande, vi preghiamo di alzare la mano.</p>
+      <p align = "justify"> <b> Durante l’esperimento è severamente vietato comunicare con gli altri partecipanti </b>. La violazione di questa regola porterà all’esclusione dallo studio e alla perdita di tutti i pagamenti a esso collegati.  </p>
+      <p align = "justify"> Durante l’esperimento, non parleremo di euro, ma di punti. Quindi la somma complessiva da voi ottenuta verrà prima calcolata in punti. I punti che otterrete durante l’esperimento saranno poi convertiti in euro alla fine dell’esperimento stesso, utilizzando il seguente tasso di conversione:</p>
+      <p align = "center"> <b> 10 punti = €0.50 </b> </p>
+      <p align = "justify"> Alla fine dell’esperimento, ti pagheremo il numero di punti ottenuti durante l'esperimento più la somma iniziale di €3 per la vostra partecipazione. </p>
+      <p align = "justify"> Nelle prossime pagine spiegheremo nel dettaglio le procedure dell’esperimento. </p>
+ <p> &nbsp </p>
+
+
+ </div>
+ </font>
+</div>
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+ </div>
+  </div>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

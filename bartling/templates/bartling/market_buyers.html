@@ -1,0 +1,233 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block content %}
+<input type="hidden" name="buyer_choice" id="id_buyer_choice">
+<!--INTESTAZIONE -->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+
+	<div class="col-sm-12">
+  
+
+    	<p> 	<font size="4">Per accettare un'offerta devi prima selezionarla. Questo viene fatto facendo un clic sulla riga corrispondende, che viene quindi evidenziata in blu.</p>
+    	<p> 	<font size="4">Per accettare l'offerta in modo definitivo devi cliccare sul pulsante ACCETTA. Finché non avrai cliccato sul pulsante ACCETTA potrai modificare in qualsiasi momento la tua selezione.</p>
+      <p> 	<font size="4">Se fai clic sul pulsante NON ACCETTO NESSUNA OFFERTA rifiuterai tutte le offerte anche se ne hai già selezionata una. </p>
+
+  </font>
+	 </div>
+
+ </div>
+
+
+
+
+
+<font size="4">
+
+<div class="container" style="border-style: solid;border-color:lightgray">
+<font size="4">
+
+<!-- COLONNA SLIDER -->
+
+<table class="table table-sm">
+
+  <thead>
+  <tr  class="text-center">
+      <th> </th>
+      <th scope="col"> PREZZO DEL PRODOTTO </th>
+      <th colspan="2"> TIPO DI PRODOTTO</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+ {% if c1 == 0 %}
+    <tr  class="text-center" id="r1">
+      <td scope="col"> <button type="button" id = "b1" class="btn btn-outline-primary btn-lg"> </button></td>
+      <td scope="col">{{list_prices.0.1}}</td>
+      <td scope="col">{% if list_prices.0.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+
+    </tr>
+{% endif %}
+{% if c2 == 0 %}
+
+    <tr  class="text-center" id="r2">
+      <td scope="col"> <button type="button" id = "b2" class="btn btn-outline-primary btn-lg"> </button></td>
+      <td scope="col">{{list_prices.1.1}}</td>
+      <td scope="col">{% if list_prices.1.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+
+    </tr>
+{% endif %}
+{% if c3 == 0 %}
+    <tr  class="text-center" id="r3">
+      <td scope="col"> <button type="button" id = "b3" class="btn btn-outline-primary btn-lg"> </button></td>
+      <td scope="col">{{list_prices.2.1}}</td>
+      <td scope="col">{% if list_prices.2.2 == 0 %}Prodotto senza conseguenze per il partecipante C{% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+
+      </tr>
+{% endif %}
+{% if  c4 == 0 %}
+    <tr  class="text-center" id="r4">
+      <td scope="col"> <button type="button" id = "b4" class="btn btn-outline-primary btn-lg"> </button></td>
+      <td scope="col">{{list_prices.3.1}}</td>
+      <td scope="col">{% if list_prices.3.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+    </tr>
+{% endif %}
+ {% if c5 == 0 %}
+    <tr  class="text-center" id="r5">
+      <td scope="col"> <button type="button" id = "b5" class="btn btn-outline-primary btn-lg"> </button></td>
+      <td scope="col">{{list_prices.4.1}}</td>
+      <td scope="col">{% if list_prices.4.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+    </tr>
+{% endif %}
+{% if c6 == 0 %}
+   <tr  class="text-center" id="r6">
+     <td scope="col"> <button type="button" id = "b6" class="btn btn-outline-primary btn-lg"> </button></td>
+     <td scope="col">{{list_prices.5.1}}</td>
+    <td scope="col">{% if list_prices.5.2 == 0 %}Prodotto senza conseguenze per il partecipante C {% else %}Prodotto che causa una perdita al partecipante C {% endif %}</td>
+    </tr>
+{% endif %}
+
+  </tbody>
+
+</table>
+
+</div>
+
+<!--		BOTTONI-->
+&nbsp
+
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+	<div class="col-md-2">
+		<button type="button" id = "btn_buy" class="btn btn-outline-primary btn-lg">ACCETTO</button>
+	</div>
+	<div class="col-md-6">
+		<button type="button" id = "btn_none" class="btn btn-outline-primary btn-lg">NON ACCETTO NESSUNA OFFERTA</button>
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+
+{% block styles %}
+	<link href="{% static "bartling/mystyle.css" %}" rel="stylesheet">
+  <link href="{% static "bartling/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+
+
+<script>
+
+// BOTTONE
+
+$(document).ready(function(){
+
+
+
+		$("#b1").click(function(){
+
+    		$(this).css('background','lightblue');
+
+    		$("#r1").css('background','lightblue');
+    		$("#b2, #b3,#b4,#b5,#b6").css('background','white');
+    		$("#r2, #r3,#r4,#r5,#r6").css('background','white');
+	  		$("#id_buyer_choice").val(1);
+
+		});
+
+
+		$("#b2").click(function(){
+
+    		$(this).css('background','lightblue');
+
+    		$("#r2").css('background','lightblue');
+    		$("#b1, #b3,#b4,#b5,#b6").css('background','white');
+    		$("#r1, #r3,#r4,#r5,#r6,#r8").css('background','white');
+
+	  		$("#id_buyer_choice").val(2);
+
+
+		});
+
+		$("#b3").click(function(){
+
+    		$(this).css('background','lightblue');
+    		$("#r3").css('background','lightblue');
+
+    		$("#b1, #b2,#b4,#b5,#b6,#b8").css('background','white');
+    		$("#r1, #r2,#r4,#r5,#r6").css('background','white');
+
+	  		$("#id_buyer_choice").val(3);
+
+		});
+
+
+		$("#b4").click(function(){
+
+    		$(this).css('background','lightblue');
+    		$("#r4").css('background','lightblue');
+
+    		$("#b1, #b2,#b3,#b5,#b6").css('background','white');
+    		$("#r1, #r2,#r3,#r5,#r6,#r8").css('background','white');
+
+	  		$("#id_buyer_choice").val(4);
+
+		});
+
+		$("#b5").click(function(){
+
+    		$(this).css('background','lightblue');
+    		$("#r5").css('background','lightblue');
+
+    		$("#b1, #b2,#b3,#b4,#b6").css('background','white');
+    		$("#r1, #r2,#r3,#r4,#r6").css('background','white');
+
+	  		$("#id_buyer_choice").val(5);
+
+		});
+
+		$("#b6").click(function(){
+
+    		$(this).css('background','lightblue');
+    		$("#r6").css('background','lightblue');
+
+    		$("#b1, #b2,#b3,#b4,#b5").css('background','white');
+    		$("#r1, #r2,#r3,#r4,#r5").css('background','white');
+
+	  		$("#id_buyer_choice").val(6);
+
+		});
+
+
+    $("#btn_buy").click(function(){
+      $("#form").submit()
+      });
+
+    $('#btn_none').click(function(){
+        $("#id_buyer_choice").val(0);
+        $("#form").submit()
+      	 }
+    );
+
+});
+
+</script>
+
+
+{% endblock %}

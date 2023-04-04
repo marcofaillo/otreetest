@@ -22,12 +22,12 @@ SESSION_CONFIGS = [
     # ),
 
 
-        # dict(
-        #     name='bartling',
-        #     display_name='bartling',
-        #     num_demo_participants=16,
-        #     app_sequence=['bartling'],
-        # ),
+        dict(
+            name='bartling',
+            display_name='bartling',
+            num_demo_participants=16,
+            app_sequence=['bartling'],
+        ),
 
 
         # dict(

@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3>DOMANDE DI CONTROLLO 4 </h3>
+      </div>
+    </div>
+  </div>
+
+
+&nbsp
+
+
+
+
+<font size="4">
+
+ <div class="col-sm-12">
+
+ <div class="row">
+        <p class="text-justify">4.	Assumete che il partecipante A offra un “prodotto che genera una perdita per il partecipante C” al prezzo di 40 e nessun partecipante B accetti l’offerta.
+
+
+
+ </p>
+        {% formfield player.q10 label="4.1 .Qual è il pagamento per il partecipante A " %}
+        {% formfield player.q11 label="4.2 .Qual è il pagamento per il partecipante B che non accetta alcuna offerta? " %}
+        {% formfield player.q12 label="4.3 . Qual è il pagamento per il partecipante C a lui abbinato? " %}
+        {% if test == 1 %}<p class="text-justify"> 100 100 100 {% endif %}
+
+ </div>
+
+
+
+ </div>
+ </font>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+ </div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

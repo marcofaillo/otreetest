@@ -1,0 +1,78 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3>DOMANDE DI CONTROLLO 3</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+&nbsp
+
+
+
+
+<font size="4">
+
+ <div class="col-sm-12">
+
+ <div class="row">
+        <p class="text-justify">3.	Assumete che il partecipante A offra un “prodotto senza effetti per il partecipante C” al prezzo di 15 e il partecipante B accetti l’offerta.
+Quali sono i pagamenti dei partecipanti A, B e C?
+
+ </p>
+        {% formfield player.q7 label="3.1. Pagamento di  A " %}
+        {% formfield player.q8 label="3.2. Pagamento di  B " %}
+        {% formfield player.q9 label="3.3. Pagamento di  C " %}
+        {% if test == 1 %}<p class="text-justify"> 105 135 100 {% endif %}
+
+ </div>
+
+
+ </div>
+ </font>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+</div>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

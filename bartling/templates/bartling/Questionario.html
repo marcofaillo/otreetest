@@ -1,0 +1,156 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> QUESTIONARIO </h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+
+      <p class="text-justify">Prima di concludere l'esperimento ti chiediamo di rispondere ad alcune domande </p>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+<div class="container">
+
+<font size="4">
+
+ <div class="col-sm-12">
+
+ <div class="row">
+   <div class="card bg-light instructions">
+       <div class="card-body">
+        {% formfield player.d1 label="1. Da 1 a 5, quanto pensi che le istruzioni rispetto alle scelte precedenti fossero chiare?" %}
+        {% formfield player.d2 label="2. A quanti esperimenti hai già partecipato?" %}
+        {% formfield player.d3 label="3. Anno di nascita:" %}
+        {% formfield player.d4 label="4. Sesso:" %}
+        {% formfield player.d5 label="5. Luogo di nascita (provincia, comune, eventuale stato estero):" %}
+        {% formfield player.d6 label="6. Corso di laurea:" %}
+        {% formfield player.d7 label="7. Anno di corso:" %}
+        {% formfield player.d8 label="8. Come ti consideri: generalmente sei una persona che è totalmente disposta a prendere rischi o cerchi di evitare di prendere rischi? Prego rispondi facendo riferimento alla scala seguente, in cui 0 significa “Per nulla disposto a prendere rischi” e 10 significa “Totalmente disposto a prendere rischi”" %}
+        &nbsp
+          &nbsp
+</div>
+</div>
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <p class="text-justify"> 9. Da -5 (per nulla d’accordo) a 5 (completamente d’accordo), quanto sei d’accordo con le seguenti affermazioni:</p>
+        {% formfield player.d91 label="Il sistema di libero mercato è equo." %}
+        {% formfield player.d92 label="Di norma le aziende devono comportarsi in modo corretto, altrimenti non potrebbero sopravvivere nel tempo." %}
+        {% formfield player.d93 label="In molti mercati non esiste qualcosa definibile come un vero e proprio prezzo di mercato." %}
+        {% formfield player.d94 label="Le imprese che agiscono in modo etico non sono profittevoli tanto quanto quelle che agiscono in modo non etico." %}
+        {% formfield player.d95 label="Il sistema economico più equo è un sistema di mercato in cui a ciascuno è consentito di perseguire in modo autonomo i propri interessi economici. " %}
+        {% formfield player.d96 label="Agire secondo le forze di mercato non è sempre un modo eticamente corretto di condurre gli affari." %}
+        {% formfield player.d97 label="Il sistema di libero mercato è efficiente " %}
+        {% formfield player.d98 label="Il sistema di libero mercato non ha nulla a che fare con l’equità. " %}
+        {% formfield player.d99 label="Agire secondo le forze di mercato è un modo etico di condurre gli affari. " %}
+        {% formfield player.d910 label="Nei sistemi di libero mercato la gente tende a conseguire i risultati che merita. " %}
+        {% formfield player.d911 label="I risultati più equi derivano dagli scambi in cui i compratori pagano il “giusto” prezzo di mercato. " %}
+        {% formfield player.d912 label="Le attività redditizie tendono a essere moralmente più responsabili di quelle non redditizie. " %}
+        {% formfield player.d913 label="Un commercio regolamentato è un commercio equo. " %}
+        {% formfield player.d914 label="I mercati economici non ricompensano le persone in modo equo." %}
+        {% formfield player.d915 label="Qualunque prezzo su cui trovino un accordo un compratore e un venditore è un prezzo che si può considerare 'equo'." %}
+        &nbsp
+      </div>
+      </div>
+
+      <div class="card bg-light instructions">
+          <div class="card-body">
+        <p class="text-justify"> La prossima domanda è <b>SOLO PER I PARTECIPANTI A e B</b>, se sei un partecipante C scegli "NA"</p>
+        {% formfield player.d10 label="10. Pensando all’esperimento appena concluso, su una scala da 1 (per niente) a 10 (del tutto), quanto ti senti responsabile per l’effetto della tua scelta sul partecipante C?" %}
+        <p class="text-justify"> La prossima domanda è <b>SOLO PER I PARTECIPANTI A e B</b>, se sei un partecipante C scegli "NA"</p>
+        {% formfield player.d11 label="11. Nell’esperimento appena concluso, su una scala da 1 (per niente) a 10 (del tutto), quanto diresti di esserti comportato/a in modo equo nei confronti del partecipante C.?" %}
+        <p class="text-justify"> La prossima domanda è <b>SOLO PER I PARTECIPANTI A e B</b>, se sei un partecipante C scegli "NA"</p>
+        {% formfield player.d12 label="12. Nell’esperimento appena concluso, su una scala da 1 (per niente) a 10 (del tutto), quanto diresti che i partecipanti a te abbinati abbiano compiuto scelte eque nei confronti del partecipante C. ?" %}
+        <p class="text-justify"> La prossima domanda è <b> SOLO PER I PARTECIPANTI C </b>, se sei un partecipante A o B scegli "NA"</p>
+
+
+        {% formfield player.d13 label="13. Nell’esperimento appena concluso, su una scala da 1 (per niente) a 10 (del tutto), quanto diresti di essere stato trattato in modo equo dagli altri partecipanti?" %}
+        &nbsp
+
+      </div>
+      </div>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <p class="text-justify"> 14. Per favore, leggi le seguenti caratteristiche relative alla personalità e indica quanto ti senti descritto da ogni coppia, anche se pensi che una delle due caratteristiche ti descriva più dell’altra, utilizzando la seguente scala:</p>
+        {% formfield player.d141 label="Estroversa, esuberante" %}
+        {% formfield player.d142 label="Polemica, litigiosa" %}
+        {% formfield player.d143 label="Affidabile, auto-disciplinata" %}
+        {% formfield player.d144 label="Ansiosa, che si agita facilmente" %}
+        {% formfield player.d145 label="Aperta alle nuove esperienze, con molti interessi" %}
+        {% formfield player.d146 label="Riservata, silenziosa" %}
+        {% formfield player.d147 label="Comprensiva, affettuosa" %}
+        {% formfield player.d148 label="Disorganizzata, distratta" %}
+        {% formfield player.d149 label="Tranquilla, emotivamente stabile" %}
+        {% formfield player.d1410 label="Tradizionalista, abitudinaria" %}
+        &nbsp
+      </div>
+      </div>
+        <div class="card bg-light instructions">
+            <div class="card-body">
+        {% formfield player.d15 label="15. Come diresti che te la stai cavando finanziariamente in questo periodo? Diresti che:" %}
+        {% formfield player.d16 label="16. Di seguito trovi una scala di redditi. Potresti indicarci in quale categoria di reddito si colloca il tuo nucleo famigliare, considerando le entrate di tutti i componenti? Scegli la categoria indicando il reddito al netto delle tasse e di altre detrazioni" %}
+        {% formfield player.d17 label="17. Stai svolgendo qualche attività lavorativa attualmente?" %}
+        {% formfield player.d18 label="18. Da quando sei iscritto/a all’Università hai svolto qualche attività lavorativa? Se sì, con che ruolo (risponda considerando l’ultima attività svolta):" %}
+      </div>
+      </div>
+ </div>
+
+
+
+ </div>
+ </font>
+</div>
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

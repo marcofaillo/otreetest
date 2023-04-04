@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+
+
+       <p> {% formfield player.dummy_belief_seller  label="Quanti dei 6 partecipanti A, secondo te, offrono prodotti con conseguenze per i partecipanti C in questo round?" %}</p>
+      <p> </p>
+       <p>  {% formfield player.dummy_belief_buyer  label="Quanti dei 5 partecipanti B, secondo te, nel prendere la loro decisione non guardano solo al prezzo ma anche alle conseguenze per il partecipante C" %} </p>
+
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+	</div>
+
+ </div>
+ </div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

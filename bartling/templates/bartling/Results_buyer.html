@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-secondary" role="alert" style="text-align:center">
+       <h5> Round {{round}} di {{num_rounds}}. </h5>
+      </div>
+   </div>
+ </div>
+
+ <div class="col-sm-12">
+  
+{% if buyer_choice != 0 %}
+     <p> 	<font size="4"> Hai comprato il seguente prodotto: {% if product_bought == 0 %} Prodotto senza consequenze per il partecipante C {% elif product_bought == 1 %} Prodotto che causa una perdita al partecipante C {% endif %}</p>
+     <p> 	<font size="4"> Hai pagato il seguente prezzo: {{ price_paid }}</p>
+       &nbsp
+     <p> 	<font size="4"> Il tuo guadagno è:</p>
+
+     <p> 	<font size="4"> dotazione iniziale + valore del prodotto - prezzo = {{endowment}} + {{value}} -{{price_paid}} = {{profit}}</p>
+       &nbsp
+     <p> 	<font size="4"> Il guadagno del partecipante C è:  {% if product_bought == 0 %} {{profit_C}} {% elif product_bought == 1 %} {{endowment}} - {{damage}} = {{profit_C}}{% endif %} </p>
+
+
+{% else %}
+
+      <p> 	<font size="4"> Non hai comprato nessun prodotto: </p>
+      <p> 	<font size="4"> Il tuo guadagno è:</p>
+      <p> 	<font size="4"> Dotazione iniziale = {{endowment}}</p>
+{% endif %}
+ </font>
+  </div>
+ <!--		BOTTONE PROSEGUI		-->
+ &nbsp
+
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+	</div>
+
+ </div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> REGOLE DELL’ESPERIMENTO </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+
+
+<font size="4">
+      <p align = "justify">In questo esperimento ci sono tre tipi di partecipanti: partecipanti A, B e C. I partecipanti sono divisi in gruppi di 16 persone. In ciascun gruppo ci sono 6 partecipanti A, 5 partecipanti B e 5 partecipanti C.</p>
+      <p align = "justify"> <b> I partecipanti A sono venditori, i partecipanti B sono compratori. I partecipanti C non sono né venditori né compratori, ma possono subire perdite collegate alle transazioni fra i partecipanti A e B. </b> </p>
+      <p align = "justify"> L’esperimento è composto da 24 round. In ciascun round, ogni partecipante A fa un’offerta di vendita per un determinato prodotto. Ogni partecipante A decide il <b> tipo di prodotto </b> che vuole offrire e il prezzo del prodotto stesso</p>
+      <p align = "justify"> Ci sono due tipi di prodotti:
+     <ol><b>
+                <li> 	“Prodotti senza effetti sul partecipante C” </b> e</li>
+                <li><b> “Prodotti che generano una perdita per il partecipante C”.</li>
+                </ol></p></b>
+      <p align = "justify">Ogni valore compreso tra 0 e 50 (estremi inclusi) può essere fissato come prezzo  </p>
+      <p align = "justify"> Il costo di produzione per i partecipanti A per un “prodotto senza effetti sul partecipante C” è di <b> 10 punti </b> . Il partecipante A non sostiene alcun costo ( <b> 0 punti </b> ) per la produzione di un “prodotto che genera una perdita per il partecipante C”.</p>
+      <p align = "justify"> Il valore del prodotto per il partecipante B è sempre di 50 punti, indipendentemente dal tipo di prodotto. </p>
+      <p align = "justify"> I cinque partecipanti B vedono le offerte di vendita (prezzo e tipo di prodotto) fatte dai sei partecipanti A e ciascun partecipante B può decidere di accettare una sola offerta. I partecipanti B decideranno uno dopo l’altro, secondo un ordine determinato casualmente dal software. Ciascun partecipante B può accettare non più di un’offerta. Ciò implica che al massimo cinque dei sei partecipanti A potranno vendere il loro prodotto. </p>
+      <p align = "justify">In ogni round, ciascun partecipante B sarà abbinato in modo casuale a un partecipante C. Se un partecipante B acquista un “prodotto che genera una perdita per il partecipante C”, il partecipante C a lui abbinato subirà una perdita di 60 punti. Se un partecipante B acquista un “prodotto senza effetti per il partecipante C” o non acquista nessun prodotto, il partecipante C a lui abbinato non subirà alcuna perdita. </p>
+      <p align = "justify"> <b> Scoprirai se sei un partecipante A, B, o C sullo schermo all’inizio dell’esperimento. Manterrai lo stesso ruolo di partecipante A, B o C per tutta la durata dell’esperimento.  </b> </p>
+      <p align = "justify">In ogni round, ciascun partecipante (A, B e C) riceve una dotazione iniziale di 100 punti. I pagamenti in punti dei partecipanti A (venditori), B (compratori) e C, sono determinati come segue:<p class="text-justify">
+      <div class="card ">
+        <div class="card-body ">
+      <p align = "justify"> <b> Pagamenti del partecipante A </b> <p>
+      <p align = "justify"> <ul>
+        <li> Se un partecipante B accetta la sua offerta di vendita: </li> </ul>
+
+      <p align = "center">
+  					<b> 100 – costo di produzione + prezzo del prodotto </b>
+      <p>
+
+      <p align = "justify"> dove il costo di produzione, pari a 10 punti, si sostiene solo se il prodotto è un “prodotto senza effetti per il partecipante C” ed è 0 punti se il prodotto è un “prodotto che genera una perdita al partecipante C”. </ul></p>
+      <p align = "justify"> <ul> <li>	Se nessun partecipante B accetta la sua offerta di vendita: <b> 100 punti </b>. </li> </ul> </p>
+
+      </div>
+        </div>
+    <p> &nbsp </p>
+      <div class="card">
+        <div class="card-body">
+      <p align = "justify"> <b> Pagamenti del partecipante B </b> <p>
+      <p align = "justify"> <ul>
+        <li> Se il partecipante B accetta un’offerta di vendita: </li> </ul>
+      <p align = "center">
+          <b>  100 + 50 - prezzo del prodotto </b>
+      <p>
+
+      <p align = "justify"> <ul> <li> Se il partecipante B non accetta nessuna offerta: <b> 100 punti </b>. </li> </ul> </p>
+
+      </div>
+      </div>
+
+      <p> &nbsp </p>
+        <div class="card">
+          <div class="card-body">
+        <p align = "justify"> <b> Pagamenti del partecipante C </b> <p>
+        <p align = "justify"> <ul>
+          <li> Se il partecipante B cui è abbinato in modo casuale sceglie un “prodotto che genera una perdita al partecipante C”: </li> </ul>
+        <p align = "center">
+            <b>  100 - 60 = 40 </b>
+        <p>
+        <p align = "justify"> <ul> <li> Se il partecipante B cui è abbinato in modo casuale sceglie un “prodotto senza effetti per il partecipante C” o non acquista nessun prodotto: <b> 100 punti </b>. </li> </ul> </p>
+
+        </div>
+        </div>
+
+        <p> &nbsp </p>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}
