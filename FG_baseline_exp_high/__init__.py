@@ -41,7 +41,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    contribution = models.FloatField()
+    contribution = models.FloatField(min =0, max =20)
     punish_p1 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True, initial=0)
     punish_p2 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True,initial=0)
     punish_p3 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True,initial=0)
@@ -58,7 +58,24 @@ class Player(BasePlayer):
     cumul_payoff=models.FloatField(initial=0)
     player_name=models.IntegerField()
     final_payoff_euro=models.FloatField(initial=0)
-
+    #control questions
+    q1=models.IntegerField()
+    q2=models.IntegerField()
+    q3=models.IntegerField(choices=[[1, 'A. Il tuo pagamento è calcolato come: 20-8 + 0,4*(8+5+2+10) =12+0,4*25=12+10=22 '], [2, 'Il tuo pagamento è calcolato come: 10-8 + 0,4*(8+5+2+10) =2+0,4*25=2+10=2']])
+    q4=models.IntegerField()#cost
+    q5=models.IntegerField()#cost
+    q6=models.IntegerField()#cost
+    q7=models.IntegerField()#cost
+    q8=models.IntegerField()
+    q9=models.IntegerField()
+    errors=models.IntegerField(initial=0) #n. of errors in control questions
+    #Questionnaire
+    closeness_before=models.IntegerField(min = 1, max =7)
+    closeness_after=models.IntegerField(min = 1, max =7)
+    female= models.IntegerField(choices=[[0,'Maschio'], [1, 'Femmina'], [2, 'Altro'],[3, 'Non rispondo']])
+    age= models.IntegerField()
+    major=models.IntegerField()
+    exp=models.IntegerField()
 
 def players_names(group: Group):
     p1=group.get_player_by_id(1)
@@ -127,6 +144,52 @@ def set_playoff_2(group: Group):
         if p.subsession.round_number > 1:
             p.cumul_payoff=p.in_round(p.round_number - 1).cumul_payoff+p.payoff_2
             print('cumul_payoff',p.cumul_payoff)
+
+class Instructions_1(Page):
+    pass
+class WaitPage_intructions(WaitPage):
+    pass
+
+class Instructions_2(Page):
+    pass
+
+class Control(Page):
+    form_model = 'player'
+    form_fields = ['q1', 'q2', 'q3', 'q4','q5', 'q6','q7', 'q8','q9']
+    def is_displayed(player: Player):
+        ## ultimo round mostra risultati
+        return player.subsession.round_number == 1
+
+    def error_message(player: Player, values):
+        if values['q1'] != 0:
+            player.errors += 1
+            return 'La risposta alla domanda 1 è sbagliata'
+        if values['q2'] != 32:
+            player.errors += 1
+            return 'La risposta alla domanda 2 è sbagliata'
+        if values['q3'] != 1:
+            player.errors += 1
+            return 'La risposta alla domanda 3 è sbagliata'
+        if values['q4'] != 25:
+            player.errors += 1
+            return 'La risposta alla domanda 4 è sbagliata'
+        if values['q5'] != 9:
+            player.errors += 1
+            return 'La risposta alla domanda 5 è sbagliata'
+        if values['q6'] != 0:
+            player.errors += 1
+            return 'La risposta alla domanda 6 è sbagliata'
+        if values['q7'] != 34:
+            player.errors += 1
+            return 'La risposta alla domanda 7 è sbagliata'
+        if values['q8'] != 0:
+            player.errors += 1
+            return 'La risposta alla domanda 8 è sbagliata'
+        if values['q9'] != 40:
+            player.errors += 1
+            return 'La risposta alla domanda 9 è sbagliata'
+
+
 class WaitPage0(WaitPage):
     after_all_players_arrive = players_names
 
@@ -169,6 +232,11 @@ class Final(Page):
     def vars_for_template(player: Player):
         return dict(player_name=player.player_name, cumul_payoff=player.cumul_payoff, euro=player.final_payoff_euro)
 
+class Questionnaire(Page):
+    form_model = 'player'
+    form_fields = ['closeness_before','closeness_after','female','age','major','exp', ]
 
+    def is_displayed(player: Player):
+        return player.subsession.round_number ==  C.NUM_ROUNDS
 
-page_sequence = [WaitPage0,Contribute,WaitPage1, WaitPage2, Punish,WaitPage3, Feedback, Final]
+page_sequence = [Instructions_1,WaitPage_intructions,Instructions_2,WaitPage0,Control, WaitPage_intructions,Contribute,WaitPage1, WaitPage2, Punish,WaitPage3, Feedback, Final, Questionnaire,]

@@ -11,11 +11,11 @@
 Giocatore: {{player_name}}
  <div class="row">
     <div class="col-sm-12">
-      <div class="alert alert-primary" role="alert" style="text-align:center">
+      <div class="class=alert bg-warning"  role="alert" style="text-align:center">
         <h4>  ROUND N. {{round}}. </h4>
-        {% if round > 1 %}<h4>  Pagamento totale fino a questo momento: {{cumul_payoff|to2}} UMS </h4> {% endif %}
+        {% if round > 1 %} Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni {% endif %}
 
-        <h4>  Prima fase. La tua dotazione è di 20 UMS, scegli quanto contribuire al progetto </h4>
+        Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto
 
       </div>
     </div>
@@ -25,7 +25,7 @@ Giocatore: {{player_name}}
 
 <font size="4">
     <div class="col-sm ">
-      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution %} </p>
+      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution label="Inserisci un numero tra 0 e 20" %} </p>
 
 
 
