@@ -56,12 +56,12 @@ SESSION_CONFIGS = [
             app_sequence=['FG_baseline_exp_high'],
             ),
 
-        dict(
-            name='FG_baseline_exp_low',
-            display_name='FG_baseline_exp_low',
-            num_demo_participants=4,
-            app_sequence=['FG_baseline_exp_low'],
-            ),
+        # dict(
+        #     name='FG_baseline_exp_low',
+        #     display_name='FG_baseline_exp_low',
+        #     num_demo_participants=4,
+        #     app_sequence=['FG_baseline_exp_low'],
+        #     ),
 
 
         # dict(
