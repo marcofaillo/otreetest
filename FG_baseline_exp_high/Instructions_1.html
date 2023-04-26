@@ -1,0 +1,115 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI 1 </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+      <p> Buongiorno, grazie per aver accettato di partecipare a questo esperimento. Stai prendendo parte ad uno studio su decisioni in ambito economico.
+      <br> Durante l’esperimento potrai guadagnare una somma di denaro. A questa somma si aggiungeranno 3 euro per la partecipazione. Il tuo guadagno dipenderà dalle tue decisioni e dalle decisioni degli altri partecipanti all’esperimento.
+      <br>  Le risposte che fornirai e le scelte che farai saranno assolutamente anonime. Gli sperimentatori non saranno in grado di associare le tue scelte e le tue risposte al tuo nome.
+      <br>  Per tutta la durata dell’esperimento ti preghiamo di non comunicare con gli altri partecipanti (pena l’esclusione dall’esperimento) e di prestare molta attenzione alle istruzioni che compariranno sul tuo monitor e verranno lette ad alta voce da uno degli sperimentatori.
+      <br>  Se hai domande, chiedi pure agli sperimentatori.
+      <br>  I tuoi guadagni saranno calcolati in gettoni: ogni gettone vale 2 centesimi di euro.
+      <br>  Alla fine dell’esperimento ti chiederemo di compilare un breve questionario, dopodiché si procederà con il pagamento, che avverrà tramite bonifico bancario.    </p>
+      &nbsp
+      <br><b> L’esperimento in breve </b>
+      <br> L’esperimento consiste di 20 round. Ciascun round è composto da 2 Stadi.
+      <br> Durante lo Stadio 1, dovrai decidere con quanti gettoni vuoi contribuire ad un “progetto”. Nello Stadio 2, riceverai informazioni sul numero di gettoni che gli altri 3 membri del tuo gruppo hanno deciso di contribuire al progetto e potrai quindi scegliere di ridurre o meno i guadagni di ciascuno dei membri del tuo gruppo a seconda del tuo e del loro livello di contribuzione al progetto durante lo Stadio 1. Ciò potrà essere fatto assegnando loro dei punti attraverso l’utilizzo della tua dotazione di gettoni.
+      <br> In seguito descriveremo l’esperimento nel dettaglio.
+      <br> &nbsp
+      <br><b> I partecipanti </b>
+      <br> I partecipanti a questo esperimenti vengono divisi in gruppi da 4. I gruppi possono essere Arancioni oppure Blu.
+      <br> I gruppi Arancioni riceveranno in ogni round un ammontare di gettoni, che chiameremo “dotazione”, di 20 gettoni, mentre i gruppi Blu riceveranno in ogni round una dotazione di 10 gettoni.
+      <br>Durante l’esperimento, i titoli delle schermate e alcune parti di testo richiameranno il colore del gruppo di appartenenza.
+      <br>Inoltre, la composizione del gruppo può restare la stessa per tutta la durata dell’esperimento, oppure variare dopo la fine del 10 round. In caso di variazione, in corrispondenza dell'undicesimo round,  un membro del tuo gruppo si sposterà in un altro gruppo di colore diverso e verrà sostituito da un membro di questo gruppo. Quindi in questo caso, a partire dall'undicesimo round, ciascun gruppo arancione avrà un membro proveniente da un gruppo blu e viceversa.
+      <br> Verrai assegnato casualmente a una delle seguenti situazioni:
+      <br>&nbsp
+      <table class="table  table-bordered"">
+        <tr>
+              <td scope="col" style="color:darkorange;"> Gruppo Arancione; 20 gettoni; composizione del gruppo fissa</th>
+              <td scope="col" style="color:darkorange;">Gruppo Arancione; 20 gettoni; composizione del gruppo variabile</th>
+        </tr>
+        <tr>
+              <td scope="col" class="text-primary">  Gruppo Blu; 10 gettoni; composizione del gruppo fissa</th>
+              <td scope="col" class="text-primary"> Gruppo Blu; 10 gettoni; composizione del gruppo variabile</th>
+        </tr>
+      </table>
+      <br>    &nbsp
+      <br> Nella prossima pagina ti verrà comunicato il colore del tuo gruppo (Arancione o Blu). Dopo la fine del decimo round, invece, saprai se la composizione dei gruppi resterà fissa per tutta la durata dell’esperimento oppure varierà. </p>
+</div>
+
+
+ </font>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

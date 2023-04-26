@@ -1,0 +1,132 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+    <div class="class=alert bg-warning"  role="alert" style="text-align:center">
+        <h3> ISTRUZIONI 2 </h3>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+    <div align= "justify">
+
+
+
+<font size="4">
+         <p style="color:darkorange;">  Appartieni a un gruppo Arancione. La dotazione dei membri del tuo gruppo è quindi di 20 gettoni. </p>
+         <br>     &nbsp
+         <br> <b> Le decisioni dei partecipanti nei due stadi: dettagli </b>
+         <br>     &nbsp
+
+        <br> <b> Stadio 1 </b>
+        <br> All’inizio di ciascun round ciascun partecipante del tuo gruppo riceve 20 gettoni. Chiamiamo questo ammontare “dotazione”. Il tuo compito è decidere come usare la tua dotazione. Devi decidere quanti dei gettoni ricevuti vuoi utilizzare per contribuire al progetto e quanti vuoi tenerne per te.
+        <br> Il numero del round compare nell’angolo in alto a sinistra dello schermo.
+        <br> Per prendere la tua decisione devi decidere con quanti gettoni vuoi contribuire al progetto digitando un numero tra 0 e 20. Una volta presa, la decisione non potrà più essere modificata.
+        <br> Alla fine dello Stadio 1, sarai informato dei tuoi guadagni, che consistono di due elementi:
+        <ul>
+          <li> L’ammontare dei gettoni iniziali che hai tenuto per te (cioè la tua dotazione meno la tua contribuzione al progetto); </li>
+          <li> Il tuo pagamento derivante dal progetto, che è uguale al 40% della somma delle contribuzioni individuali degli appartenenti al tuo gruppo (te compreso).</li>
+        </ul>
+
+        <br> Quindi, i tuoi guadagni alla fine dello Stadio 1 sono calcolati dal computer nel modo seguente:
+        <br> I tuoi guadagni dopo lo Stadio 1 = (20 gettoni – la tua contribuzione al progetto) + 40% * (contribuzione totale del gruppo al progetto).
+        <br> I guadagni di ciascun membro del tuo gruppo sono calcolati nello stesso modo; inoltre, ciascun individuo riceve lo stesso pagamento dal progetto.
+        <br> Supponi, ad esempio, che nel tuo gruppo il Membro che per comodità in questo esempio chiameremo A contribuisca 4 gettoni, il Membro B contribuisca 2 gettoni, il Membro C contribuisca 3 gettoni e tu contribuisca 1 gettone.
+        <br>  Di conseguenza, l’ammontare totale di gettoni con cui il gruppo contribuisce è 10 gettoni.
+        <br> Quindi, ciascun membro del gruppo riceve un ammontare pari al 40% di 10 gettoni = 4 gettoni.
+        <br> I guadagni dei 4 membri del gruppo saranno:
+        <ul>
+          <li> Membro A: 20-4+4=20 </li>
+          <li> Membro B: 20-2+4=22 </li>
+          <li> Membro C: 20-3+4=21 </li>
+          <li> Tu: 20-1+4=23 </li>
+        </ul>
+
+        <br> Come ulteriore esempio, se il Membro che per comodità in questo esempio chiameremo A contribuisce 20 gettoni, mentre tu e i Membri B e C contribuite 0 gettoni, l’ammontare complessivo di gettoni che il gruppo contribuisce è 20 gettoni e ciascun membro del gruppo riceve un pagamento dal progetto pari al 40% di 20 gettoni = 8 gettoni.
+        <br> In questo caso guadagni dei 4 membri del gruppo saranno:
+       <ul>
+         <li> Membro A: 20-20+8=8 </li>
+         <li> Membro B: 20-0+8=28 </li>
+         <li> Membro C: 20-0+8=28 </li>
+         <li> Tu: 20-0+8=28 </li>
+        </ul>
+        <br>     &nbsp
+        <br> <b> Stadio 2 </b>
+        <br> All’inizio dello Stadio 2, puoi vedere quanto gli altri membri del tuo gruppo hanno contribuito al progetto e qual è il livello medio di contribuzione nel gruppo.
+        <br> In questo Stadio, puoi ridurre o lasciare invariati i guadagni degli altri membri del gruppo attraverso l’assegnazione di punti (potrai assegnare fino a 10 punti). Gli altri membri del gruppo possono a loro volta, se vogliono, ridurre i tuoi guadagni. Ciascuno di questi punti riduce i guadagni dello Stadio 1 di chi li riceve del 10%.
+        <br> Devi inserire il numero di punti che vuoi assegnare a ciascuno dei membri del tuo gruppo.
+        <br> Se scegli di assegnare 0 punti ad un certo membro del gruppo, non modifichi i suoi guadagni.
+        <br> Se assegni 1 punto ad un certo membro del gruppo, riduci i suoi guadagni del 10%.
+        <br> L’ammontare di punti che assegni a ciascun membro del gruppo determina quindi di quanto tu riduci i loro guadagni allo Stadio 1. Se un individuo riceve in totale 4 punti, i suoi guadagni verranno ridotti del 40%, e se  riceve 10 o più punti i suoi guadagni verranno ridotti del 100%.
+        <br> Se assegni punti, sostieni un costo che dipende dal numero di punti che distribuisci in totale.
+        <br> La tabella sottostante mostra la relazione tra il numero di punti che assegni ad un partecipante e il costo che sostieni:
+        <br>     &nbsp
+        <br> <img src="{{ static 'FG_baseline_exp_high/Schedule_20.jpg' }}" class="rounded mx-auto d-block" />
+        <br>     &nbsp
+        <br>  Per esempio, se assegni 0 punti al Membro B e 3 punti al Membro C, i guadagni del Membro B allo Stadio 1 rimarranno invariati mentre i guadagni del Membro C saranno ridotti del 30%.
+        <br> Dal momento che l’ammontare di punti da te assegnati al Membro C è 3 e hai assegnato punti solo a lui, il costo da te sostenuto complessivamente è 4 gettoni.
+        <br>     &nbsp
+        <br> I tuoi guadagni alla fine dello Stadio 2 sono calcolati dal computer nel modo seguente:
+        <br>     &nbsp
+        <br> Guadagni alla fine dello Stadio 2 = guadagni alla fine dello Stadio 1 -   costo dei punti assegnati allo Stadio 2
+</div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
