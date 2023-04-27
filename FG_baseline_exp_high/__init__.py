@@ -146,12 +146,15 @@ def set_playoff_2(group: Group):
             print('cumul_payoff',p.cumul_payoff)
 
 class Instructions_1(Page):
-    pass
+    def is_displayed(player: Player):
+        return player.subsession.round_number ==  1
+
 class WaitPage_intructions(WaitPage):
     pass
 
 class Instructions_2(Page):
-    pass
+    def is_displayed(player: Player):
+        return player.subsession.round_number ==  1
 
 class Control(Page):
     form_model = 'player'
@@ -202,7 +205,7 @@ class Contribute(Page):
 
 
     def vars_for_template(player: Player):
-        return dict(round=player.subsession.round_number,player_name=player.player_name, cumul_payoff=player.cumul_payoff)
+        return dict(tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,player_name=player.player_name, cumul_payoff=player.cumul_payoff)
 
 class WaitPage1(WaitPage):
     after_all_players_arrive = save_contributions
@@ -215,11 +218,11 @@ class Punish(Page):
     form_model = 'player'
     form_fields = ['punish_p1','punish_p2','punish_p3','punish_p4', ]
     def vars_for_template(player: Player):
-        return dict(round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
+        return dict(tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
 
 class Feedback(Page):
     def vars_for_template(player: Player):
-        return dict(round=player.subsession.round_number, total_punishment=player.total_punishment,cost_of_punishment=player.cost_of_punishment, punishment_received=player.punishment_received, reduction=player.punishment_received*0.10*player.payoff_1, payoff_2=player.payoff_2,player_name=player.player_name )
+        return dict(tot_round=C.NUM_ROUNDS,round=player.subsession.round_number, total_punishment=player.total_punishment,cost_of_punishment=player.cost_of_punishment, punishment_received=player.punishment_received, reduction=player.punishment_received*0.10*player.payoff_1, payoff_2=player.payoff_2,player_name=player.player_name )
 
 class WaitPage3(WaitPage):
     after_all_players_arrive = set_playoff_2

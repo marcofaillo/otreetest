@@ -10,16 +10,17 @@
 
 Giocatore: {{player_name}}
  <div class="row">
-    <div class="col-sm-12">
-      <div class="class=alert bg-warning"  role="alert" style="text-align:center">
-        <h4>  ROUND N. {{round}}. </h4>
-        {% if round > 1 %} Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni {% endif %}
 
-        Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto
+      <div class="class=alert bg-warning"  role="alert" style="text-align:center">
+        <h4>  ROUND N. {{round}} di {{tot_round}}. </h4>
+        {% if round > 1 %}
+        <br>  <h5>Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
+        {% endif %}
+
+      <br>  <h5> Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto </h5>
 
       </div>
     </div>
-  </div>
 
 
 
