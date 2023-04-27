@@ -8,23 +8,20 @@ Giocatore: {{player_name}}
 <div class="card bg-light instructions">
     <div class="card-body">
 
-<!-- ISTRUZIONI-->
  <div class="row">
 
-      <div  class="class=alert bg-warning"  role="alert" style="text-align:center">
-        <h4>  ROUND N. {{round}} di {{tot_round}}. </h4>
-        <h4>  Fine del round</h4>
+      <div  class="class=alert bg-primary"  role="alert" style="text-align:center">
+        <h4  style="color:white">  FINE DELL'ESPERIMENTO</h4>
+      </div>
 
-    </div>
   </div>
 
-    &nbsp
+  &nbsp
 <div class="row">
 <font size="4">
     <div class="col-sm">
-      <p class="text-justify">Hai assegnato: <b>{{total_punishment |to0}} </b> punti per un costo totale di <b> {{cost_of_punishment}} gettoni. </b> </b></p>
-      <p class="text-justify">Hai ricevuto <b>{{punishment_received|to0}} punti </b> per una riduzione del pagamento del primo round pari a <b> {{reduction|to2 }} gettoni </b></p>
-      <p class="text-justify">Il tuo pagamento per questo round è di <b> {{payoff_2|to1}} gettoni </b> </p>
+      <p class="text-justify">L'esperimento è finito, grazie per aver partecipato.</p>
+      <p class="text-justify">Il tuo pagamento finale è di <b> {{cumul_payoff|to2}} gettoni </b> pari a  <b> {{euro|to2}}  euro </b>, a cui si aggiungono i 3 euro per la partecipazione.</p>
 
 
         <!--		BOTTONE PROSEGUI	2	-->

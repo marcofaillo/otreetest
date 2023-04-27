@@ -1,0 +1,67 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+Giocatore: {{player_name}}
+ <div class="row">
+
+      <div class="class=alert bg-primary"  role="alert" style="text-align:center">
+        <h4 style="color:white">  ROUND N. {{round}} di {{tot_round}}. </h4>
+        {% if round > 1 %}
+        <br>  <h5  style="color:white">Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
+        {% endif %}
+
+      <br>  <h5 style="color:white"> Prima fase. La tua dotazione è di 10 gettoni, scegli quanto contribuire al progetto </h5>
+
+      </div>
+    </div>
+
+
+
+<font size="4">
+    <div class="col-sm ">
+      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution label="Inserisci un numero tra 0 e 10" %} </p>
+
+
+
+
+        <!--		BOTTONE PROSEGUI	2	-->
+    		 <div class="row">
+    		    <div class="col-sm-12 text-center">
+    		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+    			</div>
+
+    		 </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+
+
+</script>
+
+
+
+{% endblock %}

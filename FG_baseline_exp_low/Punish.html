@@ -1,0 +1,108 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+Giocatore: {{player_name}};
+<div class="card bg-white instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+      <div  class="class=alert bg-primary"  role="alert" style="text-align:center">
+        <h4 style="color:white">   ROUND N. {{round}} di {{tot_round}} </h4>
+        <h4 style="color:white">   Seconda fase </h4>
+      </div>
+    </div>
+
+
+<div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify"><h4>  Esito della prima fase </h4> </p>
+      <p class="text-justify">Tua contribuzione al progetto: <b>{{contribution |to0}} gettoni </b></p>
+      <p class="text-justify">Contribuzione totale del tuo gruppo al progetto è stata di <b>{{total_contribution|to0}} gettoni</b> </p>
+      <p class="text-justify">Tua quota del pagamento dal progetto <b>{{individual_share|to2}}  gettoni </b> </p>
+      <p class="text-justify">Tuo pagamento per la prima fase <b>{{payoff_1|to2}}  gettoni </b> </p>
+
+
+
+      <p class="text-justify">Qui di seguito sono riportate le contribuzioni degli altri membri del tuo gruppo, per ciascuno di essi potrai decidere se e quanti punti assegnare. </p>
+      <p class="text-justify">Ti ricordiamo anche puoi assegnare un massimo di 10 punti a ciascun membro del gruppo e che per ciascun membro il costo dei punti assegnati è riportato in parentesi accanto al valore scelto e nella tabella in fondo alla pagina.</p>
+
+      <p class="text-justify"><b> Altri membri del gruppo </b></p>
+
+
+{% if player_name == 1 %}
+     <ul>
+       <li style="color:blue;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2  label="Punti" %}
+       <li style="color:blue;"> Contribuzione (3): {{contribution_p3|to0}} gettoni   </li>{% formfield player.punish_p3  label="Punti" %}
+       <li style="color:blue;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+    </ul>
+{% elif player_name == 2 %}
+  <ul>
+      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
+      <li style="color:blue;"> Contribuzione (3): {{contribution_p3|to0}} gettoni  </li> {% formfield player.punish_p3  label="Punti" %}
+      <li style="color:blue;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+  </ul>
+{% elif player_name == 3 %}
+    <ul>
+      <li style="color:blue;"> Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
+      <li style="color:blue;"> Contribuzione (2): {{contribution_p2|to0}} gettoni   </li>{% formfield player.punish_p2  label="Punti" %}
+        <li style="color:blue;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+    </ul>
+{% else %}
+    <ul>
+      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} gettoni </li> {% formfield player.punish_p1  label="Punti" %}
+      <li style="color:blue;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2 label="Punti" %}
+      <li style="color:blue;">Contribuzione (3): {{contribution_p3|to0}} gettoni  </li>{% formfield player.punish_p3  label="Punti" %}
+    </ul>
+{% endif %}
+
+
+
+
+
+    </div>
+    </div>
+
+      <div class="row">
+         <div class="col-sm-12 text-center">
+           <p class="text-justify"> <img src="{{ static 'FG_baseline_exp_high/schedule_10.jpg' }}" class="rounded mx-auto d-block" /> </p>
+       </div>
+      </div>
+
+
+        <!--		BOTTONE PROSEGUI	2	-->
+    		 <div class="row">
+    		    <div class="col-sm-12 text-center">
+    		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+    			</div>
+
+    		 </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

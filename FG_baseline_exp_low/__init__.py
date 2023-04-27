@@ -2,16 +2,16 @@ from otree.api import *
 import random as r
 
 doc = """
-Faillo and Grieco 2023 Baseline high endowment.
+Faillo and Grieco 2023 Baseline low endowment.
 """
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'FG_baseline_exp_high'
+    NAME_IN_URL = 'FG_baseline_exp_low'
     EXCHANGE_RATE=0.02
     PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 4
-    ENDOWMENT =20
+    ENDOWMENT =10
     MPCR = 0.4
     MAX_PUNISHMENT = 10
     PUNISHMENT_SCHEDULE= {
@@ -41,11 +41,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    contribution = models.FloatField(min =0, max =20)
-    punish_p1 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True, initial=0)
-    punish_p2 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True,initial=0)
-    punish_p3 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True,initial=0)
-    punish_p4 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (1)'], [2, '2 (2)'], [3, ' 3 (4)'], [4, '4 (6)'],[5, '5 (9)'], [6, '6 (12)'],[7, '7 (16)'],[8, '8 (20)'],[9, '9 (25)'],[10, '10 (30)']], label="", blank=True,initial=0)
+    contribution = models.FloatField(min =0, max =10)
+    punish_p1 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (0.5)'], [2, '2 (1)'], [3, ' 3 (2)'], [4, '4 (3)'],[5, '5 (4.5)'], [6, '6 (6)'],[7, '7 (8)'],[8, '8 (10)'],[9, '9 (12.5)'],[10, '10 (15)']], label="", blank=True, initial=0)
+    punish_p2 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (0.5)'], [2, '2 (1)'], [3, ' 3 (2)'], [4, '4 (3)'],[5, '5 (4.5)'], [6, '6 (6)'],[7, '7 (8)'],[8, '8 (10)'],[9, '9 (12.5)'],[10, '10 (15)']], label="", blank=True,initial=0)
+    punish_p3 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (0.5)'], [2, '2 (1)'], [3, ' 3 (2)'], [4, '4 (3)'],[5, '5 (4.5)'], [6, '6 (6)'],[7, '7 (8)'],[8, '8 (10)'],[9, '9 (12.5)'],[10, '10 (15)']], label="", blank=True,initial=0)
+    punish_p4 = models.IntegerField(choices=[[0, '0 (0)'],[1, '1 (0.5)'], [2, '2 (1)'], [3, ' 3 (2)'], [4, '4 (3)'],[5, '5 (4.5)'], [6, '6 (6)'],[7, '7 (8)'],[8, '8 (10)'],[9, '9 (12.5)'],[10, '10 (15)']], label="", blank=True,initial=0)
     total_punishment= models.IntegerField()
     cost_of_punishment = models.IntegerField()
     punishment_received = models.IntegerField()
@@ -61,7 +61,7 @@ class Player(BasePlayer):
     #control questions
     q1=models.IntegerField()
     q2=models.IntegerField()
-    q3=models.IntegerField(choices=[[1, 'A. Il tuo pagamento è calcolato come: 20-8 + 0,4*(8+5+2+10) =12+0,4*25=12+10=22 '], [2, 'B.Il tuo pagamento è calcolato come: 10-8 + 0,4*(8+5+2+10) =2+0,4*25=2+10=2']])
+    q3=models.IntegerField(choices=[[1, 'A. Il tuo pagamento è calcolato come: 20-8 + 0,4*(8+5+2+10) =12+0,4*25=12+10=22 '], [2, 'B. Il tuo pagamento è calcolato come: 10-8 + 0,4*(8+5+2+10) =2+0,4*25=2+10=2']])
     q4=models.IntegerField()#cost
     q5=models.IntegerField()#cost
     q6=models.IntegerField()#cost
@@ -156,6 +156,10 @@ class Instructions_2(Page):
     def is_displayed(player: Player):
         return player.subsession.round_number ==  1
 
+class Rematch(Page):
+    def is_displayed(player: Player):
+        return player.subsession.round_number == C.NUM_ROUNDS/2+1
+
 class Control(Page):
     form_model = 'player'
     form_fields = ['q1', 'q2', 'q3', 'q4','q5', 'q6','q7', 'q8','q9']
@@ -167,22 +171,22 @@ class Control(Page):
         if values['q1'] != 0:
             player.errors += 1
             return 'La risposta alla domanda 1 è sbagliata'
-        if values['q2'] != 32:
+        if values['q2'] != 16:
             player.errors += 1
             return 'La risposta alla domanda 2 è sbagliata'
-        if values['q3'] != 1:
+        if values['q3'] != 2:
             player.errors += 1
             return 'La risposta alla domanda 3 è sbagliata'
-        if values['q4'] != 25:
+        if values['q4'] != 12.5:
             player.errors += 1
             return 'La risposta alla domanda 4 è sbagliata'
-        if values['q5'] != 9:
+        if values['q5'] != 4.5:
             player.errors += 1
             return 'La risposta alla domanda 5 è sbagliata'
         if values['q6'] != 0:
             player.errors += 1
             return 'La risposta alla domanda 6 è sbagliata'
-        if values['q7'] != 34:
+        if values['q7'] != 17:
             player.errors += 1
             return 'La risposta alla domanda 7 è sbagliata'
         if values['q8'] != 0:
@@ -201,14 +205,11 @@ class Contribute(Page):
     form_fields = ['contribution']
     def error_message(player: Player, values):
         if values['contribution'] > C.ENDOWMENT:
-                return 'La contribuzione massima è 20 UMS'
+                return 'La contribuzione massima è 10 UMS'
+
+
     def vars_for_template(player: Player):
         return dict(tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,player_name=player.player_name, cumul_payoff=player.cumul_payoff)
-
-class Rematch(Page):
-    def is_displayed(player: Player):
-        return player.subsession.round_number == C.NUM_ROUNDS/2+1
-
 
 class WaitPage1(WaitPage):
     after_all_players_arrive = save_contributions
@@ -245,4 +246,4 @@ class Questionnaire(Page):
     def is_displayed(player: Player):
         return player.subsession.round_number ==  C.NUM_ROUNDS
 
-page_sequence = [Instructions_1,WaitPage_intructions,Instructions_2,WaitPage0,Control, WaitPage_intructions, Rematch, Contribute,WaitPage1, WaitPage2, Punish,WaitPage3, Feedback,Final, Questionnaire,]
+page_sequence = [Instructions_1,WaitPage_intructions,Instructions_2,WaitPage0,Control, WaitPage_intructions, Rematch, Contribute,WaitPage1, WaitPage2, Punish,WaitPage3, Feedback, Final, Questionnaire,]
