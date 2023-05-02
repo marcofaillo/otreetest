@@ -62,10 +62,10 @@ class Player(BasePlayer):
     q1=models.IntegerField()
     q2=models.IntegerField()
     q3=models.IntegerField(choices=[[1, 'A. Il tuo pagamento è calcolato come: 20-8 + 0,4*(8+5+2+10) =12+0,4*25=12+10=22 '], [2, 'B. Il tuo pagamento è calcolato come: 10-8 + 0,4*(8+5+2+10) =2+0,4*25=2+10=2']])
-    q4=models.IntegerField()#cost
-    q5=models.IntegerField()#cost
-    q6=models.IntegerField()#cost
-    q7=models.IntegerField()#cost
+    q4=models.FloatField()#cost
+    q5=models.FloatField()#cost
+    q6=models.FloatField()#cost
+    q7=models.FloatField()#cost
     q8=models.IntegerField()
     q9=models.IntegerField()
     errors=models.IntegerField(initial=0) #n. of errors in control questions
