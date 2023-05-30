@@ -10,7 +10,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'FG_baseline_exp_high'
     EXCHANGE_RATE=0.02
     PLAYERS_PER_GROUP = 4
-    NUM_ROUNDS = 4
+    NUM_ROUNDS = 20
     ENDOWMENT =20
     MPCR = 0.4
     MAX_PUNISHMENT = 10
@@ -150,6 +150,7 @@ class Instructions_1(Page):
         return player.subsession.round_number ==  1
 
 class WaitPage_intructions(WaitPage):
+    wait_for_all_groups=True
     pass
 
 class Instructions_2(Page):
@@ -157,6 +158,7 @@ class Instructions_2(Page):
         return player.subsession.round_number ==  1
 
 class Control(Page):
+    wait_for_all_groups=True
     form_model = 'player'
     form_fields = ['q1', 'q2', 'q3', 'q4','q5', 'q6','q7', 'q8','q9']
     def is_displayed(player: Player):

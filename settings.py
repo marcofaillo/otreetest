@@ -63,6 +63,13 @@ SESSION_CONFIGS = [
             app_sequence=['FG_baseline_exp_low'],
             ),
 
+        dict(
+            name='FG_mix_no_norm',
+            display_name='FG_mix_no_norm',
+            num_demo_participants=8,
+            app_sequence=['FG_mix_no_norm'],
+            ),
+
 
         # dict(
         #     name='faillo_content_spanish_pract_gamma5',

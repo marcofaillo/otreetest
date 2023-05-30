@@ -8,16 +8,16 @@
 <div class="card bg-light instructions">
     <div class="card-body">
 
-
+{{player.id_in_subsession}}
  <div class="row">
 
-      <div class="class=alert bg-warning"  role="alert" style="text-align:center">
-        <h4>  ROUND N. {{round}} di {{tot_round}}. </h4>
+      <div class="class=alert bg-primary"  role="alert" style="text-align:center">
+        <h4 style="color:white">  ROUND N. {{round}} di {{tot_round}}. </h4>
         {% if round > 1 %}
-        <br>  <h5>Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
+        <br>  <h5  style="color:white">Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
         {% endif %}
 
-      <br>  <h5> Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto </h5>
+      <br>  <h5 style="color:white"> Prima fase. La tua dotazione è di 10 gettoni, scegli quanto contribuire al progetto </h5>
 
       </div>
     </div>
@@ -26,7 +26,7 @@
 
 <font size="4">
     <div class="col-sm ">
-      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution label="Inserisci un numero tra 0 e 20" %} </p>
+      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution label="Inserisci un numero tra 0 e 10" %} </p>
 
 
 
@@ -42,7 +42,6 @@
 
 </div>
 </div>
-
 <br>
 <br>
 <br>
@@ -54,13 +53,15 @@
     </tr>
   </table>
 <iframe
-src="{{ static 'FG_baseline_exp_high/istruzioni_h.pdf' }}#toolbar=0"
+src="{{ static 'FG_baseline_exp_low/istruzioni_l.pdf' }}#toolbar=0"
 width="500"
 height="275"
 >
 </iframe>
 
 </div>
+
+
 
 {% endblock %}
 

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-Giocatore: {{player_name}};
+
 <div class="card bg-white instructions">
     <div class="card-body">
 
@@ -36,27 +36,27 @@ Giocatore: {{player_name}};
 
 {% if player_name == 1 %}
      <ul>
-       <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2  label="Punti" %}
-       <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} gettoni   </li>{% formfield player.punish_p3  label="Punti" %}
-       <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione: {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione: {{contribution_p3|to0}} gettoni   </li>{% formfield player.punish_p3  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione: {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
     </ul>
 {% elif player_name == 2 %}
   <ul>
-      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
-      <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} gettoni  </li> {% formfield player.punish_p3  label="Punti" %}
-      <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+      <li style="color:darkorange;">  Contribuzione: {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione: {{contribution_p3|to0}} gettoni  </li> {% formfield player.punish_p3  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione: {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
   </ul>
 {% elif player_name == 3 %}
     <ul>
-      <li style="color:darkorange;"> Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
-      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni   </li>{% formfield player.punish_p2  label="Punti" %}
-        <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione: {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_p1  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione: {{contribution_p2|to0}} gettoni   </li>{% formfield player.punish_p2  label="Punti" %}
+        <li style="color:darkorange;"> Contribuzione: {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_p4  label="Punti" %}
     </ul>
 {% else %}
     <ul>
-      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} gettoni </li> {% formfield player.punish_p1  label="Punti" %}
-      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2 label="Punti" %}
-      <li style="color:darkorange;">Contribuzione (3): {{contribution_p3|to0}} gettoni  </li>{% formfield player.punish_p3  label="Punti" %}
+      <li style="color:darkorange;">  Contribuzione: {{contribution_p1|to0}} gettoni </li> {% formfield player.punish_p1  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione: {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_p2 label="Punti" %}
+      <li style="color:darkorange;">Contribuzione  {{contribution_p3|to0}} gettoni  </li>{% formfield player.punish_p3  label="Punti" %}
     </ul>
 {% endif %}
 

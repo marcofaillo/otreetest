@@ -8,20 +8,27 @@
 <div class="card bg-light instructions">
     <div class="card-body">
 
+{{player.id_in_subsession}}
  <div class="row">
 
-      <div  class="class=alert bg-warning"  role="alert" style="text-align:center">
-        <h4>  FINE DELL'ESPERIMENTO</h4>
+      <div class="class=alert bg-warning"  role="alert" style="text-align:center">
+        <h4>  ROUND N. {{round}} di {{tot_round}}. </h4>
+        {% if round > 1 %}
+        <br>  <h5>Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
+        {% endif %}
+
+      <br>  <h5> Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto </h5>
+
       </div>
+    </div>
 
-  </div>
 
-  &nbsp
-<div class="row">
+
 <font size="4">
-    <div class="col-sm">
-      <p class="text-justify">L'esperimento è finito, grazie per aver partecipato.</p>
-      <p class="text-justify">Il tuo pagamento finale è di <b> {{cumul_payoff|to2}} gettoni </b> pari a  <b> {{euro|to2}}  euro </b>, a cui si aggiungono i 3 euro per la partecipazione.</p>
+    <div class="col-sm ">
+      <p class="text-justify">   <div class="bg-light" role="alert">   {% formfield player.contribution label="Inserisci un numero tra 0 e 20" %} </p>
+
+
 
 
         <!--		BOTTONE PROSEGUI	2	-->
@@ -50,6 +57,8 @@
 		$("#btn_submit").click(function(){
 			$("#form").submit()
 	  	});
+
+
 
 </script>
 

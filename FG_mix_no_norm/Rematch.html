@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+{{player.id_in_group}}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+{% if high == 1 %}
+ <div class="row">
+
+      <div  class="class=alert bg-warning  role="alert" style="text-align:center">
+        <h4>  COMPOSIZIONE DEL GRUPPO</h4>
+      </div>
+
+  </div>
+
+{% else %}
+  <div class="row">
+
+       <div  class="class=alert bg-primary  role="alert" style="text-align:center">
+         <h4  style="color:white">  COMPOSIZIONE DEL GRUPPO</h4>
+       </div>
+
+   </div>
+{% endif %}
+
+  &nbsp
+<div class="row">
+<font size="4">
+    <div class="col-sm">
+      <p class="text-justify">A partire dal prossimo round la composizione del tuo gruppo cambierà:</p>
+      {% if high == 1 %}
+          {% if immigrant_high == 1 %}
+            <p class="text-justify"> <b> Ti sposterai in un gruppo blu, i cui membri hanno una dotazione di 10 UMS </b>. <br> Interagirai con queste persone per i successivi 10 round. <br> All'interno nel gruppo blu le tue scelte verranno visualizzate con il colore arancione. </p>
+          {% else %}
+              <p class="text-justify"> <b> Uno dei membri del tuo gruppo si sposterà in un gruppo blu </b> (i cui membri hanno una dotazione di 10 UMS), e verrà sostituito da uno dei membri di quel gruppo. <br> Interagirete con questa nuova persona per i successivi 10 round. <br> Le scelte del nuovo membro del vostro gruppo verranno visualizzate con il colore blu, ma avrà la vostra stessa dotazione di 20 UMS. </p>
+          {% endif %}
+          &nbsp
+      {% else %}
+          {% if immigrant_low == 1 %}
+              <p class="text-justify"> <b> Ti sposterai in un gruppo arancione </b>, i cui membri hanno una dotazione di 20 UMS. <br> Interagirai con queste persone per i successivi 10 round. <br> All'interno nel gruppo arancione le tue scelte verranno visualizzate con il colore blu. </p>
+          {% else %}
+              <p class="text-justify"> <b> Uno dei membri del tuo gruppo si sposterà in un gruppo arancione  </b>(i cui membri hanno una dotazione di 20 UMS), e verrà sostituito da uno dei membri di quel gruppo. <br> Interagirete con questa nuova persona per i successivi 10 round. <br> Le scelte del nuovo membro del vostro gruppo verranno visualizzate con il colore arancione, ma avrà la vostra stessa dotazione di 10 UMS. </p>
+          {% endif %}
+
+        {% endif %}
+
+
+        <!--		BOTTONE PROSEGUI	2	-->
+    		 <div class="row">
+    		    <div class="col-sm-12 text-center">
+    		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+    			</div>
+
+    		 </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
