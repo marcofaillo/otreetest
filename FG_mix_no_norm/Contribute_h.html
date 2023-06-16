@@ -14,10 +14,10 @@
       <div class="class=alert bg-warning"  role="alert" style="text-align:center">
         <h4>  ROUND N. {{round}} di {{tot_round}}. </h4>
         {% if round > 1 %}
-        <br>  <h5>Pagamento totale fino a questo momento: {{cumul_payoff|to2}} gettoni </h5>
+        <br>  <h5>Pagamento totale fino a questo momento: {{cumul_payoff|to2}} UMS </h5>
         {% endif %}
 
-      <br>  <h5> Prima fase. La tua dotazione è di 20 gettoni, scegli quanto contribuire al progetto </h5>
+      <br>  <h5> Prima fase. La tua dotazione è di 20 UMS, scegli quanto contribuire al progetto </h5>
 
       </div>
     </div>
@@ -43,7 +43,24 @@
 </div>
 </div>
 
+<br>
+<br>
+<br>
+<div class="container">
+  <table class="table  table"">
+    <tr>
+          <td scope="col" style="color:darkorange;"></td>
+          <td scope="col" style="color:darkorange;"></td>
+    </tr>
+  </table>
+<iframe
+src="{{ static 'FG_mix_no_norm/istruzioni_h.pdf' }}#toolbar=0"
+width="500"
+height="275"
+>
+</iframe>
 
+</div>
 
 {% endblock %}
 

@@ -10,7 +10,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'FG_mix_no_norm'
     EXCHANGE_RATE=0.02
     PLAYERS_PER_GROUP = 4
-    NUM_ROUNDS = 4
+    NUM_ROUNDS = 20
     # ENDOWMENT =20
     MPCR = 0.4
     # MAX_PUNISHMENT = 10
@@ -187,10 +187,10 @@ def set_playoff_2(group: Group):
                 p2.punishment_received=p1.punish_l_p2+p3.punish_l_p2+p4.punish_l_p2
                 p3.punishment_received=p1.punish_l_p3+p2.punish_l_p3+p4.punish_l_p3
                 p4.punishment_received=p1.punish_l_p4+p2.punish_l_p4+p3.punish_l_p4
-                p1.payoff_2=p1.payoff_1-p1.payoff_1*0.10*p1.punishment_received-p1.cost_of_punishment
-                p2.payoff_2=p2.payoff_1-p2.payoff_1*0.10*p2.punishment_received-p2.cost_of_punishment
-                p3.payoff_2=p3.payoff_1-p3.payoff_1*0.10*p3.punishment_received-p3.cost_of_punishment
-                p4.payoff_2=p4.payoff_1-p4.payoff_1*0.10*p4.punishment_received-p4.cost_of_punishment
+                p1.payoff_2=round(p1.payoff_1-p1.payoff_1*0.10*p1.punishment_received-p1.cost_of_punishment,1)
+                p2.payoff_2=round(p2.payoff_1-p2.payoff_1*0.10*p2.punishment_received-p2.cost_of_punishment,1)
+                p3.payoff_2=round(p3.payoff_1-p3.payoff_1*0.10*p3.punishment_received-p3.cost_of_punishment,1)
+                p4.payoff_2=round(p4.payoff_1-p4.payoff_1*0.10*p4.punishment_received-p4.cost_of_punishment,1)
             #cumulative payoff:
                 if p.subsession.round_number == 1:
                    p.cumul_payoff=p.payoff_2
@@ -209,10 +209,10 @@ def set_playoff_2(group: Group):
                 p2.punishment_received=p1.punish_h_p2+p3.punish_h_p2+p4.punish_h_p2
                 p3.punishment_received=p1.punish_h_p3+p2.punish_h_p3+p4.punish_h_p3
                 p4.punishment_received=p1.punish_h_p4+p2.punish_h_p4+p3.punish_h_p4
-                p1.payoff_2=p1.payoff_1-p1.payoff_1*0.10*p1.punishment_received-p1.cost_of_punishment
-                p2.payoff_2=p2.payoff_1-p2.payoff_1*0.10*p2.punishment_received-p2.cost_of_punishment
-                p3.payoff_2=p3.payoff_1-p3.payoff_1*0.10*p3.punishment_received-p3.cost_of_punishment
-                p4.payoff_2=p4.payoff_1-p4.payoff_1*0.10*p4.punishment_received-p4.cost_of_punishment
+                p1.payoff_2=round(p1.payoff_1-p1.payoff_1*0.10*p1.punishment_received-p1.cost_of_punishment,1)
+                p2.payoff_2=round(p2.payoff_1-p2.payoff_1*0.10*p2.punishment_received-p2.cost_of_punishment,1)
+                p3.payoff_2=round(p3.payoff_1-p3.payoff_1*0.10*p3.punishment_received-p3.cost_of_punishment,1)
+                p4.payoff_2=round(p4.payoff_1-p4.payoff_1*0.10*p4.punishment_received-p4.cost_of_punishment,1)
             #cumulative payoff:
                 if p.subsession.round_number == 1:
                    p.cumul_payoff=p.payoff_2
@@ -400,7 +400,7 @@ class Punish_h(Page):
     def is_displayed(player: Player):
         return player.group.high==1
     def vars_for_template(player: Player):
-        return dict(round_change=C.ROUND_CHANGE,tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
+        return dict(id_player=player.id_in_group,round_change=C.ROUND_CHANGE,tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
 
 
 class Punish_l(Page):
@@ -409,7 +409,7 @@ class Punish_l(Page):
     def is_displayed(player: Player):
         return player.group.high==0
     def vars_for_template(player: Player):
-        return dict(round_change=C.ROUND_CHANGE,tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
+        return dict(id_player=player.id_in_group,round_change=C.ROUND_CHANGE,tot_round=C.NUM_ROUNDS,round=player.subsession.round_number,total_contribution=player.group.total_contribution, individual_share=player.group.individual_share, contribution_p1=player.contribution_p1,contribution_p2=player.contribution_p2, contribution_p3=player.contribution_p3, contribution_p4=player.contribution_p4, player_name=player.player_name, payoff_1=player.payoff_1, contribution=player.contribution)
 
 class WaitPageControl(WaitPage):
       wait_for_all_groups = True

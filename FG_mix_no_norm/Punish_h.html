@@ -21,10 +21,10 @@ Giocatore: {{player_name}};
 <font size="4">
     <div class="col-sm">
       <p class="text-justify"><h4>  Esito della prima fase </h4> </p>
-      <p class="text-justify">Tua contribuzione al progetto: <b>{{contribution |to0}} gettoni </b></p>
-      <p class="text-justify">Contribuzione totale del tuo gruppo al progetto è stata di <b>{{total_contribution|to0}} gettoni</b> </p>
-      <p class="text-justify">Tua quota del pagamento dal progetto <b>{{individual_share|to2}}  gettoni </b> </p>
-      <p class="text-justify">Tuo pagamento per la prima fase <b>{{payoff_1|to2}}  gettoni </b> </p>
+      <p class="text-justify">Tua contribuzione al progetto: <b>{{contribution |to0}} UMS </b></p>
+      <p class="text-justify">Contribuzione totale del tuo gruppo al progetto è stata di <b>{{total_contribution|to0}} UMS</b> </p>
+      <p class="text-justify">Tua quota del pagamento dal progetto <b>{{individual_share|to2}}  UMS </b> </p>
+      <p class="text-justify">Tuo pagamento per la prima fase <b>{{payoff_1|to2}}  UMS </b> </p>
 
 
 
@@ -32,48 +32,49 @@ Giocatore: {{player_name}};
       <p class="text-justify">Ti ricordiamo anche puoi assegnare un massimo di 10 punti a ciascun membro del gruppo e che per ciascun membro il costo dei punti assegnati è riportato in parentesi accanto al valore scelto e nella tabella in fondo alla pagina.</p>
 
       {% if round >= round_change %}
+      {% if id_player > 1 %}
       <p class="text-justify" > Il contributo del nuovo membro apparirà in <font color="blue"> blu. </font></p>
       {% endif %}
-
+      {% endif %}
       <p class="text-justify"><b> Altri membri del gruppo </b></p>
 
 
 {% if player_name == 1 %}
      <ul>
-       <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_h_p2  label="Punti" %}
-       <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} gettoni   </li>{% formfield player.punish_h_p3  label="Punti" %}
-       <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_h_p4  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} UMS  </li>{% formfield player.punish_h_p2  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} UMS   </li>{% formfield player.punish_h_p3  label="Punti" %}
+       <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} UMS  </li>{% formfield player.punish_h_p4  label="Punti" %}
     </ul>
 
 {% elif player_name == 2 %}
   <ul>
     {% if round < round_change %}
-      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} UMS  </li>{% formfield player.punish_h_p1  label="Punti" %}
     {% else %}
-      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} UMS  </li>{% formfield player.punish_h_p1  label="Punti" %}
     {% endif %}
-      <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} gettoni  </li> {% formfield player.punish_h_p3  label="Punti" %}
-      <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_h_p4  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione (3): {{contribution_p3|to0}} UMS  </li> {% formfield player.punish_h_p3  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} UMS  </li>{% formfield player.punish_h_p4  label="Punti" %}
   </ul>
 {% elif player_name == 3 %}
     <ul>
       {% if round < round_change %}
-      <li style="color:darkorange;"> Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione (1): {{contribution_p1|to0}} UMS  </li>{% formfield player.punish_h_p1  label="Punti" %}
       {% else %}
-      <li style="color:blue;"> Contribuzione (1): {{contribution_p1|to0}} gettoni  </li>{% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:blue;"> Contribuzione (1): {{contribution_p1|to0}} UMS  </li>{% formfield player.punish_h_p1  label="Punti" %}
       {% endif %}
-      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni   </li>{% formfield player.punish_h_p2  label="Punti" %}
-        <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} gettoni  </li>{% formfield player.punish_h_p4  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} UMS   </li>{% formfield player.punish_h_p2  label="Punti" %}
+        <li style="color:darkorange;"> Contribuzione (4): {{contribution_p4|to0}} UMS  </li>{% formfield player.punish_h_p4  label="Punti" %}
     </ul>
 {% else %}
     <ul>
       {% if round < round_change %}
-      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} gettoni </li> {% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:darkorange;">  Contribuzione (1): {{contribution_p1|to0}} UMS </li> {% formfield player.punish_h_p1  label="Punti" %}
       {% else %}
-      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} gettoni </li> {% formfield player.punish_h_p1  label="Punti" %}
+      <li style="color:blue;">  Contribuzione (1): {{contribution_p1|to0}} UMS </li> {% formfield player.punish_h_p1  label="Punti" %}
       {% endif %}
-      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} gettoni  </li>{% formfield player.punish_h_p2 label="Punti" %}
-      <li style="color:darkorange;">Contribuzione (3): {{contribution_p3|to0}} gettoni  </li>{% formfield player.punish_h_p3  label="Punti" %}
+      <li style="color:darkorange;"> Contribuzione (2): {{contribution_p2|to0}} UMS  </li>{% formfield player.punish_h_p2 label="Punti" %}
+      <li style="color:darkorange;">Contribuzione (3): {{contribution_p3|to0}} UMS  </li>{% formfield player.punish_h_p3  label="Punti" %}
     </ul>
 {% endif %}
 
