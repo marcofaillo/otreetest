@@ -1,0 +1,92 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> RESULTS</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+    <div style="text-align: justify;">
+        <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
+        {% if paid_decision == 1 %}
+        <p> In that decision you choose to invest {{decision_1 }} tokens in the uncertain outcome. </p>
+
+        {% if decision_1 > 0 %}
+        <p> The random draw assigned a value of {% if lottery_1 == 1 %} £0.00 {% elif lottery_1 == 2 %} £0.075 {% elif lottery_1 == 3 %} £0.15 {% endif %} to each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff}} plus the £0.20 of fixed payment.</p>
+        <p> Press the button to proceed to the next activities. </p>
+        {% else %}
+        <p> In that decision you choose to invest {{decision_2 }} tokens in the uncertain outcome. </p>
+
+        {% if decision_2 > 0 %}
+        <p> The random draw assigned a value of {% if lottery_2 == 1 %} £0.00 {% elif lottery_2 == 2 %} £0.15  {% endif %} to each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff}}.</p>
+        <p> Press the button to proceed to the next activities. </p>
+        {% endif %}
+      </font>
+
+      </div>
+      </div>
+</div>
+</div>
+
+
+        &nbsp
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+        	</div>
+
+         </div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+
+
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

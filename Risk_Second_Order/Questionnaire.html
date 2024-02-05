@@ -1,0 +1,84 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <!-- Le tue scelte -->
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<div class="row">
+ 	<div class="col-sm-12">
+	    <div class="alert alert-primary" role="alert" style="text-align:center">
+	       <h3> QUESTIONARIO </h3>
+	     </div>
+	 </div>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+
+	 <div class="col-sm">
+		<p class="text-justify"> Grazie per aver partecipato! Prima di lasciare l'esperimento ti chiediamo per cortesia di rispondere alle domande riportate di seguito.</p>
+		&nbsp
+    <p class="text-justify"> Ti chiediamo di guardare alle figure sottostanti. Pensando ai primi 10 round, quale delle figure rappresenta meglio la tua connessione/vicinanza con gli altri membri del tuo gruppo: </p>
+    &nbsp
+    <br> <img src="{{ static 'FG_mix_no_norm/close.jpg' }}" class="rounded mx-auto d-block" />
+    <p class="text-justify">{% formfield player.closeness_before  label="1. Inserisci un numero da 1 a 7" %} </p>
+    &nbsp
+    <p class="text-justify"> Pensando ora ai secondi 10 round, quale delle figure rappresenta meglio la tua connessione/vicinanza con gli altri membri del tuo gruppo: </p>
+    <br> <img src="{{ static 'FG_mix_no_norm/close.jpg' }}" class="rounded mx-auto d-block" />
+    <p class="text-justify">{% formfield player.closeness_after  label="2. Inserisci un numero da 1 a 7" %} </p>
+    &nbsp
+    <p class="text-justify">{% formfield player.female  label="3. Genere" %} </p>
+    <p class="text-justify">{% formfield player.age label="4. Età" %} </p>
+    <p class="text-justify">{% formfield player.major label="5. Corso di studi ( o tipo di lavoro se non sei uno studente)" %} </p>
+    <p class="text-justify">{% formfield player.exp label="6. A quanti esperimenti hai già preso parte (circa)?" %} </p>
+
+
+
+	&nbsp
+
+
+		<!--		BOTTONE PROSEGUI	2	-->
+		 <div class="row">
+		    <div class="col-sm-12 text-center">
+		    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROCEDI </button>
+
+			</div>
+
+		 </div>
+
+
+
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+		{% endblock %}
+
+
+
+
+		{% block scripts %}
+			<script>
+				$(document).ready(function(){
+				});
+
+				$("#btn_submit").click(function(){
+					$("#form").submit()
+			  	});
+
+		</script>
+
+
+
+
+				{% endblock %}

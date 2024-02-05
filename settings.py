@@ -22,12 +22,14 @@ SESSION_CONFIGS = [
     # ),
 
 
-        dict(
-            name='bartling',
-            display_name='bartling',
-            num_demo_participants=16,
-            app_sequence=['bartling'],
-        ),
+
+
+        # dict(
+        #     name='bartling',
+        #     display_name='bartling',
+        #     num_demo_participants=16,
+        #     app_sequence=['bartling'],
+        # ),
 
 
         # dict(
@@ -39,38 +41,64 @@ SESSION_CONFIGS = [
         #     app_sequence=['energy', 'faillobret'],
         #
         #     ),
-
-        dict(
-            name='labeling',
-            display_name='labeling',
-            num_demo_participants=1,
-            app_sequence=['labeling'],
-            ),
+        #
+        # dict(
+        #     name='labeling',
+        #     display_name='labeling',
+        #     num_demo_participants=1,
+        #     app_sequence=['labeling'],
+        #     ),
         #
         #
         # #
+        # dict(
+        #     name='FG_baseline_exp_high',
+        #     display_name='FG_baseline_exp_high',
+        #     num_demo_participants=4,
+        #     app_sequence=['FG_baseline_exp_high'],
+        #     ),
         dict(
-            name='FG_baseline_exp_high',
-            display_name='FG_baseline_exp_high',
-            num_demo_participants=4,
-            app_sequence=['FG_baseline_exp_high'],
+            name='Risk_Second_Order',
+            display_name='Risk_Second_Order',
+            num_demo_participants=1,
+            app_sequence=['Risk_Second_Order', 'MPL'],
             ),
 
+        # dict(
+        #     name='choice_list',
+        #     display_name='choice_list',
+        #     num_demo_participants=1,
+        #     app_sequence=['choice_list'],
+        #     ),
+
+
         dict(
-            name='FG_baseline_exp_low',
-            display_name='FG_baseline_exp_low',
-            num_demo_participants=4,
-            app_sequence=['FG_baseline_exp_low'],
+            name='MPL',
+            display_name='MPL',
+            num_demo_participants=1,
+            app_sequence=['MPL'],
             ),
+        # dict(
+        #     name='FG_baseline_exp_low',
+        #     display_name='FG_baseline_exp_low',
+        #     num_demo_participants=4,
+        #     app_sequence=['FG_baseline_exp_low'],
+        #     ),
 
-        dict(
-            name='FG_mix_no_norm',
-            display_name='FG_mix_no_norm',
-            num_demo_participants=8,
-            app_sequence=['FG_mix_no_norm'],
-            ),
-
-
+        # dict(
+        #     name='FG_mix_no_norm',
+        #     display_name='FG_mix_no_norm',
+        #     num_demo_participants=8,
+        #     app_sequence=['FG_mix_no_norm'],
+        #     ),
+        #
+        #
+        # dict(
+        #     name='FG_mix_no_norm_24',
+        #     display_name='FG_mix_no_norm_24',
+        #     num_demo_participants=8,
+        #     app_sequence=['FG_mix_no_norm_24'],
+        #     ),
         # dict(
         #     name='faillo_content_spanish_pract_gamma5',
         #     display_name='faillo_content_spanish_pract_gamma5',
@@ -208,7 +236,29 @@ SESSION_CONFIGS = [
         #             num_demo_participants=1,
         #             app_sequence=['chat'],
         #         ),
+        # dict(
+        # name='faillo_np',
         #
+        # display_name="NK with imitation",
+        #
+        # app_sequence=['faillo_np'],
+        #
+        # num_demo_participants=3,
+        #
+        # treatment=1,
+        #
+        # instructions=0,
+        #
+        # error=0,
+        #
+        # fineexp=25,
+        #
+        # superadmin=0,
+        #
+        # waitstart=0,
+        #
+        # type_instructions=1,
+        #     )
         # dict(
         #     name='sif_B_F',
         #     display_name='sif_B_F',
