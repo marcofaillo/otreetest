@@ -83,12 +83,12 @@ mgslider.prototype.markup = function () {
     return "\
         <table id='" + this.id("wrapper") + "' class='mgslider-wrapper' border='0'>\
             <tr>\
-                <td class='mgslider-limit'>" + this.f2s(this.min, true) + "</td>\
+                <td class='mgslider-limit'>" + "Activity with a certain return" + "</td>\
                 <td width='90%'>\
                     <div id='" + this.id("before") + "' class='mgslider-before' onclick='mgsliders.lookup(\"" + this.field + "\").reveal(event)'></div>\
                     <input type='range' id='" + this.id() + "' min='" + this.min + "' max='" + this.max + "' step='" + this.step + "' value='' class='mgslider form-range' oninput='mgsliders.lookup(\"" + this.field + "\").change()' onchange='mgsliders.lookup(\"" + this.field + "\").change()'>\
                 </td>\
-                <td class='mgslider-limit'>" + this.f2s(this.max, true) + "</td>\
+                <td class='mgslider-limit'>" + "Activity with an uncertain return" + "</td>\
             </tr>\
             <tr class='mgslider-feedback'>\
                 <td id='" + this.id("show") + "' class='mgslider-show' colspan='3'>" + this.uncertain + ": <b><span id='" + this.id("cur") + "' class='mgslider-value'></span></b></td>\

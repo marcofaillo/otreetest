@@ -44,7 +44,7 @@
         {% if decision_2 > 0 %}
         <p> The random draw assigned a value of {% if lottery_2 == 1 %} £0.00 {% elif lottery_2 == 2 %} £0.15  {% endif %} to each token invested in the uncertain outcome.</p>
         {% endif %}
-        <p> Your final payment for this activity is of £{{payoff}}.</p>
+        <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
         <p> Press the button to proceed to the next activities. </p>
         {% endif %}
       </font>
