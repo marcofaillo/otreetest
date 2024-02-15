@@ -45,7 +45,6 @@ class Player(BasePlayer):
     failed_too_many = models.BooleanField(initial=False)
 
 
-
 # def set_payoff(player: Player):
 #     player.paid_decision = r.randint(1, 2) #select the payoff relevant decision
 #     player.lottery_1=r.randint(1, 2,3) #random draw for the payment in case in which decision_1 is selected
@@ -177,6 +176,8 @@ class Results(Page):
 
     def vars_for_template(player: Player):
         return dict(decision_1=player.decision_1, decision_2=player.decision_2, paid_decision=C.PAID_DECISION, lottery_1=player.lottery_1, lottery_2=player.lottery_2, payoff= player.payoff)
+
+
 
 
 

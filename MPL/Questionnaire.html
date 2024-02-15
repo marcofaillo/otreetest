@@ -1,0 +1,91 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> FINAL QUESTIONNAIRE</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+        <!-- Risk taking risky benefit - Scenario base 1 -->
+
+        <p>Thank you for participating in this activity. </p>
+        <p> Before leaving, and be redicted to Prolif, please answer the following few questions. </p>
+&nbsp
+        <p> {% formfield player.instructions label="Do you think that the instructions on the previous choices were clear (from 1 –Not at all clear, to 5 – Extremely clear)? " %}</p>
+        <p> {% formfield player.taking_risk label="Are you generally a person who is fully prepared to take risks or do you try to avoid taking risks? Please choose an option, where the value 0 means: “not at all willing to take risks” and the value 10 means: “very willing to take risks” " %}</p>
+        <p> {% formfield player.well label="How well would you say that you are doing financially these days?" %}</p>
+        <p> {% formfield player.saving_1 label="Suppose you had £100 in a savings account and the interest rate was 2 percent per year. After 5 years, how much do you think you would have in the account if you left the money to grow:" %}
+        <p> {% formfield player.saving_2 label="Imagine that the interest rate on your savings account was 1 percent per year and inflation was 2 percent per year. After 1 year, with the money in this account would you be able to buy:" %}
+        <p> {% formfield player.stock label="Do you think that the following statement is true or false? “Buying a single company stock usually provides a safer return than a stock mutual fund.” " %}
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}
