@@ -64,6 +64,29 @@ SESSION_CONFIGS = [
             app_sequence=['Risk_Second_Order', 'MPL'],
             ),
 
+        dict(
+            name='Risk_Third_Order',
+            display_name='Risk_Third_Order',
+            num_demo_participants=1,
+            app_sequence=['Risk_Third_Order', 'MPL'],
+            ),
+
+        dict(
+            name='Risk_Mitigation',
+            display_name='Risk_Mitigation',
+            num_demo_participants=1,
+            app_sequence=['Risk_Mitigation', 'MPL'],
+            ),
+
+        # dict(
+        #     name='are_you_sure',
+        #     display_name='are_you_sure',
+        #     num_demo_participants=1,
+        #     app_sequence=['are_you_sure'],
+        #     ),
+
+
+
         # dict(
         #     name='choice_list',
         #     display_name='choice_list',
