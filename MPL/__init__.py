@@ -76,7 +76,7 @@ class Player(BasePlayer):
     payoff2=models.FloatField() #payoff when MPL is the second task
     final_pay=models.FloatField()
 
-    instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'],[5,'5.'], [6, '6. Perfectly clear.']])
+    instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
     taking_risk=models.IntegerField(choices=[[0, '0. Not at all willing to take risk'], [1,'1.'], [2,'2'], [3,'3'],[4,'4'],[5,'5'],[7,'7'],[8,'8'],[9,'9'],[10, '10. Very willing to take risk'], [99,' - Prefer not to say']])
     well=models.IntegerField(choices=[[0, 'I live in a comfortable way'], [1, 'I live in an acceptable way'], [2, 'I can barely get by'], [3, 'It goes really badly'], [99,'Prefer not to say']])
     saving_1=models.IntegerField(choices=[[0, 'More than £102'], [1, 'Exactly £102'], [2, 'Less than £102'], [3, 'Do not know; '], [99,'Prefer not to say']])
