@@ -1,6 +1,12 @@
 {{ block content }}
 
-<h1> Results </h1>
+<div class="row">
+
+		 <div class="alert alert-success" role="alert" style="text-align:center">
+			 <h3> RESULTS PART 2 (decision 3)</h3>
+
+	 </div>
+ </div>
 
 <div class="container border" style="font-size:14pt">
 		<p> <b>Row #{{row}}</b> was randomly selected for payment.</p>
@@ -31,7 +37,7 @@
 <p> The randomly drawn value that defines the outcome of the lottery is {{value}}.</p>
 
 <p> Thus, you earn £<b>{{payoff2|to2}} </b> in addition to the sum earned in the previous activity.</b></p>
-<p> Your final payment is  <b>{{total_payoff|to2}} plus the £0.20</b></p>
+<p> Your final payment is  £<b>{{total_payoff|to2}} plus the £0.20 of fixed payment</b></p>
 
 </div>
 

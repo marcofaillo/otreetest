@@ -197,6 +197,17 @@ class PageHL_2(Page):
         set_payoff_HL(player)  # see in models in Player class
 
 
+class Results(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        participant=player.participant
+        return participant.payoff != -1
+
+    def vars_for_template(player: Player):
+            participant=player.participant
+            return dict(decision_1=participant.vars['decision_1'], decision_2=participant.vars['decision_2'], insure_1=participant.vars['insure_1'], insure_2=participant.vars['insure_2'],paid_decision=participant.vars['paid_decision'], lottery_1=participant.vars['lottery_1'], lottery_2=participant.vars['lottery_2'], payoff= participant.payoff)
+
+
 class OutcomeHL(Page):
     # values needed to inform subjects about the actual outcome
     @staticmethod
@@ -232,4 +243,4 @@ class Back_to_Prolific (Page):
     pass
 
 # the coreography of pages
-page_sequence = [PageHL, OutcomeHL, Questionnaire, Back_to_Prolific]
+page_sequence = [PageHL, Results, OutcomeHL, Questionnaire, Back_to_Prolific]
