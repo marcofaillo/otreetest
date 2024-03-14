@@ -13,9 +13,6 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
     ENDOWMENT=50
-    PAID_DECISION = r.randint(1, 2) #select the payoff relevant decision
-    # lottery_1=r.randint(1,3) #random draw for the payment in case in which decision_1 is selected
-    # LOTTERY_2 =r.randint(1, 2) #random draw for the payment in case in which decision_2 is selected
 
 class Subsession(BaseSubsession):
      pass
@@ -31,6 +28,10 @@ class Player(BasePlayer):
         min=0, max=C.ENDOWMENT)
     insure_2 = models.IntegerField(
         min=0, max=C.ENDOWMENT)
+    decision_1 = models.IntegerField(
+         max=C.ENDOWMENT, initial=-1)   #not used in this app but passed to the unique MPL app
+    decision_2 = models.IntegerField(
+        max=C.ENDOWMENT, initial=-1)   #not used in this app but passed to the unique MPL app
     paid_decision=models.IntegerField()
     lottery_1= models.IntegerField()
     lottery_2= models.IntegerField()
@@ -67,22 +68,32 @@ class Player(BasePlayer):
 
 
 def set_payoff(player: Player):
+    player.paid_decision=r.randint(1,2)
     player.lottery_1=r.randint(1,3) #random draw for the payment in case in which decision_1 is selected
     player.lottery_2 =r.randint(1,2) #random draw for the payment in case in which decision_2 is selected
 
-    if C.PAID_DECISION == 1: #decision 1 is selected
+    if player.paid_decision== 1: #decision 1 is selected
         if player.lottery_1 ==1: # loss = 0.2
            player.payoff=(50-player.insure_1)*0.0+(player.insure_1)*0.075
         if player.lottery_1 ==2: # loss = 0.1
            player.payoff=(50-player.insure_1)*0.10+(player.insure_1)*0.075
         if player.lottery_1 ==3: # no loss
            player.payoff=(50-player.insure_1)*0.20+(player.insure_1)*0.075
-    if C.PAID_DECISION == 2: #decision 2 is selected
+    if player.paid_decision== 2: #decision 2 is selected
         if player.lottery_2==1: # loss = 0.2
            player.payoff=(50-player.insure_2)*0+(player.insure_2)*0.075
         else: #no loss
-           player.payoff=(50-player.insure_2)*0.20+(player.decision_2)*0.075
-    print("paid", C.PAID_DECISION, "lottery_1", player.lottery_1, "lottery_2", player.lottery_2, "payoff", player.payoff)
+           player.payoff=(50-player.insure_2)*0.20+(player.insure_2)*0.075
+
+    participant=player.participant
+    participant.vars['decision_1']= player.decision_1
+    participant.vars['decision_2']= player.decision_2
+    participant.vars['insure_1']= player.insure_1
+    participant.vars['insure_2']= player.insure_2
+    participant.vars['lottery_1']= player.lottery_1
+    participant.vars['lottery_2'] = player.lottery_2
+    participant.vars['paid_decision']= player.paid_decision
+    print("paid", player.paid_decision, "lottery_1", player.lottery_1, "lottery_2", player.lottery_2, "payoff", player.payoff)
 
 def check_proceed(player:Player):
     if player.proceed != 1:
@@ -170,18 +181,6 @@ class Decision_2(Page):
         set_payoff(player)
 
 
-class Results(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.proceed ==  1
-
-    def vars_for_template(player: Player):
-        return dict(insure_1=player.insure_1, insure_2=player.insure_2, paid_decision=C.PAID_DECISION, lottery_1=player.lottery_1, lottery_2=player.lottery_2, payoff= player.payoff)
-
-
-
-
-
 class Fail1 (Page):
     @staticmethod
     def is_displayed(player: Player):
@@ -201,4 +200,4 @@ class Fail2 (Page):
 #     def is_displayed(player: Player):
 #         return player.subsession.round_number ==  C.NUM_ROUNDS
 
-page_sequence = [Instructions_1, Questions_1,  Fail1, Decision_1, Questions_2,  Fail2, Decision_2,Results]
+page_sequence = [Instructions_1, Questions_1,  Fail1, Decision_1, Questions_2,  Fail2, Decision_2]

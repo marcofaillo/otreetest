@@ -240,7 +240,9 @@ class Questionnaire(Page):
 
 
 class Back_to_Prolific (Page):
-    pass
+    @staticmethod
+    def vars_for_template(player: Player):
+        return {'prolific': player.session.config['prolific']}
 
 # the coreography of pages
 page_sequence = [PageHL, Results, OutcomeHL, Questionnaire, Back_to_Prolific]
