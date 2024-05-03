@@ -36,24 +36,23 @@
         <p>Before making the decision you have to answer three control questions. </p>
         <p> <b> Instructions </b> </p>
 
-                <p>You receive an initial endowment of {{ endowment }} tokens each token has a value of £0.20.</p>
+                <p>You receive an initial endowment of {{ endowment }} tokens each token has a value of £0.16.</p>
 
                 <p> The value of tokens may suffer a loss. In particular, following a random draw, each token may
 
                 <ul>
-                    <li> suffer <b> a loss of £0.20 (taking the value of £0) </b>, with a probability of <b>1/3 </b></li>
-                    <li> suffer <b> a loss of  £0.10 (taking the value of £0.10) </b>, with a probability of <b>1/3 </b></li>
-                    <li> suffer <b> no loss  (remaining £0.20) </b>, with a probability of <b>1/3 </b></li>
+                    <li> suffer <b> a loss of £0.16 (taking the value of £0) </b>, with a probability of <b>1/3 </b></li>
+                    <li> suffer <b> a loss of  £0.04 (taking the value of £0.12) </b>, with a probability of <b>2/3 </b></li>
 
                 </ul>
 
                 <p>You have to decide how many tokens of the initial endowment you want to insure against the risk of a possible loss resulting from the random draw.</p>
-                <p>The insurance has a cost of <b> £0.125 </b> per insured token.
-                <p>Thus, for each token you decide to insure, you will receive <b>  £0.075 </b>, while the value of the other tokens will be determined through the random draw.</p>
+                <p>The insurance has a cost of <b> £0.10 </b> per insured token.
+                <p>Thus, for each token you decide to insure, you will receive <b>  £0.06</b>, while the value of the other tokens will be determined through the random draw.</p>
 
         <p><b>Control Questions</b></p>
 
-        
+
         <p> {% formfield player.q1_1 label="A token that you decide to insure takes a value:" %}</p>
         <p> {% formfield player.q1_2 label="If you decide to insure the total initial endowment you get:" %}</p>
         <p> {% formfield player.q1_3 label="If you decide not to insure any tokens you get:" %}</p>

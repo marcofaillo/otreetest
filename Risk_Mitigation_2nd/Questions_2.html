@@ -36,27 +36,26 @@
         <p>Before making the decision you have to answer three control questions. </p>
 
         <p> <b> Instructions </b> </p>
-        <p>You receive an initial endowment of {{ endowment }} tokens.</p>
+        <p>You receive an initial endowment of {{ endowment }} tokens each token has a value of £0.16.</p>
 
-        <p>You have to decide <b> how many tokens </b> to invest in an activity with an <b> uncertain return </b> and how many in an activity with a <b> certain return. </b></p>
+        <p> The value of tokens may suffer a loss. In particular, following a random draw, each token may
 
-        <p>In the case of the activity with <b> uncertain return</b>, each token may:</p>
         <ul>
-            <li> take a value of <b>£0.00</b>, with a probability of <b>1/2 </b></li>
-            <li> take a value of <b>£0.16 </b> with probability of <b> 1/2</b> ;</li>
+            <li> suffer <b> a loss of £0.16(taking the value of £0) </b>, with a probability of <b>1/2 </b></li>
+            <li> suffer <b> no loss  (remaining £0.16) </b>, with a probability of <b>1/2 </b></li>
+
         </ul>
 
-        <p>In the case of the activity with a <b> certain return</b>, each token takes a value of <b>£0.06.</b></p>
-
-        <p> Once you have made your decision, a random draw will determine the value for the tokens invested in the activity with uncertain return, if any.</p>
-
+        <p>You have to decide how many tokens of the initial endowment you want to insure against the risk of a possible loss resulting from the random draw.</p>
+        <p>The insurance has a cost of <b> £0.10 </b> per insured token.
+        <p>Thus, for each token you decide to insure, you will receive <b>  £0.06 </b>, while the value of the other tokens will be determined through the random draw.</p>
 
         <p><b>Control Questions</b></p>
 
 
-        <p> {% formfield player.q2_1 label="If you decide to invest the total endowment of 50 tokens in the activity with a certain return you get:" %}</p>
-        <p> {% formfield player.q2_2 label="If you decide to invest the total endowment in the activity with an uncertain return you get:" %}</p>
-        <p> {% formfield player.q2_3 label="A token that you decide to invest in the activity with an uncertain return:" %}</p>
+        <p> {% formfield player.q2_1 label="A token that you decide to insure takes a value:" %}</p>
+        <p> {% formfield player.q2_2 label="If you decide to insure the total initial endowment you get:" %}</p>
+        <p> {% formfield player.q2_3 label="If you decide not to insure any tokens you get:" %}</p>
 
     </div>
 
