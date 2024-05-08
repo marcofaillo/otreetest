@@ -29,19 +29,16 @@
   <div style="text-align: justify;">
       <p>Welcome!</p>
 
-      <p>You may earn a bonus payment, depending on the outcome of one of the decisions you will be asked to make during this activity.</p>
-
-      <p>During the activity, you will make <b> two </b> decisions. You will be paid only for one of these decisions. Which decision will be paid will depend on a random draw at the end of the activity. Each decision has the same probability to be randomly selected for the payment.</p>
-
+      <p>Your final payment for this activity depends on the outcome of  a series of decisions you will be asked to make.</p>
+      <p>You will start making <b> two </b> decisions , however,  you will be paid only for one of these decisions. Which decision will be paid will depend on a random draw at the end of the activity. Each decision has the same probability to be randomly selected for the payment.</p>
       <p>The two decisions are independent of each other: what you choose in each decision will not affect the outcome of the other decisions.</p>
-
-      <p>Once you have made the two decisions, you will be asked to fill in a short questionnaire.</p>
-      <p> Because it is very important that you pay attention in making all the decisions, after the instructions related to each decision we will ask you three control questions. </p>
+      <p> Because it is very important that you pay attention in making the decisions, after the instructions related to each decision we will ask you three control questions. </p>
       <p>You must provide correct answers to all the questions, and to do this, you have two attempts.</p>
       <p>Once you submit your answers to the control questions, if you made one or more mistakes, you will receive feedback indicating which answers were incorrect.</p>
-      <p>At this point, you will have access to a new attempt. If you fail to provide the correct answers to all three control questions, even on the second attempt, you will be asked to exit the activity, and you will not be paid any bonus, but only the fixed payment.</p>
+      <p>At this point, you will have access to a new attempt. If you fail to provide the correct answers to all three control questions, even on the second attempt, you will be asked to exit the activity.</p>
+      <p> After the two first decisions, you will make a <b> third </b> decision and you will be paid for that decision according to the instructions that will be provided. </p>
+      <p>Once you have made the two decisions, you will be asked to fill in a short questionnaire.</p>
 &nbsp
-      <p> After the two first decisions, you will make a third decision and you will be paid for that decision according to the instructions that will be provided. </p>
       <p> By proceeding, you accept these rules, and no future complaints will be taken into account. You also accept the informed consent available at the bottom of the page (see PDF file). Otherwise you can leave the activity now.</p>
 
   </div>
@@ -76,7 +73,7 @@
  </div>
 
  &nbsp
- <div class="row">
+ <!-- <div class="row">
      <iframe
          src="{{ static 'Risk_Second_Order/CI.pdf' }}#navpanes=0"
          width="100"
@@ -90,7 +87,39 @@
 
 
 
-	</div>
+	</div> -->
+  <style type="text/css">
+  iframe {
+    border: none;
+    width: 60%;
+    height: 300px;
+    controls controlsList="nodownload";
+  }
+
+  @media (min-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;
+    }
+  }
+  @media (max-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;  }
+  }
+  @media (min-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;  }
+  }
+  </style>
+  <div style=" overflow: hidden; margin: 15px auto; max-width: 880px;"><iframe class="content_viewport" scrolling="no" src="{{ static 'Risk_Third_Order/CI.pdf' }}#navpanes=0" > </iframe>
+  <p>&nbsp;</p>
+  </div>
+
 </div>
 
 
