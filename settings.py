@@ -97,6 +97,16 @@ SESSION_CONFIGS = [
 
             ),
 
+        dict(
+            name='Risk_Mitigation_3rd_inv',
+            display_name='Risk_Mitigation_3rd_inv',
+            num_demo_participants=1,
+            app_sequence=['Risk_Mitigation_3rd_inv', 'MPL_F'],
+            PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
+            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+
+            ),
+
 
         # dict(
         #     name='are_you_sure',
