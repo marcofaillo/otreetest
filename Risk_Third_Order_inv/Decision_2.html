@@ -3,7 +3,9 @@
 
 {% block content %}
 
+
 <!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
 <div class="card bg-light instructions">
     <div class="card-body">
 
@@ -13,7 +15,7 @@
  <div class="row">
 
       <div class="alert alert-success" role="alert" style="text-align:center">
-        <h3> FIRST DECISION </h3>
+        <h3> SECOND DECISION </h3>
 
     </div>
   </div>
@@ -26,16 +28,11 @@
 
 <font size="4">
 
-  <div style="text-align: justify;">
     <div style="text-align: justify;">
-        <p><b>First Decision</b></p>
+      <!-- the title changes following the order of decisions -->
+        <p><b>Second Decision</b></p>
 
-        <!-- Risk taking risky benefit - Scenario base 1 -->
-
-        <p>In this page you will read the instruction regarding your first decision. </p>
-        <p>Before making the decision you have to answer three control questions. </p>
-        <p> <b> Instructions </b> </p>
-        <p>You receive an initial endowment of <b>{{ endowment }} tokens.</b></p>
+        <p>You receive an initial endowment of <b> {{ endowment }} tokens. </b></p>
 
         <p>You have to decide <b> how many tokens </b> to invest in an activity with an <b> uncertain return </b> and how many in an activity with a <b> certain return. </b></p>
 
@@ -48,27 +45,75 @@
         <p>In the case of the activity with a <b> certain return</b>, each token takes a value of <b>£0.06.</b></p>
 
         <p>Once you have made your decision, a random draw will determine the value for the tokens invested in the activity with uncertain return, if any.</p>
+      </div>
+      &nbsp
+      <div class="card bg-white>
 
-        <p><b>Control Questions</b></p>
+        <div class="card-body">
+      <div style="text-align: center;">
+        <p>Click the blue bar to reveal the slider and make your choice.</p>
 
-        <p> {% formfield player.q1_1 label="If you decide to invest the total endowment of 50 tokens in the activity with a certain return you get:" %}</p>
-        <p> {% formfield player.q1_2 label="If you decide to invest the total endowment in the activity with an uncertain return you get:" %}</p>
-        <p> {% formfield player.q1_3 label="A token that you decide to invest in the activity with an uncertain return:" %}</p>
-
-    </div>
+        <div id="sliders_here"></div>
 
 
-  </div>
+      </div>
+      </div>
+      </div>
+
 
 </div>
 
 </div>
 </div>
 
-&nbsp
+<style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+   {{ formfield_errors 'decision_1' }}
 
 
 
+    <script src="{{ static 'mgslider.js' }}"></script>
+
+
+
+
+    <script>
+
+        $(document).ready(function (event) {
+            slider1 = new mgslider("decision_2", 0, 50, 1);
+            slider1.print(document.getElementById("sliders_here"));
+
+            // slider2 = new mgslider("number", 0, 50, 1);
+            // slider2.print(document.getElementById("sliders_here"));
+            // slider2.recall();
+        });
+    </script>
 
 
 &nbsp
@@ -94,14 +139,17 @@
 
 
 {% block scripts %}
+
+
+
 	<script>
 		$(document).ready(function(){
-    });
+		});
+
 		$("#btn_submit").click(function(){
-    $("#id_proceed").val(1);
+
 			$("#form").submit()
 	  	});
-
 
 </script>
 

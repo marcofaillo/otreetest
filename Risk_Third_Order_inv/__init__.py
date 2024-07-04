@@ -35,13 +35,13 @@ class Player(BasePlayer):
     paid_decision=models.IntegerField()
     lottery_1= models.IntegerField()
     lottery_2= models.IntegerField()
-    q1_1 = models.IntegerField(choices=[[1, '£2 (50 tokens x £0.04)'], [2, '£3 (50 tokens x £0.06)'], [3, '£8 (50 tokens x £0.16)']], initial=0)
-    q1_2 = models.IntegerField(choices=[[1, '£2 (50 tokens x £0.04)'], [2, '£2 (50 tokens x £0.04) or £8 (50 tokens x £0.16) depending on the extracted return'], [3, '£8 (50 tokens x £0.16)']], initial=0)
-    q1_3 = models.IntegerField(choices=[[1, 'definitely yields more than a token invested in the activity with a certain return.'], [2, 'may yield more or less than a token invested in the activity with a certain return'], [3, 'definitely yields less than a token invested in the activity with a certain return']],initial=0)
-
-    q2_1 = models.IntegerField(choices=[[1, '£0 (50 tokens x £0.00)'], [2, '£3 (50 tokens x £0.06)'], [3, '£6 (50 tokens x £0.12)']], initial=0)
-    q2_2 = models.IntegerField(choices=[[1, '£0 (50 tokens x £0)'], [2, '£6 (50 tokens x £0.12)'], [3, '£0 (50 tokens x £0.00) or £6 (50 tokens x £0.12) depending on the extracted return']], initial=0)
+    q2_1 = models.IntegerField(choices=[[1, '£2 (50 tokens x £0.04)'], [2, '£3 (50 tokens x £0.06)'], [3, '£8 (50 tokens x £0.16)']], initial=0)
+    q2_2 = models.IntegerField(choices=[[1, '£2 (50 tokens x £0.04)'], [2, '£2 (50 tokens x £0.04) or £8 (50 tokens x £0.16) depending on the extracted return'], [3, '£8 (50 tokens x £0.16)']], initial=0)
     q2_3 = models.IntegerField(choices=[[1, 'definitely yields more than a token invested in the activity with a certain return.'], [2, 'may yield more or less than a token invested in the activity with a certain return'], [3, 'definitely yields less than a token invested in the activity with a certain return']],initial=0)
+
+    q1_1 = models.IntegerField(choices=[[1, '£0 (50 tokens x £0.00)'], [2, '£3 (50 tokens x £0.06)'], [3, '£6 (50 tokens x £0.12)']], initial=0)
+    q1_2 = models.IntegerField(choices=[[1, '£0 (50 tokens x £0)'], [2, '£6 (50 tokens x £0.12)'], [3, '£0 (50 tokens x £0.00) or £6 (50 tokens x £0.12) depending on the extracted return']], initial=0)
+    q1_3 = models.IntegerField(choices=[[1, 'definitely yields more than a token invested in the activity with a certain return.'], [2, 'may yield more or less than a token invested in the activity with a certain return'], [3, 'definitely yields less than a token invested in the activity with a certain return']],initial=0)
 
     errors_1=models.IntegerField(initial = 0)
     errors_2=models.IntegerField(initial = 0)
@@ -53,19 +53,19 @@ class Player(BasePlayer):
 def set_payoff(player: Player):
     player.second_order= 0
     player.paid_decision =r.randint(1, 2) #random draw for the payment in case in which decision_2 is selected
-    player.lottery_1=r.randint(1,3) #random draw for the payment in case in which decision_1 is selected
-    player.lottery_2 =r.randint(1,3) #random draw for the payment in case in which decision_2 is selected
+    player.lottery_2=r.randint(1,3) #random draw for the payment in case in which decision_1 is selected
+    player.lottery_1 =r.randint(1,3) #random draw for the payment in case in which decision_2 is selected
 
-    if player.paid_decision == 1: #decision 1 is selected
-        if player.lottery_1 >1: # uncertain income value  0.04
-           player.payoff=player.decision_1*0.04+(50-player.decision_1)*0.06
+    if player.paid_decision == 2: #decision 1 is selected
+        if player.lottery_2 >1: # uncertain income value  0.04
+           player.payoff=player.decision_2*0.04+(50-player.decision_2)*0.06
         else:  #uncertain income token value=0.16
-           player.payoff=player.decision_1*0.16+(50-player.decision_1)*0.06
-    if player.paid_decision == 2: #decision 2 is selected
-        if player.lottery_2==1: #uncertain income token value=0.0
-           player.payoff=player.decision_2*0.0+(50-player.decision_2)*0.06
+           player.payoff=player.decision_2*0.16+(50-player.decision_2)*0.06
+    if player.paid_decision == 1: #decision 2 is selected
+        if player.lottery_1==1: #uncertain income token value=0.0
+           player.payoff=player.decision_1*0.0+(50-player.decision_1)*0.06
         else: #uncertain income token value=0.12
-           player.payoff=player.decision_2*0.12+(50-player.decision_2)*0.06
+           player.payoff=player.decision_1*0.12+(50-player.decision_1)*0.06
 
 
     participant=player.participant
@@ -101,7 +101,7 @@ class Questions_1(Page):
         return dict(endowment=C.ENDOWMENT)
 
     def error_message(player: Player, values):
-        solutions = dict(q1_1=2, q1_2=2, q1_3=2)
+        solutions = dict(q1_1=2, q1_2=3, q1_3=2)
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
             player.errors_1 += 1
@@ -138,7 +138,7 @@ class Questions_2(Page):
         return dict(endowment=C.ENDOWMENT)
 
     def error_message(player: Player, values):
-        solutions = dict(q2_1=2, q2_2=3, q2_3=2)
+        solutions = dict(q2_1=2, q2_2=2, q2_3=2)
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
             player.errors_2 += 1
