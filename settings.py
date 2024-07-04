@@ -63,19 +63,38 @@ SESSION_CONFIGS = [
             num_demo_participants=1,
             app_sequence=['Risk_Second_Order', 'MPL_F'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
-            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
             ),
+        dict(
+            name='Risk_Second_Order_inv',
+            display_name='Risk_Second_Order_inv',
+            num_demo_participants=1,
+            app_sequence=['Risk_Second_Order_inv', 'MPL_F_inv'],
+            PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
+            ),
         dict(
             name='Risk_Third_Order',
             display_name='Risk_Third_Order',
             num_demo_participants=1,
             app_sequence=['Risk_Third_Order', 'MPL_F'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','paid_decision','insure_1', 'insure_2','lottery_1','lottery_2', 'second_order'],
-            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
             ),
+        dict(
+            name='Risk_Third_Order_inv',
+            display_name='Risk_Third_Order_inv',
+            num_demo_participants=1,
+            app_sequence=['Risk_Third_Order', 'MPL_F_inv'],
+            PARTICIPANT_FIELDS = ['decision_1', 'decision_2','paid_decision','insure_1', 'insure_2','lottery_1','lottery_2', 'second_order'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
+
+            ),
+
+
 
         dict(
             name='Risk_Mitigation_2nd',
@@ -83,17 +102,16 @@ SESSION_CONFIGS = [
             num_demo_participants=1,
             app_sequence=['Risk_Mitigation_2nd', 'MPL_F'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
-            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
             ),
-
         dict(
-            name='Risk_Mitigation_3rd',
-            display_name='Risk_Mitigation_3rd',
+            name='Risk_Mitigation_2nd_inv',
+            display_name='Risk_Mitigation_2nd_inv',
             num_demo_participants=1,
-            app_sequence=['Risk_Mitigation_3rd', 'MPL_F'],
+            app_sequence=['Risk_Mitigation_2nd', 'MPL_F_inv'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
-            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
             ),
 
@@ -101,9 +119,9 @@ SESSION_CONFIGS = [
             name='Risk_Mitigation_3rd_inv',
             display_name='Risk_Mitigation_3rd_inv',
             num_demo_participants=1,
-            app_sequence=['Risk_Mitigation_3rd_inv', 'MPL_F'],
+            app_sequence=['Risk_Mitigation_3rd_inv', 'MPL_F_inv'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
-            prolific='https://app.prolific.co/submissions/complete?cc=17E466F8'
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
             ),
 
