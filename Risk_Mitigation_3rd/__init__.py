@@ -185,4 +185,4 @@ class Fail2 (Page):
 #     def is_displayed(player: Player):
 #         return player.subsession.round_number ==  C.NUM_ROUNDS
 
-page_sequence = [Instructions_1, Questions_1,  Fail1, Decision_1, Questions_2,  Fail2, Decision_2]
+page_sequence = [Instructions_1,Questions_1,  Fail1, Decision_1,Questions_2,  Fail2, Decision_2]

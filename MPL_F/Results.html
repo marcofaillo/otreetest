@@ -101,7 +101,7 @@
         <p> The random draw resulted in {% if lottery_2 == 1 %} a loss of £0.16 {% elif lottery_2 == 2 %} no loss  {% endif %} for each token invested in the uncertain outcome.</p>
         {% endif %}
         <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
-        <p> Press the button to proceed to the next activities. </p>
+        <p> Press the button to proceed. </p>
         {% endif %}
       </font>
 {% else %}
@@ -111,19 +111,19 @@
 
     <div style="text-align: justify;">
         <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
-    {% if paid_decision == 1 %}
-        <p> In that decision you choose to insure {{insure_1 }} tokens. </p>
+    {% if paid_decision == 2 %}
+        <p> In that decision you choose to insure {{insure_2 }} tokens. </p>
 
-        {% if insure_1 < 50 %}
-        <p> The random draw resulted in  {% if lottery_1 == 1 %} a loss of £0.16 {% else %} a loss of £0.04 {% endif %} for each token invested in the uncertain outcome.</p>
+        {% if insure_2 < 50 %}
+        <p> The random draw resulted in  {% if lottery_2 == 1 %} a loss of £0.16 {% else %} a loss of £0.04 {% endif %} for each token invested in the uncertain outcome.</p>
         {% endif %}
         <p> Your final payment for this activity is of £{{payoff}}.</p>
         <p> Press the button to proceed to the next activities. </p>
     {% else %}
-        <p> In that decision you choose to insure {{insure_2 }} tokens. </p>
+        <p> In that decision you choose to insure {{insure_1 }} tokens. </p>
 
-        {% if insure_2 < 50 %}
-        <p> The random draw resulted in {% if lottery_2 == 1 %} no loss {% else %} a loss of £0.12 {% endif %} for each token invested in the uncertain outcome.</p>
+        {% if insure_1 < 50 %}
+        <p> The random draw resulted in {% if lottery_1 == 1 %} no loss {% else %} a loss of £0.12 {% endif %} for each token invested in the uncertain outcome.</p>
         {% endif %}
         <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
         <p> Press the button to proceed to the next activities. </p>

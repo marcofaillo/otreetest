@@ -202,10 +202,15 @@ class Results(Page):
     def is_displayed(player: Player):
         participant=player.participant
         return participant.payoff != -1
+# # original order
+#     def vars_for_template(player: Player):
+#             participant=player.participant
+#             return dict(second_order = participant.vars['second_order'],decision_1=participant.vars['decision_1'], decision_2=participant.vars['decision_2'], insure_1=participant.vars['insure_1'], insure_2=participant.vars['insure_2'],paid_decision=participant.vars['paid_decision'], lottery_1=participant.vars['lottery_1'], lottery_2=participant.vars['lottery_2'], payoff= participant.payoff)
 
+# inverted order
     def vars_for_template(player: Player):
             participant=player.participant
-            return dict(second_order = participant.vars['second_order'],decision_1=participant.vars['decision_1'], decision_2=participant.vars['decision_2'], insure_1=participant.vars['insure_1'], insure_2=participant.vars['insure_2'],paid_decision=participant.vars['paid_decision'], lottery_1=participant.vars['lottery_1'], lottery_2=participant.vars['lottery_2'], payoff= participant.payoff)
+            return dict(second_order = participant.vars['second_order'],decision_1=participant.vars['decision_1'], decision_2=participant.vars['decision_2'], insure_1=participant.vars['insure_1'], insure_2=participant.vars['insure_2'],paid_decision=participant.vars['paid_decision'], lottery_1=participant.vars['lottery_2'], lottery_2=participant.vars['lottery_1'], payoff= participant.payoff)
 
 
 class OutcomeHL(Page):
