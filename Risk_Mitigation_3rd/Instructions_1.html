@@ -1,0 +1,151 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<input type="hidden" name="proceed" id="id_proceed">
+ {{ formfield_errors 'proceed' }}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> INTRODUCTION</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+      <p>Welcome!</p>
+
+      <p>Your final payment for this activity depends on the outcome of  a series of decisions you will be asked to make.</p>
+      <p>You will start making <b> two </b> decisions , however,  you will be paid only for one of these decisions. Which decision will be paid will depend on a random draw at the end of the activity. Each decision has the same probability to be randomly selected for the payment.</p>
+      <p>The two decisions are independent of each other: what you choose in each decision will not affect the outcome of the other decisions.</p>
+      <p> Because it is very important that you pay attention in making the decisions, after the instructions related to each decision we will ask you three control questions. </p>
+      <p>You must provide correct answers to all the questions, and to do this, you have two attempts.</p>
+      <p>Once you submit your answers to the control questions, if you made one or more mistakes, you will receive feedback indicating which answers were incorrect.</p>
+      <p>At this point, you will have access to a new attempt. If you fail to provide the correct answers to all three control questions, even on the second attempt, you will be asked to exit the activity.</p>
+      <p> After the two first decisions, you will make a <b> third </b> decision and you will be paid for that decision according to the instructions that will be provided. </p>
+      <p>Once you have made the two decisions, you will be asked to fill in a short questionnaire.</p>
+&nbsp
+      <p> By proceeding, you accept these rules, and no future complaints will be taken into account. You also accept the informed consent available at the bottom of the page (see PDF file). Otherwise you can leave the activity now.</p>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> I Agree with the rules and I want to proceed</button>
+
+	</div>
+
+ </div>
+&nbsp
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_stop" class="btn btn-outline-primary btn-lg"> I prefer to leave </button>
+
+ </div>
+
+ </div>
+
+ &nbsp
+ <!-- <div class="row">
+     <iframe
+         src="{{ static 'Risk_Mitigation_3rd/CI.pdf' }}#toolbar=0"
+         width="100"
+         height="300"
+         controls controlsList="nodownload"
+         sandbox="allow-same-origin allow-scripts"
+
+     >
+     </iframe>
+ &nbsp
+
+
+
+	</div> -->
+  <style type="text/css">
+  iframe {
+    border: none;
+    width: 60%;
+    height: 300px;
+    controls controlsList="nodownload";
+  }
+
+  @media (min-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;
+    }
+  }
+  @media (max-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;  }
+  }
+  @media (min-width: 800px) {
+    .content_viewport {
+      border: 0px none;
+      height: 600px;
+  width: 100%;  }
+  }
+  </style>
+  <div style=" overflow: hidden; margin: 15px auto; max-width: 880px;"><iframe class="content_viewport" scrolling="no" src="{{ static 'Risk_Mitigation_3rd/CI.pdf' }}#navpanes=0" > </iframe>
+  <p>&nbsp;</p>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+	<script>
+		$(document).ready(function(){
+
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+    $("#btn_stop").click(function(){
+    $("#id_proceed").val(2);
+        $("#form").submit()
+        });
+		});
+
+</script>
+
+
+
+{% endblock %}

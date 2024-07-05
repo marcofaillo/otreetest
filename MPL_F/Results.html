@@ -1,0 +1,175 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> RESULTS PART 1 (Decisions 1 and 2)</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+<!-- Treatments Risk second order and third order-->
+
+{% if insure_1 == - 1 %}
+<!-- Treatment Risk second order-->
+
+{% if second_order == 1 %}
+  <font size="4">
+    <div style="text-align: justify;">
+        <p> In the first part of the activity: </p>
+        <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
+        {% if paid_decision == 1 %}
+          <p> In that decision you choose to invest {{decision_1 }} tokens in the uncertain outcome. </p>
+
+          {% if decision_1 > 0 %}
+            <p> The random draw assigned a value of {% if lottery_1 == 1 %} £0.00 {% elif lottery_1 == 2 %} £0.08 {% elif lottery_1 == 3 %} £0.16 {% endif %} to each token invested in the uncertain outcome.</p>
+          {% endif %}
+          <p> Your final payment for this activity is of £{{payoff}}.</p>
+          <p> Press the button to proceed to the next activities. </p>
+        {% else %}
+          <p> In that decision you choose to invest {{decision_2 }} tokens in the uncertain outcome. </p>
+
+          {% if decision_2 > 0 %}
+            <p> The random draw assigned a value of {% if lottery_2 == 1 %} £0.00 {% elif lottery_2 == 2 %} £0.16  {% endif %} to each token invested in the uncertain outcome.</p>
+          {% endif %}
+          <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
+          <p> Press the button to proceed to the next activities. </p>
+        {% endif %}
+      </font>
+
+<!-- Treatment third  order-->
+{% else %}
+    <font size="4">
+        <div style="text-align: justify;">
+        <p> In the first part of the activity: </p>
+        <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
+        {% if paid_decision == 1 %}
+          <p> In that decision you choose to invest {{decision_1 }} tokens in the uncertain outcome. </p>
+          {% if decision_1 > 0 %}
+            <p> The random draw assigned a value of {% if lottery_1 > 1 %} £0.04 {% elif lottery_1 == 1 %} £0.16 {% endif %} to each token invested in the uncertain outcome.</p>
+          {% endif %}
+          <p> Your final payment for this activity is of £{{payoff}}.</p>
+          <p> Press the button to proceed to the next activities. </p>
+        {% else %}
+          <p> In that decision you choose to invest {{decision_2 }} tokens in the uncertain outcome. </p>
+          {% if decision_2 > 0 %}
+            <p> The random draw assigned a value of {% if lottery_2 > 1 %} £0.12 {% elif lottery_2 == 1 %} £0.00  {% endif %} to each token invested in the uncertain outcome.</p>
+          {% endif %}
+          <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
+          <p> Press the button to proceed to the next activities. </p>
+        {% endif %}
+      </font>
+{% endif %}
+
+{% elif decision_1 == -1 %}
+<!-- Treatments Risk mitigation -->
+<!-- Treatment mitigation second order-->
+
+{% if second_order == 1 %}
+<font size="4">
+
+    <div style="text-align: justify;">
+        <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
+        {% if paid_decision == 1 %}
+        <p> In that decision you choose to insure {{insure_1 }} tokens. </p>
+
+        {% if insure_1 < 50 %}
+        <p> The random draw resulted in  {% if lottery_1 == 1 %}a loss of £0.16 {% elif lottery_1 == 2 %} a loss of £0.08 {% elif lottery_1 == 3 %} no loss {% endif %} for each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff}}.</p>
+        <p> Press the button to proceed to the next activities. </p>
+        {% else %}
+        <p> In that decision you choose to insure {{insure_2 }} tokens. </p>
+
+        {% if insure_2 < 50 %}
+        <p> The random draw resulted in {% if lottery_2 == 1 %} a loss of £0.16 {% elif lottery_2 == 2 %} no loss  {% endif %} for each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
+        <p> Press the button to proceed. </p>
+        {% endif %}
+      </font>
+{% else %}
+<!-- Treatment mitigation third order-->
+
+<font size="4">
+
+    <div style="text-align: justify;">
+        <p> Your {% if paid_decision == 1 %} first decision {% else %}  second decision {% endif %} has been selected for payment.</p>
+    {% if paid_decision == 2 %}
+        <p> In that decision you choose to insure {{insure_2 }} tokens. </p>
+
+        {% if insure_2 < 50 %}
+        <p> The random draw resulted in  {% if lottery_2 == 1 %} a loss of £0.16 {% else %} a loss of £0.04 {% endif %} for each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff}}.</p>
+        <p> Press the button to proceed to the next activities. </p>
+    {% else %}
+        <p> In that decision you choose to insure {{insure_1 }} tokens. </p>
+
+        {% if insure_1 < 50 %}
+        <p> The random draw resulted in {% if lottery_1 == 1 %} no loss {% else %} a loss of £0.12 {% endif %} for each token invested in the uncertain outcome.</p>
+        {% endif %}
+        <p> Your final payment for this activity is of £{{payoff|to2}}.</p>
+        <p> Press the button to proceed to the next activities. </p>
+    {% endif %}
+      </font>
+{% endif %}
+{% endif %}
+      </div>
+      </div>
+      </div>
+</div>
+</div>
+
+</div>
+        &nbsp
+        <!--		BOTTONE PROSEGUI	2	-->
+         <div class="row">
+            <div class="col-sm-12 text-center">
+            <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+        	</div>
+
+         </div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+
+
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> SECOND DECISION </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+    <div style="text-align: justify;">
+        <p><b>Second Decision</b></p>
+
+        <p>You receive an initial endowment of {{ endowment }} tokens each token has a value of <b> £0.16 </b>.</p>
+
+        <p> The value of tokens may suffer a loss. In particular, following a random draw, each token may
+
+        <ul>
+          <li> suffer <b> a loss of £0.16 (taking the value of £0) </b>, with a probability of <b>1/3 </b></li>
+          <li> suffer <b> a loss of  £0.08 (taking the value of £0.08) </b>, with a probability of <b>1/3 </b></li>
+          <li> suffer <b> no loss  (remaining £0.16) </b>, with a probability of <b>1/3 </b></li>
+
+        </ul>
+
+        <p>You have to decide how many tokens of the initial endowment you want to insure against the risk of a possible loss resulting from the random draw.</p>
+        <p>The insurance has a cost of <b> £0.10 </b> per insured token.
+        <p>Thus, for each token you decide to insure, you will receive <b> £0.06 </b>, while the value of the other tokens will be determined through the random draw.</p>
+
+      </div>
+      &nbsp
+      <div class="card bg-white>
+
+        <div class="card-body">
+      <div style="text-align: center;">
+        <p>Click the blue bar to reveal the slider and make your choice.</p>
+
+        <div id="sliders_here"></div>
+
+
+      </div>
+      </div>
+      </div>
+
+
+</div>
+
+</div>
+</div>
+
+<style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+   {{ formfield_errors 'insure_2' }}
+
+
+
+    <script src="{{ static 'mgsliders.js' }}"></script>
+
+
+
+
+    <script>
+
+        $(document).ready(function (event) {
+            slider1 = new mgslider("insure_2", 0, 50, 1);
+            slider1.print(document.getElementById("sliders_here"));
+
+            // slider2 = new mgslider("number", 0, 50, 1);
+            // slider2.print(document.getElementById("sliders_here"));
+            // slider2.recall();
+        });
+    </script>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+
+
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
