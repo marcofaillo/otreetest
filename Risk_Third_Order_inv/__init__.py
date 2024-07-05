@@ -8,7 +8,7 @@ Risk taking risky benefit - Baseline scenario 1 + Second-order risk change
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'Risk_Third_Order'
+    NAME_IN_URL = 'Risk_Third_Order_inv'
     EXCHANGE_RATE=0.02
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
