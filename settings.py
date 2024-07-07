@@ -122,7 +122,7 @@ SESSION_CONFIGS = [
             app_sequence=['Risk_Mitigation_3rd_inv', 'MPL_F_inv'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
-
+            ),
 
 
         dict(
