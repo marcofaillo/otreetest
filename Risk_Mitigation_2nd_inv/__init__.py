@@ -141,7 +141,7 @@ class Questions_2(Page):
         return dict(endowment=C.ENDOWMENT)
 
     def error_message(player: Player, values):
-        solutions = dict(q2_1=3, q2_2=2, q2_3=2)
+        solutions = dict(q2_1=3, q2_2=3, q2_3=2)
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
             player.errors_2 += 1
