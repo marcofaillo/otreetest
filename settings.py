@@ -123,8 +123,17 @@ SESSION_CONFIGS = [
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
 
-            ),
 
+
+        dict(
+            name='Risk_Mitigation_3rd',
+            display_name='Risk_Mitigation_3rd',
+            num_demo_participants=1,
+            app_sequence=['Risk_Mitigation_3rd', 'MPL_F'],
+            PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
+
+            ),
 
         # dict(
         #     name='are_you_sure',

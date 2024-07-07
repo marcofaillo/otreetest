@@ -36,8 +36,8 @@ class Player(BasePlayer):
     lottery_1= models.IntegerField()
     lottery_2= models.IntegerField()
     q2_1 = models.IntegerField(choices=[[1, 'definitely greater than an uninsured token'], [2, 'definitely lower than an uninsured token'], [3, 'which may be lower or greater than an uninsured token']], initial=0)
-    q2_1 = models.IntegerField(choices=[[1, '£8 (50 tokens x £0.16)'], [2, '£4 (50 tokens x £0.08)'], [3, '£3 (50 tokens x £0.06)']], initial=0)
-    q2_1 = models.IntegerField(choices=[[1, '£8 (50 tokens x £0.16) or £4 (50 tokens x £0.08) depending on the return for uninsured tokens'], [2, '£8 (50 tokens x £0.16), £4 (50 tokens x £0.8) or £0 (50 tokens x £0.00) depending on the return for uninsured tokens'], [3, '0£ (50 tokens x 0.0£) or 4£ (50 tokens x 0.08£) depending on the extracted return for uninsured tokens']],initial=0)
+    q2_2 = models.IntegerField(choices=[[1, '£8 (50 tokens x £0.16)'], [2, '£4 (50 tokens x £0.08)'], [3, '£3 (50 tokens x £0.06)']], initial=0)
+    q2_3 = models.IntegerField(choices=[[1, '£8 (50 tokens x £0.16) or £4 (50 tokens x £0.08) depending on the return for uninsured tokens'], [2, '£8 (50 tokens x £0.16), £4 (50 tokens x £0.8) or £0 (50 tokens x £0.00) depending on the return for uninsured tokens'], [3, '0£ (50 tokens x 0.0£) or 4£ (50 tokens x 0.08£) depending on the extracted return for uninsured tokens']],initial=0)
 
     q1_1 = models.IntegerField(choices=[[1, 'definitely greater than an uninsured token'], [2, 'definitely lower than an uninsured token'], [3, 'which may be lower or greater than an uninsured token']], initial=0)
     q1_2 = models.IntegerField(choices=[[1, '£8 (50 tokens x £0.16)'],[2, '£3 (50 tokens x £0.06)'], [3, '£0 (50 tokens x £0)'], ], initial=0)
