@@ -77,11 +77,15 @@ class Player(BasePlayer):
     final_pay=models.FloatField()
 
     instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
+    student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
+    employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     taking_risk=models.IntegerField(choices=[[0, '0. Not at all willing to take risk'], [1,'1.'], [2,'2'], [3,'3'],[4,'4'],[5,'5'],[7,'7'],[8,'8'],[9,'9'],[10, '10. Very willing to take risk'], [99,' - Prefer not to say']])
     well=models.IntegerField(choices=[[0, 'I live in a comfortable way'], [1, 'I live in an acceptable way'], [2, 'I can barely get by'], [3, 'It goes really badly'], [99,'Prefer not to say']])
     saving_1=models.IntegerField(choices=[[0, 'More than £102'], [1, 'Exactly £102'], [2, 'Less than £102'], [3, 'Do not know; '], [99,'Prefer not to say']])
     saving_2=models.IntegerField(choices=[[0, 'More than today'], [1, 'Exactly the same as today'], [2, 'Less than today '], [3, 'Do not know; '], [99,'Prefer not to say']])
     stock=models.IntegerField(choices=[[0, 'False'], [1, 'True'], [2, 'Do not know '], [99,'Prefer not to say']])
+    stock=models.IntegerField(choices=[[0, 'False'], [1, 'True'], [2, 'Do not know '], [99,'Prefer not to say']])
+
 
 # FUNCTIONS
 def set_payoff_HL(player: Player):
@@ -237,7 +241,7 @@ class OutcomeHL(Page):
 
 class Questionnaire(Page):
     form_model = 'player'
-    form_fields = ['instructions', 'taking_risk', 'well', 'saving_1', 'saving_2','stock']
+    form_fields = ['student', 'employment','instructions', 'taking_risk', 'well', 'saving_1', 'saving_2','stock']
     @staticmethod
     def is_displayed(player: Player):
         participant=player.participant
