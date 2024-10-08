@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+	<input type="hidden" value="{{riepilogo_guadagni|safe}}" id="riepilogo_guadagni">
+
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12">
+				Esito
+			</div>
+		</div>
+
+		<div class="row"  style="height:120px;">
+			<div class="col-md-12_istruzioni" style="width:1000px;">
+				<br>
+				<div> &nbsp E' stata giocata la riga n.{{riga}}. Il tuo pagamento è €{{payoff_HL|safe}}.</div>
+				<br>
+				<div> &nbsp Sommati alla show-up fee di €5 per la tua partecipazione all'esperimento, hai ottenuto un pagamento sicuro di €{{guadagno_sicuro|safe}}.</div><br>
+				<br>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row" style="padding-left:130px;">
+		<div class="col-md-4">
+
+		</div>
+		<div class="col-md-1">
+			<button class="otree-btn-next btn btn-primary next-button otree-next-button">Procedi</button>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+

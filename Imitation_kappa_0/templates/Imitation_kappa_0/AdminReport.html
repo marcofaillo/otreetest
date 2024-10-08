@@ -1,0 +1,21 @@
+{% load otree %}
+
+
+<table class="table">
+		<thead>
+		  <tr>
+			<th scope="col">ID</th>
+			<th scope="col">Payoff</th>			
+		  </tr>
+		</thead>
+		<tbody>
+		{% for id,cum in pps.items %}
+			<tr>
+			  <td>{{id}}</th>
+			  <td>{{cum}}</td>
+			</tr>
+		{% endfor %}
+</table>
+
+
+

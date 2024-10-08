@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12">
+				Questionario
+			</div>
+		</div>
+
+		<div class="row"  style="height:220px;">
+			<div class="col-md-12_istruzioni" style="width:1000px;">
+				<br>
+				<div> &nbsp Il questionarario è costituito da due parti:</div>
+				<br>
+				<div> &nbsp Nella prima parte ti verrà chiesto di esprimere le tue preferenze riguardo una serie di opzioni.</div>
+				<br>
+				<div> &nbsp Nella seconda ti verrà chiesto di fornire i tuoi dati socio-demografici.</div>
+				<br>
+				<div> &nbsp Si ricorda che tutte le tue scelte e risposte resteranno assolutamente anonime.</div>
+				<br>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	</div>
+	<div class="row" style="padding-left:135px;">
+		<div class="col-md-4">
+
+		</div>
+		<div class="col-md-1">
+			<button class="otree-btn-next btn btn-primary next-button otree-next-button">Procedi</button>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}

@@ -1,0 +1,298 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12">
+				Informazioni Preliminari
+			</div>
+		</div>
+
+		<div class="row"   style="height:515px;">
+			<div class="col-md-12_istruzioni">
+
+				<p align = "justify">Benvenuto/a, grazie per aver accettato di partecipare a questo esperimento!</p>
+
+				<p align = "justify" style="padding-right:15px;">Stai prendendo parte ad uno studio sui processi decisionali. Durante l’ esperimento potrai guadagnare una somma di denaro.
+				A questa somma si aggiungeranno €5 per la partecipazione. Il tuo guadagno dipenderà dalle tue decisioni e dalle decisioni degli altri partecipanti all’esperimento.</p>
+
+				<p align = "justify" style="padding-right:15px;">Le scelte che farai e le risposte che fornirai resteranno assolutamente anonime. Gli sperimentatori non saranno in grado di associare le tue
+				scelte e le tue risposte al tuo nome.</p>
+
+				<p align = "justify" style="padding-right:15px;">Per tutta la durata dell’esperimento ti preghiamo di non comunicare con gli altri partecipanti (pena l’esclusione dall’ esperimento) e di prestare la massima attenzione
+				alle istruzioni che seguono, le quali verranno lette ad alta voce da uno dei ricercatori. Se hai domande alza la mano: uno dei ricercatori risponderà alla tua domanda.</p>
+
+				<p align = "justify" style="padding-right:15px;">Al termine dell’ esperimento ti chiederemo di compilare un breve questionario. Si procederà quindi con il pagamento, il quale avverrà in contanti ed in forma privata.</p>
+
+			</div>
+		</div>
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12">
+				Istruzioni Generali
+			</div>
+		</div>
+
+             {% if Constants.players_per_group == 3 %}
+		            <div class="row" style ="height:3265px;">
+             {% else %}
+					<div class="row" style="height:2525px;">
+             {% endif %}
+
+			<div class="col-md-12_istruzioni" style="padding-right:35px;">
+
+				<p align = "justify">Un viaggiatore dello spazio è una creatura intelligente proveniente da un altro pianeta. Gli piace comprare immagini costituite da
+				combinazioni di simboli astratti e paga somme di denaro diverse per immagini diverse.</p>
+
+				<p align = "justify">Il tuo compito è quello di creare immagini selezionando e/o deselezionando i simboli nella riga contrassegnata dallo sfondo arancione
+				(vedi lo screenshot sotto). Ci sono 10 simboli diversi e non sai quali piacciono al viaggiatore spaziale. Tuttavia, in ogni round puoi produrre
+				la combinazione che desideri selezionando e/o deselezionando tutti i simboli che vuoi.</p>
+
+				<p align = "justify">Per vendere un’ immagine è necessario cliccare sul pulsante "Vendi" (vedi lo screenshot qui sotto). Una volta fatto, il prezzo pagato
+				dal viaggiatore dello spazio per l’ immagine da te prodotta è indicato sotto la voce "Pagamento". Non sai qual è il prezzo in questione
+				fino a quando non avrai venduto l’ immagine interessata. Nei round succesivi, il viaggiatore dello spazio sarà disposto a comprare la medesima
+				immagine al medesimo prezzo. Tuttavia, non negozierà con te né ti venderà alcuna immagine. Quindi, quando vedi il prezzo l'immagine è stata venduta.</p>
+
+				{% if Constants.players_per_group == 3 %}
+					<p align = "justify">In ogni round, sarai in grado di visualizzare il pagamento ottenuto nel round precedente da altri/e 2 partecipanti estratti/e a caso, senza poter tuttavia visualizzare la specifica immagine associata al pagamento interessato.
+                        Se lo ritieni opportuno, potrai decidere di imitare uno dei due partecipanti in questione facendo clic sul pulsante "Imita l'immagine prodotta da questo/a partecipante". Una volta fatto, l'immagine associata a tale pagamento viene venduta
+                    automaticamente e avrai accesso al round successivo, dove potrai visualizzare l'immagine imitata come ultima immagine da te prodotta.</p>
+
+                {% else %}
+                     <p align = "justify">Non riceverai alcuna informazione riguardo le immagini prodotte dagli altri partecipanti o il relativo pagamento.</p>
+                {% endif %}
+
+
+				{% if Constants.players_per_group == 3 %}
+					<img src="{% static "faillo_np/img/screen_perfect_imitation.png" %}" width="80% " hspace="100">
+        {% else %}
+					<img src="{% static "faillo_np/img/screen_baseline.png" %}" width="80% " hspace="100">
+        {% endif %}
+
+<br />
+<br />
+				<p align = "justify">Incontrerai tre viaggiatori dello spazio provenienti da tre pianeti diversi, ognuno dei quali acquisterà da te 25 immagini.
+					I tre non si conoscono e, provenendo da pianeti diversi, hanno gusti e preferenze completamente differenti. Di conseguenza,
+					essi sono disposti a pagare prezzi diversi per la medesima immagine.  Tutti e tre pagano con la valuta dello spazio, della quale non conosci il valore.</p>
+
+				<p align = "justify">Incontrerai il secondo viaggiatore dello spazio solo dopo aver completato tutte le vendite con il primo e, analogamente, il terzo solo dopo
+					aver completato tutte le vendite col secondo. I tre non comunicano tra loro, per cui nessuno di essi sa nulla riguardo i tuoi scambi con
+					gli altri. Quando incontri un viaggiatore dello spazio per la prima volta, la combinazione di partenza è già disponibile sullo
+					schermo del computer e viene venduta automaticamente. A partire dal secondo round, puoi modificarla come preferisci per poi venderla facendo clic su "Vendi".</p>
+
+				<p align = "justify">Per ogni viaggiatore dello spazio il tuo obiettivo è quello di massimizzare il "Pagamento Cumulato"
+					ottenuto dalla vendita delle immagini da te prodotte nel corso dei 25 round. Tanto il round in corso quanto il “Pagamento Cumulato”
+					sono indicati all’inteno della barra blu posizionata in alto (vedi lo screenshot sopra).</p>
+
+				<p align = "justify"> I tre partecipanti con il più alto "Guadagno Totale", cioè con la più alta somma di pagamenti cumulati ottenuti nei tre diversi incontri, riceveranno un premio. Il primo premio è €15, il secondo €10 e il terzo €5
+					(Nota Bene: se più partecipanti dovessero ottenere lo stesso "Guadagno Totale", il vincitore del premio in questione  sarà determinato per mezzo di una lotteria).</p>
+
+				<p align = "center"><strong>Come procedere</strong></p>
+				<ol>
+				<li align = "justify">Rispondi alle domande di comprensione sotto riportate. Solo quando tutte le risposte saranno corrette sarà possibile procedere
+					con l’esperimento. Se hai ulteriori domande, ti preghiamo di alzare la mano: uno dei ricercatori sarà subito da te.</li>
+
+				<li align = "justify">
+				{% if Constants.players_per_group == 3 %}
+					Quando tutti avranno risposto correttamente alle domande di comprensione avrà inizio l'incontro con il primo viaggiatore dello spazio. È una buona idea
+					spendere un minuto ad imparare a selezionare e/o deselezionare i simboli. Quando sei pronto a vendere la tua prima immagine clicca su "Vendi”.
+					In alternativa, per imitare l'immagine prodotta da un/a altro/a partecipante, clicca su "Imita questa combinazione" in corrispondenza dell' immagine interessata.
+				{% else %}
+                     Quando avrai risposto correttamente alle domande di comprensione avrà inizio l'incontro con il primo viaggiatore dello spazio. È una buona idea
+					spendere un minuto ad imparare a selezionare e/o deselezionare i simboli. Quando sei pronto a vendere la tua prima immagine clicca su "Vendi”.
+                 {% endif %}
+				</li>
+
+				<li align = "justify">Dopo aver completato il round 25 con il primo viaggiatore dello spazio, clicca su “Vai al successivo” per iniziare a fare affari con il secondo.
+					Analogamente, dopo aver completato il round 25 con il secondo, clicca su “Vai al successivo” per iniziare a fare affari con il terzo.</li>
+
+				<li align = "justify">Infine, dopo aver completato il round 25 con il terzo viaggiatore dello spazio, clicca su “Prosegui” per andare alla pagina seguente e rispondere al questionario.</li>
+				</ol>
+
+				<p align = "center"><strong>Domande di comprensione</strong></p>
+
+				<p align = "justify">Domanda n.1: Come si creano le immagini?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_1" id="id_quest_1_1" value=1>
+					<label class="form-check-label" for="id_quest_1_1">Selezionando e/o deselezionando i simboli</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_1" id="id_quest_1_2" value=2>
+					<label class="form-check-label" for="id_quest_1_2">Creando nuovi simboli</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_1" id="id_quest_1_3" value=3>
+					<label class="form-check-label" for="id_quest_1_3">Cancellando tutti i simboli</label>
+				</div>
+<br />
+				<p align = "justify">Domanda n.2: Come vendi un'immagine?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_2" id="id_quest_2_1" value=1>
+					<label class="form-check-label" for="id_quest_2_1">Succede automaticamente</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_2" id="id_quest_2_2" value=2>
+					<label class="form-check-label" for="id_quest_2_2">Facendo clic sul pulsante “Vendi”</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_2" id="id_quest_2_3" value=3>
+					<label class="form-check-label" for="id_quest_2_3">Facendo clic sulla colonna successiva</label>
+				</div>
+<br />
+				<p align = "justify">Domanda n.3: Quanti simboli puoi cambiare nel round in corso?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_3" id="id_quest_3_1" value=1>
+					<label class="form-check-label" for="id_quest_3_1">1</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_3" id="id_quest_3_2" value=2>
+					<label class="form-check-label" for="id_quest_3_2">0-10</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_3" id="id_quest_3_3" value=3>
+					<label class="form-check-label" for="id_quest_3_3">1-5</label>
+				</div>
+<br />
+				<p align = "justify">Domanda n.4: Il viaggiatore dello spazio è disposto a comprare più volte la stessa immagine allo stesso prezzo?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_4" id="id_quest_4_1" value=1>
+					<label class="form-check-label" for="id_quest_4_1">No, mai</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_4" id="id_quest_4_2" value=2>
+					<label class="form-check-label" for="id_quest_4_2">Sì, ma il prezzo è diverso per ogni viaggiatore dello spazio</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_4" id="id_quest_4_3" value=3>
+					<label class="form-check-label" for="id_quest_4_3">Sì, ed il prezzo è lo stesso per ogni viaggiatore dello spazio</label>
+				</div>
+<br />
+				 {% if Constants.players_per_group == 3 %}
+
+				<p align = "justify">Domanda n.5: Come sono estratti/e i/le partecipanti le cui immagini possono essere imitate?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_1" value=1>
+					<label class="form-check-label" for="quest_imitation_1_1">A caso, in ogni round</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_2" value=2>
+					<label class="form-check-label" for="quest_imitation_1_2">A caso, ogni certo numero di round</label>
+				<div class="form-check" style="padding-left:40px;">
+				</div>
+					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_3" value=3>
+					<label class="form-check-label" for="quest_imitation_1_3">In base ad un criterio ben preciso</label>
+				</div>
+
+<br />
+
+				<p align = "justify">Domanda n.6: Che tipo di informazioni ti verranno fornite riguardo tali partecipanti?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_2" id="quest_imitation_2_1" value=1>
+				    <label class="form-check-label" for="quest_imitation_2_1">L'immagine prodotta nel round precedente</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_2" id="quest_imitation_2_2" value=2>
+					<label class="form-check-label" for="quest_imitation_2_2">Il pagamento ottenuto nel round precedente, ma non l'immagine associata</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_2" id="quest_imitation_2_3" value=3>
+					<label class="form-check-label" for="quest_imitation_2_3">Quante immagini hanno venduto finora</label>
+				</div>
+
+<br />
+
+				<p align = "justify">Domanda n.7: In quale occasione occorre imitare l'immagine prodotta da un/a altro/a partecipante?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_3" id="quest_imitation_3_1" value=1>
+				    <label class="form-check-label" for="quest_imitation_2_1">Mai</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_3" id="quest_imitation_3_2" value=2>
+					<label class="form-check-label" for="quest_imitation_2_2">Sempre e comunque</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_3" id="quest_imitation_3_3" value=3>
+					<label class="form-check-label" for="quest_imitation_2_3">Qualora lo ritenga opportuno</label>
+				</div>
+
+<br />
+
+                {% else %}
+
+                {% endif %}
+
+				<p align = "justify">
+				{% if Constants.players_per_group == 3 %}
+					 Domanda n.8
+                {% else %}
+                     Domanda n.5
+                {% endif %}
+					Qual è il tuo obiettivo?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_5" id="id_quest_5_1" value=1>
+					<label class="form-check-label" for="id_quest_5_1">Scoprire la combinazione di simboli che da il pagamento più alto</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_5" id="id_quest_5_2" value=2>
+					<label class="form-check-label" for="id_quest_5_2">Migliorare le mie prestazioni nel tempo</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_5" id="id_quest_5_3" value=3>
+					<label class="form-check-label" for="id_quest_5_3">Massimizzare il mio guadagno totale</label>
+                 </div>
+<br />
+			</div>
+		</div>
+	</div>
+
+		{% if Constants.players_per_group == 3 %}
+					 <br />
+                     <br />
+		             <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+                {% else %}
+                     <br />
+                     <br />
+                {% endif %}
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row" style="padding-left:135px;">
+		<div class="col-md-4">
+
+		</div>
+		<div class="col-md-1">
+			<button class="otree-btn-next btn btn-primary next-button otree-next-button" id="prossimo" name="prossimo">Procedi</button>
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+<script>
+	jQuery(document).ready(function ($) {
+	});
+
+	$( "#prossimo" ).click(function() {
+		alert( "Se le tue risposte sono corrette, avrai accesso all' incontro con il primo viaggiatore dello spazio.\n\nL'esperimento avrà inizio nonappena tutti avranno risposto correttamente alle domande di comprensione.\n\nNel caso in cui le tue risposte non fossero corrette, riceverai un messaggio di errore e dovrai inserire nuovamente le tue risposte.");
+  	});
+</script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-sm-12">
+				Riepilogo
+			</div>
+		</div>
+
+		<div class="row"  style="height:120px;">
+			<div class="col-sm-12">
+				<br>
+				<div> Il tuo 'Pagamento Cumulato' al termine del {{fase}}° incontro è {{guadagno_cumulato_landscape}}.</div>
+				<br>
+				<div> Il tuo 'Guadagno Totale' è {{guadagno_cumulato}}.</div>
+				<br>
+			</div>
+		</div>
+	</div>
+
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row" style="padding-left:50px;">
+		<div class="col-md-4">
+			&nbsp;
+		</div>
+		<div class="col-md-1">
+			<button class="otree-btn-next btn btn-primary next-button otree-next-button" id="prossimo" name="prossimo">Vai all'incontro successivo</button>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+<script>
+	jQuery(document).ready(function ($) {		
+	});
+
+	$( "#prossimo" ).click(function() {
+		alert( "Inizia il prossimo" );
+  	});
+</script>
+{% endblock %}

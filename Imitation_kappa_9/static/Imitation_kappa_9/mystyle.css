@@ -1,0 +1,154 @@
+.circle {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: lightgray;
+		color: #333;
+		border-radius: 50%;
+		box-sizing: border-box;
+		text-align: center;
+		display: block;
+		height: 100px;
+		width: 100px;
+		padding-top: 40px;
+		padding-left: 0px;
+		border-width: 1px;
+		border-style: solid;
+
+		-webkit-transition: all 1s ease-out;
+		-moz-transition: all 1s ease-out;
+		-o-transition: all 1s ease-out;
+		transition: all 1s ease-out;
+
+ }
+
+.bordi{
+	color: black;
+	border-style: hidden;
+	border-width: 1px
+}
+
+ .bordi_celle{
+ 		color:black;
+ 		border-style: solid;
+ 		border-width: 1px
+ }
+
+ .bordi_intestazione{
+ 	 color:red;
+ 	 border-style: solid;
+ 	 border-width: 1px
+ }
+
+ .bordi_celle_intestazione{
+ 	 border-color: red;
+	 color: black;
+ 	 border-style: solid;
+ 	 border-width: 1px
+ }
+
+
+ .intestazione{
+		border-color: blue;
+		color: white;
+		border-style: solid;
+		border-width: 2px;
+		text-align: center;
+ 	 	font-size: 16pt;
+ 	 	background-color: blue;
+ }
+
+ .sfondo{
+	background-color: rgb(255, 128, 0);
+ }
+
+button{
+	background-color: white;
+	border-width: 0px;
+	outline:none!important;
+	border: 0;
+
+}
+
+button:focus {
+    border: none;
+    outline: none!important;
+}
+
+p {
+	padding-left: 20px;
+	font-size: 16pt;
+}
+
+.row{
+	height: 30px;
+}
+
+.col-md-1{
+	padding-left: 30px;
+	height: 30px;
+}
+
+.col-md-1sx{
+	padding-left: 1px;
+	height: 30px;
+	font-size: 16pt;
+	background: white;
+}
+
+.col-md-2{
+	height: 30px;
+}
+
+.col-md-12_istruzioni{
+	border-style: solid;
+	border-width: 1px
+}
+
+
+.myclassb {
+	height: 20px;
+	text-align: center;
+	border-style: solid;
+
+}
+
+.myclassimita {
+	height: 26px;
+	line-height: 15px !important;
+	border-style: solid;
+}
+
+ .intestazione_altri{
+		border-color: black;
+		color: black;
+		border-style: solid;
+		border-width: 2px;
+		text-align: left;
+ 	 	font-size: 14pt;
+ 	 	background-color: white;
+ }
+
+ .bordi_celle_altri{
+ 		color:black;
+	    background: lightgrey;
+ 		border-style: solid;
+ 		border-width: 1px;
+        margin-bottom:60px;
+ }
+
+ .bordi_celle_imita{
+ 		color:black;
+ 		border-style: hidden;
+ 		border-width: 1px;
+	    text-align: left;
+ }
+
+ .bordi_celle_gray{
+ 		color:black;
+	    background: lightgrey;
+ 		border-style: solid;
+ 		border-width: 1px;
+ }

@@ -122,8 +122,8 @@ SESSION_CONFIGS = [
             app_sequence=['Risk_Mitigation_3rd_inv', 'MPL_F_inv'],
             PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
-            ),
 
+            ),
 
         dict(
             name='Risk_Mitigation_3rd',
@@ -316,29 +316,104 @@ SESSION_CONFIGS = [
         #             num_demo_participants=1,
         #             app_sequence=['chat'],
         #         ),
-        # dict(
-        # name='faillo_np',
-        #
-        # display_name="NK with imitation",
-        #
-        # app_sequence=['faillo_np'],
-        #
-        # num_demo_participants=3,
-        #
-        # treatment=1,
-        #
-        # instructions=0,
-        #
-        # error=0,
-        #
-        # fineexp=25,
-        #
-        # superadmin=0,
-        #
-        # waitstart=0,
-        #
-        # type_instructions=1,
-        #     )
+
+
+        dict(
+            name='questionnaire',
+
+            display_name="questionnaire",
+
+            app_sequence=['questionnaire'],
+
+            num_demo_participants=3,
+
+            ),
+
+        dict(
+            name='Imitation_kappa_0',
+
+            display_name="Imitation_kappa_0",
+
+            app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+
+            PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+            order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            error=0,
+
+            ),
+
+        dict(
+            name='Imitation_kappa_3',
+
+            display_name="Imitation_kappa_3",
+
+            app_sequence=['Imitation_kappa_3', 'Imitation_kappa_9', 'Imitation_kappa_0',  'questionnaire'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=0,
+
+            order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+
+            ),
+
+        dict(
+            name='Imitation_kappa_9',
+
+            display_name="Imitation_kappa_9",
+
+            app_sequence=['Imitation_kappa_9', 'Imitation_kappa_0', 'Imitation_kappa_3',  'questionnaire' ],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=0,
+
+            order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            ),
+
+        dict(
+            name='faillo_np',
+
+            display_name="NK with imitation",
+
+            app_sequence=['faillo_np'],
+
+            num_demo_participants=3,
+
+            kappa=9, # k values 0,3,9
+
+            instructions=0,
+
+            error=0,
+
+
+            last =1,
+
+            # fineexp=25,
+            #
+            # superadmin=0,
+            #
+            # waitstart=0,
+            #
+            # type_instructions=2,
+            ),
         # dict(
         #     name='sif_B_F',
         #     display_name='sif_B_F',

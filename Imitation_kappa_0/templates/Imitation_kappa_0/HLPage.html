@@ -1,0 +1,162 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+
+{% block content %}
+
+<body style="background-color: white">
+
+
+  <div class="container" style="font-size:14pt;padding:50px;background-color: white;">
+		<div class="row" STYLE="border:1px">
+			<div class="col-xs-12 col-md-12" STYLE="font-size:18px;">
+
+            <p align = "justify"> Per ciascuna delle 10 righe, seleziona l’opzione che preferisci tra A e B. Una volta effettuate le tue scelte, clicca su 'Prosegui'. Solo una delle 10 righe verrà estratta a caso e giocata.</p>
+
+			<p align = "justify"> Il guadagno che ne consegue andrà a sommarsi alla show-up fee per la partecipazione all'esperimento.</p>
+			</div>
+
+		</div>
+		<div class="row">	&nbsp; </div>
+		<div class="row">	&nbsp; </div>
+		<div class="row">
+
+			<table>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 1  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">1/10 vinci €{{f1|safe}} e 9/10 vinci €{{f2|safe}} &nbsp &nbsp</td>
+					{% for choice in form.HL_1 %}
+						<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">1/10 vinci €{{f3|safe}} e 9/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 2  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">2/10 vinci €{{f1|safe}} e 8/10 vinci €{{f2|safe}} &nbsp &nbsp</td>
+					{% for choice in form.HL_2 %}
+					<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">2/10 vinci €{{f3|safe}} e 8/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 3  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">3/10 vinci €{{f1|safe}} e 7/10 vinci €{{f2|safe}} &nbsp &nbsp </td>
+					{% for choice in form.HL_3 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">3/10 vinci €{{f3|safe}} e 7/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 4  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">4/10 vinci €{{f1|safe}} e 6/10 vinci €{{f2|safe}} &nbsp &nbsp</td>
+					{% for choice in form.HL_4 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">4/10 vinci €{{f3|safe}} e 6/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 5  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">5/10 vinci €{{f1|safe}} e 5/10 vinci €{{f2|safe}} &nbsp &nbsp </td>
+					{% for choice in form.HL_5 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">5/10 vinci €{{f3|safe}} e 5/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 6  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">6/10 vinci €{{f1|safe}} e 4/10 vinci €{{f2|safe}} &nbsp &nbsp </td>
+					{% for choice in form.HL_6 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">6/10 vinci €{{f3|safe}} e 4/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 7  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">7/10 vinci €{{f1|safe}} e 3/10 vinci €{{f2|safe}} &nbsp &nbsp</td>
+					{% for choice in form.HL_7 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">7/10 vinci €{{f3|safe}} e 3/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 8  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">8/10 vinci €{{f1|safe}} e 2/10 vinci €{{f2|safe}} &nbsp &nbsp </td>
+					{% for choice in form.HL_8 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">8/10 vinci €{{f3|safe}} e 2/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 9  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">9/10 vinci €{{f1|safe}} e 1/10 vinci €{{f2|safe}} &nbsp &nbsp  </td>
+					{% for choice in form.HL_9 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">9/10 vinci €{{f3|safe}} e 1/10 vinci €{{f4|safe}}  </td>
+				</tr>
+
+				<tr  STYLE="border:1px">
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">Riga 10  </td>
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">10/10 vinci €{{f1|safe}} e 0/10 vinci €{{f2|safe}} &nbsp &nbsp</td>
+					{% for choice in form.HL_10 %}
+							<td STYLE="font-size:15px;color:black;padding-left:28px;">{{ choice }}</td>
+					{% endfor %}
+					<td STYLE="font-size:18px;color:black;padding-left:30px;">10/10 vinci €{{f3|safe}} e 0/10 vinci €{{f4|safe}}  </td>
+				</tr>
+			</table>
+			</div>
+			<div class="row">	&nbsp; </div>
+			<div class="row">	&nbsp; </div>
+
+
+		<div class="row" style="padding-left:65px;">
+			<div class="col-md-3 offset-md-4" STYLE="font-size:20px;color:black;border-style:solid;padding-top:0px;padding-left:60px;cursor: pointer" id="button_prosegui">
+				Prosegui
+			</div>
+		</div>
+
+  </div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <!-- define a style -->
+  <style type="text/css">
+	input[type="radio"] {
+	-ms-transform: scale(1.2); /* IE 9 */
+	-webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+	transform: scale(1.2);
+}
+  </style>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+
+<script>
+jQuery(document).ready(function ($) {
+
+	$( "#button_prosegui" ).click(function() {
+		$("form").submit();
+	});
+
+});
+
+
+</script>
+
+
+{% endblock %}

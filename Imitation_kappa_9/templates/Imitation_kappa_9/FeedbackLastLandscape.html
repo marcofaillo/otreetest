@@ -1,0 +1,56 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12" style="padding-right:50px;">
+				Riepilogo
+			</div>
+		</div>
+		<!-- quando k=9  è l'ultimo, allora mostra il messaggio di fine esperimento -->
+
+		<div class="row"  style="height:100px;">
+			<div class = "col-md-12_istruzioni" style="width:1000px;">
+				<br>
+				<div> &nbsp Il tuo 'Pagamento Cumulato' al termine di questo incontro è {{guadagno_cumulato_landscape}}.</div>
+				{% if order == 1 %}
+				<div>  L'esperimento è finito, ti chiediamo di rispondere a un breve questionario.</div>
+				{% else %}
+				<div>  Ora incontrerai un nuovo viaggiatore.</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row" style="padding-left:100px;">
+		<div class="col-md-4">
+
+		</div>
+		<div class="col-md-1">
+			<button class="otree-btn-next btn btn-primary next-button otree-next-button">Procedi</button>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}

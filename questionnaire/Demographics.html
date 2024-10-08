@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+
+{% block title %}Survey{% endblock %}
+{% block content %}
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione" style="height:35px;">
+			<div class="col-md-12">
+				Ti preghiamo di rispondere alle seguenti domande
+			</div>
+		</div>
+		<div class="row"  style="height:400px;">
+			<div class="col-md-12_istruzioni" style="width:1000px; padding-left: 10px;">
+				<br>
+				{% formfield player.sex label="Genere" %}
+				{% formfield player.age label="Età" %}
+				{% formfield player.faculty label="Corso di laurea" %}
+				{% formfield player.num_experiments label="Numero esperimenti fatti in passato" %}
+			</div>
+		</div>
+	</div>
+
+
+    {% next_button %}
+
+{% endblock %}

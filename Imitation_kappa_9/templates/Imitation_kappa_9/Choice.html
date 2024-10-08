@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+	<input type="hidden" value={{riga_corrente}} id="riga_corrente">
+	<input type="hidden" value="{{stato_corrente|safe}}" id="stato_corrente">
+	<input type="hidden" value="{{stato_totale|safe}}" id="stato_totale">
+	<input type="hidden" value="{{guadagni|safe}}" id="guadagni">
+	<input type="hidden" value="0,0,0,0,0,0,0,0,0,0" name="player_stato_corrente" id="id_player_stato_corrente">
+	<input type="hidden" value="{{altro_guadagni|safe}}" id="altro_guadagni">
+	<input type="hidden" value="{{altro_stato_corrente|safe}}" id="altro_stato_corrente">
+	<input type="hidden" value={{numero_righe}} id="numero_righe">
+	<input type="hidden" value={{guadagno_cumulato}} id="guadagno_cumulato">
+	<input type="hidden" value=0 id="id_imita_1" name="imita_1">
+	<input type="hidden" value=0 id="id_imita_2" name="imita_2">
+	<input type="hidden" value=0 id="id_error_imita" name="error_imita" value=0>
+	<input type="hidden" value={{errore_imitazione}} id="id_errore_imitazione" name="errore_imitazione">
+	<input type="hidden" value=0 id="id_difference" name="difference" value=0>
+	{% if Constants.players_per_group != None %}
+		<input type="hidden" value={{Constants.players_per_group}} id="numero_giocatori">
+	{% else %}
+		<input type="hidden" value=0 id="numero_giocatori">
+	{% endif %}
+
+
+
+
+
+
+	<div class="container bordi" id="panel_scelte">
+		<div class="row intestazione">
+			<div class="col-md-12" id="intest" name="intest" >
+				Round {{riga_corrente}}: Pagamento cumulato {{guadagno_cumulato_landscape}}
+			</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			&nbsp;
+		</div>
+		<div class="col-md-1">
+			<button type="button" id="vendi" name="vendi" class="btn btn-outline-primary">Vendi</button>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
+
+<div class="container bordi" id="panel_scelte_altri">
+		<div class="row intestazione">
+			<div class="col-md-12">
+				Immagini prodotte da due partecipanti selezionati casualmente
+			</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_np/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_np/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static 'Imitation_kappa_9/js/drawrow.js' %}"></script>
+{% endblock %}
