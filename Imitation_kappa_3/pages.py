@@ -82,7 +82,7 @@ class EsitoHL(Page):
 		}
 
 	def is_displayed(self):
-		return self.round_number == Constants.num_rounds and self.session.config['last'] == 2
+		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
 
 # class Anag(Page):
 # 	form_model = 'player'
@@ -129,7 +129,7 @@ class Istruzioni_ImitazionePerfetta(Page):
 			return 'Error'
 
 	def is_displayed(self):
-		return self.round_number == 1 and self.session.config['instructions'] == 1 and self.session.config['order'] == 3
+		return self.round_number == 1 and self.session.config['instructions'] == 1 and self.session.config['order'] == 2
 
 
 class Istruzioni_ImitazioneImperfetta(Page):
