@@ -121,12 +121,12 @@ class Istruzioni_ImitazionePerfetta(Page):
 
 	def get_form_fields(self):
 		if Constants.players_per_group == 3:
-			return ['quest_1','quest_2','quest_3','quest_4','quest_5', 'quest_imitation_1', 'quest_imitation_2', 'quest_imitation_3']
+			return ['quest_1','quest_2','quest_3','quest_4','quest_5', 'quest_imitation_1', 'quest_imitation_2', 'quest_imitation_3', 'quest_imitation_4']
 		else:
 			return ['quest_1','quest_2','quest_3','quest_4','quest_5']
 
 	def error_message(self,values):
-		if values['quest_1'] != 1 or values['quest_2'] != 2 or values['quest_3'] != 2 or values['quest_4'] != 2  or values['quest_5'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_1'] != 1 or Constants.players_per_group == 3 and values['quest_imitation_2'] != 2 or Constants.players_per_group == 3 and values['quest_imitation_3'] != 3:
+		if values['quest_1'] != 1 or values['quest_2'] != 2 or values['quest_3'] != 2 or values['quest_4'] != 2  or values['quest_5'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_1'] != 1 or Constants.players_per_group == 3 and values['quest_imitation_2'] != 2 or Constants.players_per_group == 3 and values['quest_imitation_3'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_4'] != 2:
 			return 'Error'
 
 	def is_displayed(self):

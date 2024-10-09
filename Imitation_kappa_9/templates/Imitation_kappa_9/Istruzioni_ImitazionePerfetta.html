@@ -59,8 +59,13 @@
 
 				{% if Constants.players_per_group == 3 %}
 					<p align = "justify">In ogni round, sarai in grado di visualizzare il pagamento ottenuto nel round precedente da altri/e 2 partecipanti estratti/e a caso, senza poter tuttavia visualizzare la specifica immagine associata al pagamento interessato.
-                        Se lo ritieni opportuno, potrai decidere di imitare uno dei due partecipanti in questione facendo clic sul pulsante "Imita l'immagine prodotta da questo/a partecipante". Una volta fatto, l'immagine associata a tale pagamento viene venduta
-                    automaticamente e avrai accesso al round successivo, dove potrai visualizzare l'immagine imitata come ultima immagine da te prodotta.</p>
+						<br>
+						Riceverai tuttavia informazioni riguardo quanti simboli dell'ultima immagine da te prodotta sono diversi rispetto all'immagine associata ai pagamenti di ciascuno dei 2 partecipanti.
+            Se lo ritieni opportuno, potrai decidere di imitare uno dei due partecipanti in questione facendo clic sul pulsante "Imita l'immagine prodotta da questo/a partecipante". Una volta fatto, l'immagine associata a tale pagamento viene venduta
+           automaticamente e avrai accesso al round successivo, dove potrai visualizzare l'immagine imitata come ultima immagine da te prodotta.<br>
+					 E' importante tenere presente che il processo di imitazione è infallibile e non prevede alcun margine di errore. Ciò significa che, se decidi di imitare l’immagine di un/a altro/a
+					 partecipante, la relativa immagine è sempre riprodotta in maniera corretta, indipendentemente dal pagamento ottenuto nel round precedente dagli altri/e
+					 2 participanti estratti a caso e dalle differenze tra l&#39;ultima immagine da te prodotta e l'immagine che intendi imitare. </p>
 
                 {% else %}
                      <p align = "justify">Non riceverai alcuna informazione riguardo le immagini prodotte dagli altri partecipanti o il relativo pagamento.</p>
@@ -68,9 +73,9 @@
 
 
 				{% if Constants.players_per_group == 3 %}
-					<img src="{% static "Imitation_kappa_9/img/screen_perfect_imitation.png" %}" width="80% " hspace="100">
+					<img src="{% static "Imitation_kappa_0/img/screen_perfect_imitation.png" %}" width="80% " hspace="100">
         {% else %}
-					<img src="{% static "Imitation_kappa_9/img/screen_baseline.png" %}" width="80% " hspace="100">
+					<img src="{% static "Imitation_kappa_0/img/screen_baseline.png" %}" width="80% " hspace="100">
         {% endif %}
 
 <br />
@@ -181,9 +186,9 @@
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_2" value=2>
 					<label class="form-check-label" for="quest_imitation_1_2">A caso, ogni certo numero di round</label>
+		</div>
 				<div class="form-check" style="padding-left:40px;">
-				</div>
-					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_3" value=3>
+							<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_3" value=3>
 					<label class="form-check-label" for="quest_imitation_1_3">In base ad un criterio ben preciso</label>
 				</div>
 
@@ -245,6 +250,26 @@
 					<label class="form-check-label" for="id_quest_5_3">Massimizzare il mio guadagno totale</label>
                  </div>
 <br />
+<br />
+
+				<p align = "justify">Domanda n.9: Quando decidi di imitare l'immagine di un/a altro/a partecipante, essa è sempre
+                    riprodotta in maniera corretta?</p>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_4" id="quest_imitation_4_1" value=1>
+				    <label class="form-check-label" for="quest_imitation_3_1"> No, esiste una probabilità di errore </label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_4" id="quest_imitation_4_2" value=2>
+					<label class="form-check-label" for="quest_imitation_3_2">Si, sempre</label>
+				</div>
+				<div class="form-check" style="padding-left:40px;">
+					<input class="form-check-input" type="radio" name="quest_imitation_4" id="quest_imitation_4_3" value=3>
+					<label class="form-check-label" for="quest_imitation_3_3">Quasi sempre, dipende</label>
+				</div>
+<br />
+
+
+
 			</div>
 		</div>
 	</div>
@@ -258,11 +283,40 @@
                      <br />
                      <br />
                      <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+										 <br />
+
+
+
                 {% else %}
                      <br />
                      <br />
                 {% endif %}
 
+
+</div>
 <div class="container">
 	<div class="row">
 		&nbsp;
@@ -282,8 +336,8 @@
 {% endblock %}
 
 {% block styles %}
-    <link href="{% static "Imitation_kappa_9/mystyle.css" %}" rel="stylesheet">
-    <link href="{% static "Imitation_kappa_9/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+    <link href="{% static "Imitation_kappa_0/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "Imitation_kappa_0/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block scripts %}
