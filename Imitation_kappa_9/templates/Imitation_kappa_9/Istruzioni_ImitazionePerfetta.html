@@ -60,10 +60,13 @@
 				{% if Constants.players_per_group == 3 %}
 					<p align = "justify">In ogni round, sarai in grado di visualizzare il pagamento ottenuto nel round precedente da altri/e 2 partecipanti estratti/e a caso, senza poter tuttavia visualizzare la specifica immagine associata al pagamento interessato.
 						<br>
+						<br>
 						Riceverai tuttavia informazioni riguardo quanti simboli dell'ultima immagine da te prodotta sono diversi rispetto all'immagine associata ai pagamenti di ciascuno dei 2 partecipanti.
-            Se lo ritieni opportuno, potrai decidere di imitare uno dei due partecipanti in questione facendo clic sul pulsante "Imita l'immagine prodotta da questo/a partecipante". Una volta fatto, l'immagine associata a tale pagamento viene venduta
+					  Se lo ritieni opportuno, potrai decidere di imitare uno dei due partecipanti in questione facendo clic sul pulsante "Imita l'immagine prodotta da questo/a partecipante". Una volta fatto, l'immagine associata a tale pagamento viene venduta
            automaticamente e avrai accesso al round successivo, dove potrai visualizzare l'immagine imitata come ultima immagine da te prodotta.<br>
-					 E' importante tenere presente che il processo di imitazione è infallibile e non prevede alcun margine di errore. Ciò significa che, se decidi di imitare l’immagine di un/a altro/a
+					 <br>
+					 <br>
+					  E' importante tenere presente che il processo di imitazione è infallibile e non prevede alcun margine di errore. Ciò significa che, se decidi di imitare l’immagine di un/a altro/a
 					 partecipante, la relativa immagine è sempre riprodotta in maniera corretta, indipendentemente dal pagamento ottenuto nel round precedente dagli altri/e
 					 2 participanti estratti a caso e dalle differenze tra l&#39;ultima immagine da te prodotta e l'immagine che intendi imitare. </p>
 
@@ -73,7 +76,7 @@
 
 
 				{% if Constants.players_per_group == 3 %}
-					<img src="{% static "Imitation_kappa_0/img/screen_perfect_imitation.png" %}" width="80% " hspace="100">
+					<img src="{% static "Imitation_kappa_0/img/screen_imperfect_imitation.png" %}" width="80% " hspace="100">
         {% else %}
 					<img src="{% static "Imitation_kappa_0/img/screen_baseline.png" %}" width="80% " hspace="100">
         {% endif %}

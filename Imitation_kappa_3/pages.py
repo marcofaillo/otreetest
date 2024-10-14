@@ -143,7 +143,7 @@ class Istruzioni_ImitazioneImperfetta(Page):
 
     def error_message(self, values):
         if values['quest_1'] != 1 or values['quest_2'] != 2 or values['quest_3'] != 2 or values['quest_4'] != 2 or \
-                values['quest_5'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_1'] != 1 or Constants.players_per_group == 3 and values['quest_imitation_2'] != 2 or Constants.players_per_group == 3 and values['quest_imitation_3'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_4'] != 2:
+                values['quest_5'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_1'] != 1 or Constants.players_per_group == 3 and values['quest_imitation_2'] != 2 or Constants.players_per_group == 3 and values['quest_imitation_3'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_4'] != 2 :
             return 'Error'
 
     def is_displayed(self):
